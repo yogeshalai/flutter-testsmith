@@ -1,0 +1,36 @@
+# PROPOSED - generated, and not yet reviewed by anyone.
+#
+# Why: Ensures that null values for optional fields (e.g., image, description) are handled without UI crashes and display appropriate fallbacks.
+# Needs: API returns null for several optional fields such as image and description
+# Model confidence: 90%
+#
+# `testsmith run` refuses this while the status line below is
+# present. Delete it to accept this as a test.
+
+appId: com.example.ecommerce_app
+flow: product_null_fields
+fixture: product_null_fields
+status: proposed
+steps:
+  - launchApp
+  - waitForSettle
+  - expectScreen:
+      id: /login
+  - tap:
+      id: login.submit
+  - expectScreen:
+      id: /home
+  - waitForSettle
+  - validateScreen
+  - tap:
+      id: home.open_products
+  - expectScreen:
+      id: /products
+  - waitForSettle
+  - validateScreen
+  - tap:
+      id: products.item_123
+  - expectScreen:
+      id: /product/details
+  - waitForSettle
+  - validateScreen

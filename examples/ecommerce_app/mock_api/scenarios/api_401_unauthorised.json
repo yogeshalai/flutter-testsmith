@@ -1,0 +1,19 @@
+{
+  "name": "api_401_unauthorised",
+  "description": "the session has expired; every authenticated route refuses",
+  "inherits": "default",
+  "routes": {
+    "GET /products/123": {
+      "status": 401,
+      "body": {
+        "error": "token expired"
+      }
+    },
+    "GET /home/summary": {
+      "status": 401,
+      "body": {
+        "error": "token expired"
+      }
+    }
+  }
+}

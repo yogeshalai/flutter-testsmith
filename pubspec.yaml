@@ -1,0 +1,22 @@
+name: flutter_testsmith_workspace
+description: Monorepo root for Flutter Testsmith. Not published.
+publish_to: none
+environment:
+  sdk: ^3.12.0
+
+# Dev-only, for the tooling under scripts/. Nothing here reaches a shipped
+# package: the root is not a dependency of any workspace member.
+dev_dependencies:
+  archive: ^4.0.0
+  lints: ^6.0.0
+  test: ^1.25.0
+  yaml: ^3.1.2
+
+workspace:
+  - packages/flutter_testsmith_protocol
+  - packages/flutter_testsmith
+  - packages/flutter_testsmith_engine
+  - packages/flutter_testsmith_cli
+  - integrations/flutter_testsmith_figma
+  - integrations/ai_client
+  - examples/ecommerce_app

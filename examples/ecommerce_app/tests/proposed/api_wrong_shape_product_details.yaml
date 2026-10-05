@@ -1,0 +1,36 @@
+# PROPOSED - generated, and not yet reviewed by anyone.
+#
+# Why: Ensures the UI can handle a response with an unexpected schema (e.g., missing expected keys) without breaking.
+# Needs: API returns JSON with an unexpected shape for product details (e.g., missing 'price' key)
+# Model confidence: 90%
+#
+# `testsmith run` refuses this while the status line below is
+# present. Delete it to accept this as a test.
+
+appId: com.example.ecommerce_app
+flow: api_wrong_shape_product_details
+fixture: api_wrong_shape
+status: proposed
+steps:
+  - launchApp
+  - waitForSettle
+  - expectScreen:
+      id: /login
+  - tap:
+      id: login.submit
+  - expectScreen:
+      id: /home
+  - waitForSettle
+  - validateScreen
+  - tap:
+      id: home.open_products
+  - expectScreen:
+      id: /products
+  - waitForSettle
+  - validateScreen
+  - tap:
+      id: products.item_123
+  - expectScreen:
+      id: /product/details
+  - waitForSettle
+  - validateScreen

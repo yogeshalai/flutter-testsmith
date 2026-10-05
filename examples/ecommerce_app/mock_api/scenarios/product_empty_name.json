@@ -1,0 +1,19 @@
+{
+  "name": "product_empty_name",
+  "description": "name is the empty string, which has to render as a placeholder rather than nothing",
+  "inherits": "default",
+  "routes": {
+    "GET /products/123": {
+      "status": 200,
+      "body": {
+        "id": "123",
+        "name": "",
+        "price": 90,
+        "discount": 0,
+        "available": true,
+        "image": "https://example.com/nonveg-burger.png",
+        "rating": 4.5
+      }
+    }
+  }
+}

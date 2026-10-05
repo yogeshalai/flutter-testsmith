@@ -1,0 +1,13 @@
+# Kept in the repository, left out of the published archive.
+#
+# The fixtures keep the geometry, typography and structure of a real
+# Figma frame; identifying names and text, node ids and keys are
+# synthetic. The published package does not need them, and the tests
+# listed below read them and cannot run without them.
+#
+# .gitignore at the repository root still applies; this file only adds.
+test/fixtures/
+test/layout_semantics_test.dart
+test/login_normalisation_test.dart
+test/normaliser_test.dart
+test/token_redaction_test.dart

@@ -1,0 +1,15 @@
+# How the order confirmation relates to the checkout response.
+
+screen: /order/success
+api: POST /checkout
+
+mappings:
+  - target: order.id
+    source: response.orderId
+
+rules:
+  - condition: "status == \"confirmed\""
+    expectations:
+      - element: order.success_message
+        property: visible
+        equals: true

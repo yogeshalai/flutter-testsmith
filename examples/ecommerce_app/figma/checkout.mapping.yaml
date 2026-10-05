@@ -1,0 +1,21 @@
+# Which Figma node is which element on /checkout.
+#
+# Mapped by node id, never by layer name: real files are full of
+# `Frame 42980` and `Rectangle 91`, and a rename would silently unbind a
+# mapping that matched on the name.
+#
+# This file is an input to `testsmith figma pull`. The normalised output it
+# produces is checkout.json, which is what the runner reads - except that
+# for this screen the JSON is hand-authored; see its `_provenance`.
+
+screen: /checkout
+nodeId: "2100:0001"
+
+nodes:
+  "2100:0011": checkout.address
+  "2100:0012": checkout.card_number
+  "2100:0013": checkout.cvv
+  "2100:0014": checkout.otp
+  "2100:0020": checkout.total
+  "2100:0021": checkout.delivery_fee
+  "2100:0030": checkout.place_order

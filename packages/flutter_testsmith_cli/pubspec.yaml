@@ -1,0 +1,22 @@
+name: flutter_testsmith_cli
+description: The testsmith command line runner for Flutter Testsmith.
+version: 0.1.0
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.12.0
+
+dependencies:
+  ai_client: ^0.1.0
+  args: ^2.6.0
+  flutter_testsmith_figma: ^0.1.0
+  flutter_testsmith_engine: ^0.1.0
+  flutter_testsmith_protocol: ^0.1.0
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.0
+
+executables:
+  testsmith: testsmith

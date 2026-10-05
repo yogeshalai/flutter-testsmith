@@ -1,0 +1,19 @@
+{
+  "name": "product_out_of_stock",
+  "description": "the product exists but cannot be bought: available=false",
+  "inherits": "default",
+  "routes": {
+    "GET /products/123": {
+      "status": 200,
+      "body": {
+        "id": "123",
+        "name": "Nonveg-Burger",
+        "price": 90,
+        "discount": 0,
+        "available": false,
+        "image": "https://example.com/nonveg-burger.png",
+        "rating": 4.5
+      }
+    }
+  }
+}

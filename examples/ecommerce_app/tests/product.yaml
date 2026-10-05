@@ -1,0 +1,34 @@
+appId: com.example.ecommerce_app
+flow: product_details
+
+steps:
+  - launchApp
+  - waitForSettle
+
+  # The app opens on the sign-in screen, and the token it returns is
+  # what every later request carries. Starting anywhere else would test
+  # a state a person cannot reach.
+  - tap:
+      id: login.submit
+
+  - expectScreen:
+      id: /home
+
+  - waitForSettle
+
+  - tap:
+      id: home.open_product
+
+  - expectScreen:
+      id: /product/details
+
+  # Settle before validating: a tree captured mid-transition contains
+  # both screens. See risk R4b.
+  - waitForSettle
+
+  # One step, no flags. Every check that applies runs; anything without
+  # configuration reports why it could not, rather than going quiet.
+  - validateScreen
+
+  - screenshot:
+      name: product-details

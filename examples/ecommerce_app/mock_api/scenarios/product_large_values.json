@@ -1,0 +1,19 @@
+{
+  "name": "product_large_values",
+  "description": "a price and discount far outside the design's assumptions",
+  "inherits": "default",
+  "routes": {
+    "GET /products/123": {
+      "status": 200,
+      "body": {
+        "id": "123",
+        "name": "Nonveg-Burger",
+        "price": 98765432,
+        "discount": 99,
+        "available": true,
+        "image": "https://example.com/nonveg-burger.png",
+        "rating": 4.5
+      }
+    }
+  }
+}

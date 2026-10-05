@@ -1,0 +1,14 @@
+{
+  "name": "products_empty",
+  "description": "the catalogue responds successfully with no items at all",
+  "inherits": "default",
+  "routes": {
+    "GET /products": {
+      "status": 200,
+      "body": {
+        "total": 0,
+        "items": []
+      }
+    }
+  }
+}

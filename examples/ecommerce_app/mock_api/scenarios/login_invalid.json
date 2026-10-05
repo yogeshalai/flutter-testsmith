@@ -1,0 +1,13 @@
+{
+  "name": "login_invalid",
+  "description": "the credentials are refused",
+  "inherits": "default",
+  "routes": {
+    "POST /auth/login": {
+      "status": 401,
+      "body": {
+        "error": "invalid credentials"
+      }
+    }
+  }
+}

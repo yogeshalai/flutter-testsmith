@@ -1,0 +1,13 @@
+{
+  "name": "checkout_server_error",
+  "description": "checkout fails at the backend after the cart loaded fine",
+  "inherits": "default",
+  "routes": {
+    "POST /checkout": {
+      "status": 500,
+      "body": {
+        "error": "internal"
+      }
+    }
+  }
+}

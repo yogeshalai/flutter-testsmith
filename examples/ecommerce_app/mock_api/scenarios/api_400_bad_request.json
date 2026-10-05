@@ -1,0 +1,14 @@
+{
+  "name": "api_400_bad_request",
+  "description": "the product request is rejected as malformed",
+  "inherits": "default",
+  "routes": {
+    "GET /products/123": {
+      "status": 400,
+      "body": {
+        "error": "bad request",
+        "field": "id"
+      }
+    }
+  }
+}

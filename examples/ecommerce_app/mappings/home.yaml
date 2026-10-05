@@ -1,0 +1,27 @@
+# How the Home screen relates to its API.
+
+screen: /home
+api: GET /home/summary
+
+mappings:
+  - target: home.greeting
+    source: response.greeting
+
+  # The cart count is deliberately NOT mapped. The badge reads
+  # "Cart (2)", not "2", and no transformation in the registry produces
+  # that; inventing a `template()` for one screen would be worse than
+  # leaving it to the rules below, which assert on a property that has a
+  # single meaning.
+
+rules:
+  - condition: "cartCount == 0"
+    expectations:
+      - element: home.open_cart
+        property: enabled
+        equals: false
+
+  - condition: "cartCount > 0"
+    expectations:
+      - element: home.open_cart
+        property: enabled
+        equals: true

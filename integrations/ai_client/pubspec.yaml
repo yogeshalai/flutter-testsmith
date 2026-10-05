@@ -1,0 +1,19 @@
+name: ai_client
+description: >-
+  Provider-agnostic access to a chat completion model. Knows nothing about
+  testing: it sends a prompt and returns text, so the analysis layer can be
+  swapped between providers without changing what it asks.
+version: 0.1.0
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.12.0
+
+dependencies:
+  meta: ^1.15.0
+  yaml: ^3.1.2
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.0

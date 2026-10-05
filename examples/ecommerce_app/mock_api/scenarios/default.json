@@ -1,0 +1,122 @@
+{
+  "name": "default",
+  "description": "every route's happy path; every other scenario is a delta against this one",
+  "routes": {
+    "POST /auth/login": {
+      "status": 200,
+      "body": {
+        "token": "SEEDED_ACCESS_TOKEN_8a17fc",
+        "refreshToken": "SEEDED_REFRESH_TOKEN_20b93e",
+        "expiresIn": 3600,
+        "user": { "id": "u-1", "name": "Test User", "email": "test.user@example.com" }
+      }
+    },
+    "GET /home/summary": {
+      "status": 200,
+      "body": {
+        "greeting": "Good evening, Test",
+        "cartCount": 2,
+        "featuredProductId": "123",
+        "banner": { "title": "Free delivery over Rs 500" }
+      }
+    },
+    "GET /products": {
+      "status": 200,
+      "body": {
+        "total": 3,
+        "items": [
+          {
+            "id": "123",
+            "name": "Nonveg-Burger",
+            "price": 90,
+            "discount": 0,
+            "available": true,
+            "image": "https://example.com/nonveg-burger.png",
+            "rating": 4.5
+          },
+          {
+            "id": "456",
+            "name": "Adidas Ultraboost",
+            "price": 4599,
+            "discount": 15,
+            "available": true,
+            "image": "https://example.com/adidas-ultraboost.png",
+            "rating": 4.2
+          },
+          {
+            "id": "789",
+            "name": "Nike Air Max",
+            "price": 2999,
+            "discount": 0,
+            "available": false,
+            "image": null,
+            "rating": null
+          }
+        ]
+      }
+    },
+    "GET /products/123": {
+      "status": 200,
+      "body": {
+        "id": "123",
+        "name": "Nonveg-Burger",
+        "price": 90,
+        "discount": 0,
+        "available": true,
+        "image": "https://example.com/nonveg-burger.png",
+        "rating": 4.5
+      }
+    },
+    "GET /products/456": {
+      "status": 200,
+      "body": {
+        "id": "456",
+        "name": "Adidas Ultraboost",
+        "price": 4599,
+        "discount": 15,
+        "available": true,
+        "image": "https://example.com/adidas-ultraboost.png",
+        "rating": 4.2
+      }
+    },
+    "GET /products/789": {
+      "status": 200,
+      "body": {
+        "id": "789",
+        "name": "Nike Air Max",
+        "price": 2999,
+        "discount": 0,
+        "available": false,
+        "image": null,
+        "rating": null
+      }
+    },
+    "GET /products/*": {
+      "status": 404,
+      "body": { "error": "not found" }
+    },
+    "GET /cart": {
+      "status": 200,
+      "body": {
+        "currency": "INR",
+        "lines": [
+          { "productId": "123", "name": "Nonveg-Burger", "quantity": 2, "unitPrice": 90, "lineTotal": 180 },
+          { "productId": "456", "name": "Adidas Ultraboost", "quantity": 1, "unitPrice": 4599, "lineTotal": 4599 }
+        ],
+        "subtotal": 4779,
+        "discount": 690,
+        "deliveryFee": 40,
+        "total": 4129
+      }
+    },
+    "POST /checkout": {
+      "status": 200,
+      "body": {
+        "orderId": "ORD-20260912-0001",
+        "status": "confirmed",
+        "etaMinutes": 35,
+        "paidAmount": 4129
+      }
+    }
+  }
+}

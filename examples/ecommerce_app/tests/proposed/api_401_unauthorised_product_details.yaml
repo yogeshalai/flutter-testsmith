@@ -1,0 +1,36 @@
+# PROPOSED - generated, and not yet reviewed by anyone.
+#
+# Why: Verifies that an unauthorized (401) response triggers the correct navigation to the login screen or displays an unauthorized message on the product details screen.
+# Needs: API returns HTTP 401 Unauthorized for the product details request
+# Model confidence: 90%
+#
+# `testsmith run` refuses this while the status line below is
+# present. Delete it to accept this as a test.
+
+appId: com.example.ecommerce_app
+flow: api_401_unauthorised_product_details
+fixture: api_401_unauthorised
+status: proposed
+steps:
+  - launchApp
+  - waitForSettle
+  - expectScreen:
+      id: /login
+  - tap:
+      id: login.submit
+  - expectScreen:
+      id: /home
+  - waitForSettle
+  - validateScreen
+  - tap:
+      id: home.open_products
+  - expectScreen:
+      id: /products
+  - waitForSettle
+  - validateScreen
+  - tap:
+      id: products.item_123
+  - expectScreen:
+      id: /product/details
+  - waitForSettle
+  - validateScreen

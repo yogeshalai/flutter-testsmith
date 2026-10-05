@@ -1,0 +1,11 @@
+{
+  "name": "api_malformed",
+  "description": "a 200 whose body claims to be JSON and is not",
+  "inherits": "default",
+  "routes": {
+    "GET /products/123": {
+      "status": 200,
+      "rawBody": "{\"id\":\"123\",\"name\":\"Nonveg-Burg"
+    }
+  }
+}

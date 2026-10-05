@@ -1,0 +1,19 @@
+{
+  "name": "product_discounted",
+  "description": "a discount is present, so the badge must appear",
+  "inherits": "default",
+  "routes": {
+    "GET /products/123": {
+      "status": 200,
+      "body": {
+        "id": "123",
+        "name": "Nonveg-Burger",
+        "price": 4599,
+        "discount": 15,
+        "available": true,
+        "image": "https://example.com/nonveg-burger.png",
+        "rating": 4.5
+      }
+    }
+  }
+}

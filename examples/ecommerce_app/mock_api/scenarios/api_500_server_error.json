@@ -1,0 +1,13 @@
+{
+  "name": "api_500_server_error",
+  "description": "the backend failed",
+  "inherits": "default",
+  "routes": {
+    "GET /products/123": {
+      "status": 500,
+      "body": {
+        "error": "internal"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "protocolVersion": "1.0",
+  "event": "API_REQUEST",
+  "eventId": "8192a3b4-c5d6-e7f8-0910-213243546576",
+  "timestamp": "2026-09-10T12:30:41.100000Z",
+  "sessionId": "8c7b6a59-4837-2615-0493-a2b1c0d9e8f7",
+  "screenId": "ProductDetails",
+  "app": {
+    "appVersion": "1.2.3",
+    "buildMode": "debug",
+    "environment": "test",
+    "platform": "android",
+    "devicePixelRatio": 1.875
+  },
+  "payload": {
+    "requestId": "9f2c1d3e-4a5b-6c7d-8e9f-0a1b2c3d4e5f",
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/products/123",
+    "headers": {
+      "accept": "application/json",
+      "authorization": "[REDACTED]"
+    }
+  }
+}

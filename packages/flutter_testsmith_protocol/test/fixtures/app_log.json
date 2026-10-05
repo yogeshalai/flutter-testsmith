@@ -1,0 +1,20 @@
+{
+  "protocolVersion": "1.0",
+  "event": "APP_LOG",
+  "eventId": "4d5e6f70-8192-a3b4-c5d6-e7f809102132",
+  "timestamp": "2026-09-10T12:30:50.500000Z",
+  "sessionId": "8c7b6a59-4837-2615-0493-a2b1c0d9e8f7",
+  "screenId": "ProductDetails",
+  "app": {
+    "appVersion": "1.2.3",
+    "buildMode": "debug",
+    "environment": "test",
+    "platform": "android",
+    "devicePixelRatio": 1.875
+  },
+  "payload": {
+    "level": "warning",
+    "message": "price formatter fell back to default locale",
+    "loggerName": "PriceFormatter"
+  }
+}

@@ -1,0 +1,1917 @@
+{
+  "screenId": "/profile",
+  "capturedAt": "2026-09-12T13:45:03.118215Z",
+  "devicePixelRatio": 1.875,
+  "viewport": {
+    "x": 0.0,
+    "y": 0.0,
+    "width": 384.0,
+    "height": 805.3333333333334
+  },
+  "totalElementsWalked": 1449,
+  "root": {
+    "type": "Root",
+    "visible": true,
+    "bounds": {
+      "x": 0.0,
+      "y": 0.0,
+      "width": 384.0,
+      "height": 805.3333333333334
+    },
+    "children": [
+      {
+        "type": "GestureDetector",
+        "visible": true,
+        "bounds": {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 384.0,
+          "height": 745.3333333333334
+        },
+        "properties": {
+          "routeIndex": 2
+        },
+        "children": [
+          {
+            "type": "Scrollable",
+            "visible": true,
+            "bounds": {
+              "x": 0.0,
+              "y": 24.0,
+              "width": 384.0,
+              "height": 721.3333333333334
+            },
+            "properties": {
+              "routeIndex": 2
+            },
+            "children": [
+              {
+                "type": "InkWell",
+                "enabled": true,
+                "visible": true,
+                "bounds": {
+                  "x": 20.0,
+                  "y": 50.0,
+                  "width": 266.0,
+                  "height": 59.0
+                },
+                "properties": {
+                  "routeIndex": 2
+                },
+                "children": [
+                  {
+                    "type": "GestureDetector",
+                    "visible": true,
+                    "bounds": {
+                      "x": 20.0,
+                      "y": 50.0,
+                      "width": 266.0,
+                      "height": 59.0
+                    },
+                    "properties": {
+                      "routeIndex": 2
+                    },
+                    "children": [
+                      {
+                        "type": "Text",
+                        "text": "Hi Test User!",
+                        "visible": true,
+                        "bounds": {
+                          "x": 20.0,
+                          "y": 50.0,
+                          "width": 92.37629699707031,
+                          "height": 31.0
+                        },
+                        "properties": {
+                          "fontSize": 22.0,
+                          "fontWeight": 500,
+                          "fontFamily": "Poppins",
+                          "color": "#2d3a4bff",
+                          "routeIndex": 2
+                        }
+                      },
+                      {
+                        "type": "Icon",
+                        "visible": true,
+                        "bounds": {
+                          "x": 20.0,
+                          "y": 90.0,
+                          "width": 18.0,
+                          "height": 18.0
+                        },
+                        "properties": {
+                          "routeIndex": 2
+                        },
+                        "children": [
+                          {
+                            "type": "RichText",
+                            "text": "",
+                            "visible": true,
+                            "bounds": {
+                              "x": 20.0,
+                              "y": 90.0,
+                              "width": 18.0,
+                              "height": 18.0
+                            },
+                            "properties": {
+                              "fontSize": 18.0,
+                              "fontFamily": "MaterialIcons",
+                              "color": "#353535ff",
+                              "routeIndex": 2
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Text",
+                        "text": "Work",
+                        "visible": true,
+                        "bounds": {
+                          "x": 42.0,
+                          "y": 89.0,
+                          "width": 109.67756652832031,
+                          "height": 20.0
+                        },
+                        "properties": {
+                          "fontSize": 14.0,
+                          "fontWeight": 500,
+                          "fontFamily": "Poppins",
+                          "color": "#353535ff",
+                          "routeIndex": 2
+                        }
+                      },
+                      {
+                        "type": "Icon",
+                        "visible": true,
+                        "bounds": {
+                          "x": 153.6775665283203,
+                          "y": 90.0,
+                          "width": 18.0,
+                          "height": 18.0
+                        },
+                        "properties": {
+                          "routeIndex": 2
+                        },
+                        "children": [
+                          {
+                            "type": "RichText",
+                            "text": "",
+                            "visible": true,
+                            "bounds": {
+                              "x": 153.6775665283203,
+                              "y": 90.0,
+                              "width": 18.0,
+                              "height": 18.0
+                            },
+                            "properties": {
+                              "fontSize": 18.0,
+                              "fontFamily": "MaterialIcons",
+                              "color": "#353535ff",
+                              "routeIndex": 2
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "_HeaderIconButton",
+                "visible": true,
+                "bounds": {
+                  "x": 286.0,
+                  "y": 73.0,
+                  "width": 34.0,
+                  "height": 34.0
+                },
+                "properties": {
+                  "routeIndex": 2
+                },
+                "children": [
+                  {
+                    "type": "InkWell",
+                    "enabled": true,
+                    "visible": true,
+                    "bounds": {
+                      "x": 286.0,
+                      "y": 73.0,
+                      "width": 34.0,
+                      "height": 34.0
+                    },
+                    "properties": {
+                      "routeIndex": 2
+                    },
+                    "children": [
+                      {
+                        "type": "GestureDetector",
+                        "visible": true,
+                        "bounds": {
+                          "x": 286.0,
+                          "y": 73.0,
+                          "width": 34.0,
+                          "height": 34.0
+                        },
+                        "properties": {
+                          "routeIndex": 2
+                        },
+                        "children": [
+                          {
+                            "type": "Icon",
+                            "visible": true,
+                            "bounds": {
+                              "x": 289.5,
+                              "y": 76.5,
+                              "width": 27.0,
+                              "height": 27.0
+                            },
+                            "properties": {
+                              "routeIndex": 2
+                            },
+                            "children": [
+                              {
+                                "type": "RichText",
+                                "text": "󰀧",
+                                "visible": true,
+                                "bounds": {
+                                  "x": 289.5,
+                                  "y": 76.5,
+                                  "width": 27.0,
+                                  "height": 27.0
+                                },
+                                "properties": {
+                                  "fontSize": 27.0,
+                                  "fontFamily": "MaterialIcons",
+                                  "color": "#2d3a4bff",
+                                  "routeIndex": 2
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "_HeaderIconButton",
+                "visible": true,
+                "bounds": {
+                  "x": 330.0,
+                  "y": 73.0,
+                  "width": 34.0,
+                  "height": 34.0
+                },
+                "properties": {
+                  "routeIndex": 2
+                },
+                "children": [
+                  {
+                    "type": "InkWell",
+                    "enabled": true,
+                    "visible": true,
+                    "bounds": {
+                      "x": 330.0,
+                      "y": 73.0,
+                      "width": 34.0,
+                      "height": 34.0
+                    },
+                    "properties": {
+                      "routeIndex": 2
+                    },
+                    "children": [
+                      {
+                        "type": "GestureDetector",
+                        "visible": true,
+                        "bounds": {
+                          "x": 330.0,
+                          "y": 73.0,
+                          "width": 34.0,
+                          "height": 34.0
+                        },
+                        "properties": {
+                          "routeIndex": 2
+                        },
+                        "children": [
+                          {
+                            "type": "Icon",
+                            "visible": true,
+                            "bounds": {
+                              "x": 333.5,
+                              "y": 76.5,
+                              "width": 27.0,
+                              "height": 27.0
+                            },
+                            "properties": {
+                              "routeIndex": 2
+                            },
+                            "children": [
+                              {
+                                "type": "RichText",
+                                "text": "",
+                                "visible": true,
+                                "bounds": {
+                                  "x": 333.5,
+                                  "y": 76.5,
+                                  "width": 27.0,
+                                  "height": 27.0
+                                },
+                                "properties": {
+                                  "fontSize": 27.0,
+                                  "fontFamily": "MaterialIcons",
+                                  "color": "#2d3a4bff",
+                                  "routeIndex": 2
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "TextField",
+                "text": "",
+                "enabled": true,
+                "visible": true,
+                "bounds": {
+                  "x": 20.0,
+                  "y": 131.0,
+                  "width": 344.0,
+                  "height": 45.0
+                },
+                "properties": {
+                  "routeIndex": 2
+                },
+                "children": [
+                  {
+                    "type": "Semantics",
+                    "enabled": true,
+                    "visible": true,
+                    "bounds": {
+                      "x": 20.0,
+                      "y": 131.0,
+                      "width": 344.0,
+                      "height": 45.0
+                    },
+                    "properties": {
+                      "routeIndex": 2
+                    },
+                    "children": [
+                      {
+                        "type": "EditableText",
+                        "text": "",
+                        "visible": true,
+                        "bounds": {
+                          "x": 72.0,
+                          "y": 141.5,
+                          "width": 288.0,
+                          "height": 24.0
+                        },
+                        "properties": {
+                          "routeIndex": 2
+                        },
+                        "children": [
+                          {
+                            "type": "Scrollable",
+                            "visible": true,
+                            "bounds": {
+                              "x": 72.0,
+                              "y": 141.5,
+                              "width": 288.0,
+                              "height": 24.0
+                            },
+                            "properties": {
+                              "routeIndex": 2
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Text",
+                        "text": "Search Outlets",
+                        "visible": true,
+                        "bounds": {
+                          "x": 72.0,
+                          "y": 141.5,
+                          "width": 288.0,
+                          "height": 24.0
+                        },
+                        "properties": {
+                          "fontSize": 16.0,
+                          "fontWeight": 300,
+                          "fontFamily": "Poppins",
+                          "color": "#35353566",
+                          "routeIndex": 2
+                        }
+                      },
+                      {
+                        "type": "Icon",
+                        "visible": true,
+                        "bounds": {
+                          "x": 20.0,
+                          "y": 131.0,
+                          "width": 48.0,
+                          "height": 45.0
+                        },
+                        "properties": {
+                          "routeIndex": 2
+                        },
+                        "children": [
+                          {
+                            "type": "RichText",
+                            "text": "󰄽",
+                            "visible": true,
+                            "bounds": {
+                              "x": 32.0,
+                              "y": 141.5,
+                              "width": 24.0,
+                              "height": 24.0
+                            },
+                            "properties": {
+                              "fontSize": 24.0,
+                              "fontFamily": "MaterialIcons",
+                              "color": "#ffcc99ff",
+                              "routeIndex": 2
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "SvgPicture",
+                "visible": true,
+                "bounds": {
+                  "x": 110.0,
+                  "y": 212.0,
+                  "width": 164.0,
+                  "height": 164.0
+                },
+                "properties": {
+                  "routeIndex": 2
+                }
+              }
+            ]
+          },
+          {
+            "type": "Semantics",
+            "label": "Open voice assistant",
+            "visible": true,
+            "bounds": {
+              "x": 295.0,
+              "y": 649.3333333333334,
+              "width": 68.0,
+              "height": 68.0
+            },
+            "properties": {
+              "routeIndex": 2
+            },
+            "children": [
+              {
+                "type": "GestureDetector",
+                "visible": true,
+                "bounds": {
+                  "x": 295.0,
+                  "y": 649.3333333333334,
+                  "width": 68.0,
+                  "height": 68.0
+                },
+                "properties": {
+                  "routeIndex": 2
+                },
+                "children": [
+                  {
+                    "type": "Image",
+                    "visible": true,
+                    "bounds": {
+                      "x": 295.0,
+                      "y": 649.3333333333334,
+                      "width": 68.0,
+                      "height": 68.0
+                    },
+                    "properties": {
+                      "routeIndex": 2
+                    }
+                  },
+                  {
+                    "type": "Image",
+                    "visible": true,
+                    "bounds": {
+                      "x": 316.0,
+                      "y": 670.3333333333334,
+                      "width": 26.0,
+                      "height": 26.0
+                    },
+                    "properties": {
+                      "routeIndex": 2
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Text",
+        "text": "Profile",
+        "label": "Profile",
+        "visible": true,
+        "bounds": {
+          "x": 20.0,
+          "y": 42.0,
+          "width": 344.0,
+          "height": 24.0
+        },
+        "properties": {
+          "fontSize": 16.0,
+          "fontWeight": 600,
+          "fontFamily": "Poppins",
+          "color": "#353535ff",
+          "routeIndex": 3
+        }
+      },
+      {
+        "type": "ListView",
+        "visible": true,
+        "bounds": {
+          "x": 0.0,
+          "y": 84.0,
+          "width": 384.0,
+          "height": 661.3333333333334
+        },
+        "properties": {
+          "routeIndex": 3
+        },
+        "children": [
+          {
+            "type": "Scrollable",
+            "visible": true,
+            "bounds": {
+              "x": 0.0,
+              "y": 84.0,
+              "width": 384.0,
+              "height": 661.3333333333334
+            },
+            "properties": {
+              "routeIndex": 3
+            },
+            "children": [
+              {
+                "type": "Image",
+                "visible": true,
+                "bounds": {
+                  "x": 0.0,
+                  "y": 84.0,
+                  "width": 384.0,
+                  "height": 185.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                }
+              },
+              {
+                "type": "SvgPicture",
+                "visible": false,
+                "bounds": {
+                  "x": 192.0,
+                  "y": 170.0,
+                  "width": 0.0,
+                  "height": 0.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                }
+              },
+              {
+                "type": "Text",
+                "text": "T",
+                "visible": true,
+                "bounds": {
+                  "x": 181.18500995635986,
+                  "y": 149.0,
+                  "width": 21.629980087280273,
+                  "height": 42.0
+                },
+                "properties": {
+                  "fontSize": 30.0,
+                  "fontWeight": 600,
+                  "fontFamily": "Poppins",
+                  "color": "#6ec8b1ff",
+                  "routeIndex": 3
+                }
+              },
+              {
+                "testId": "profile.display_name",
+                "type": "Text",
+                "text": "Test",
+                "visible": true,
+                "bounds": {
+                  "x": 170.69995880126953,
+                  "y": 234.0,
+                  "width": 42.60008239746094,
+                  "height": 22.0
+                },
+                "properties": {
+                  "fontSize": 16.0,
+                  "fontWeight": 600,
+                  "fontFamily": "Poppins",
+                  "color": "#353535ff",
+                  "routeIndex": 3
+                }
+              },
+              {
+                "testId": "profile.complete_button",
+                "type": "TestId",
+                "label": "Complete Your Profile",
+                "visible": true,
+                "bounds": {
+                  "x": 20.0,
+                  "y": 287.0,
+                  "width": 344.0,
+                  "height": 50.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                },
+                "children": [
+                  {
+                    "type": "CompleteProfileButton",
+                    "label": "Complete Your Profile",
+                    "visible": true,
+                    "bounds": {
+                      "x": 20.0,
+                      "y": 287.0,
+                      "width": 344.0,
+                      "height": 50.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    },
+                    "children": [
+                      {
+                        "type": "InkWell",
+                        "label": "Complete Your Profile",
+                        "enabled": true,
+                        "visible": true,
+                        "bounds": {
+                          "x": 20.0,
+                          "y": 287.0,
+                          "width": 344.0,
+                          "height": 50.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        },
+                        "children": [
+                          {
+                            "type": "GestureDetector",
+                            "visible": true,
+                            "bounds": {
+                              "x": 20.0,
+                              "y": 287.0,
+                              "width": 344.0,
+                              "height": 50.0
+                            },
+                            "properties": {
+                              "routeIndex": 3
+                            },
+                            "children": [
+                              {
+                                "type": "SvgPicture",
+                                "visible": false,
+                                "bounds": {
+                                  "x": 48.0,
+                                  "y": 312.0,
+                                  "width": 0.0,
+                                  "height": 0.0
+                                },
+                                "properties": {
+                                  "routeIndex": 3
+                                }
+                              },
+                              {
+                                "type": "Icon",
+                                "visible": true,
+                                "bounds": {
+                                  "x": 37.0,
+                                  "y": 301.0,
+                                  "width": 22.0,
+                                  "height": 22.0
+                                },
+                                "properties": {
+                                  "routeIndex": 3
+                                },
+                                "children": [
+                                  {
+                                    "type": "RichText",
+                                    "text": "",
+                                    "visible": true,
+                                    "bounds": {
+                                      "x": 37.0,
+                                      "y": 301.0,
+                                      "width": 22.0,
+                                      "height": 22.0
+                                    },
+                                    "properties": {
+                                      "fontSize": 22.0,
+                                      "fontFamily": "MaterialIcons",
+                                      "color": "#6ec8b1ff",
+                                      "routeIndex": 3
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "Text",
+                                "text": "Complete Your Profile",
+                                "visible": true,
+                                "bounds": {
+                                  "x": 81.0,
+                                  "y": 306.0,
+                                  "width": 247.0,
+                                  "height": 12.0
+                                },
+                                "properties": {
+                                  "fontSize": 14.0,
+                                  "fontWeight": 500,
+                                  "fontFamily": "Poppins",
+                                  "color": "#1a1a1aff",
+                                  "routeIndex": 3
+                                }
+                              },
+                              {
+                                "type": "SvgPicture",
+                                "visible": true,
+                                "bounds": {
+                                  "x": 328.0,
+                                  "y": 299.5,
+                                  "width": 25.0,
+                                  "height": 25.0
+                                },
+                                "properties": {
+                                  "routeIndex": 3
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "testId": "profile.refer_banner",
+                "type": "TestId",
+                "visible": true,
+                "bounds": {
+                  "x": 20.0,
+                  "y": 355.0,
+                  "width": 344.0,
+                  "height": 195.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                },
+                "children": [
+                  {
+                    "type": "InkWell",
+                    "enabled": true,
+                    "visible": true,
+                    "bounds": {
+                      "x": 20.0,
+                      "y": 355.0,
+                      "width": 344.0,
+                      "height": 195.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    },
+                    "children": [
+                      {
+                        "type": "GestureDetector",
+                        "visible": true,
+                        "bounds": {
+                          "x": 20.0,
+                          "y": 355.0,
+                          "width": 344.0,
+                          "height": 195.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        },
+                        "children": [
+                          {
+                            "type": "Image",
+                            "visible": true,
+                            "bounds": {
+                              "x": 20.0,
+                              "y": 355.0,
+                              "width": 344.0,
+                              "height": 195.0
+                            },
+                            "properties": {
+                              "routeIndex": 3
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "InkWell",
+                "label": "Queries?",
+                "enabled": true,
+                "visible": true,
+                "bounds": {
+                  "x": 20.0,
+                  "y": 568.0,
+                  "width": 164.0,
+                  "height": 79.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                },
+                "children": [
+                  {
+                    "type": "GestureDetector",
+                    "visible": true,
+                    "bounds": {
+                      "x": 20.0,
+                      "y": 568.0,
+                      "width": 164.0,
+                      "height": 79.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    },
+                    "children": [
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 85.0,
+                          "y": 581.5,
+                          "width": 34.0,
+                          "height": 34.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "text": "Queries?",
+                        "visible": true,
+                        "bounds": {
+                          "x": 70.2701187133789,
+                          "y": 621.5,
+                          "width": 63.45976257324219,
+                          "height": 12.0
+                        },
+                        "properties": {
+                          "fontSize": 14.0,
+                          "fontWeight": 500,
+                          "fontFamily": "Poppins",
+                          "color": "#353535ff",
+                          "routeIndex": 3
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "InkWell",
+                "label": "Invite Friends +",
+                "enabled": true,
+                "visible": true,
+                "bounds": {
+                  "x": 200.0,
+                  "y": 568.0,
+                  "width": 164.0,
+                  "height": 79.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                },
+                "children": [
+                  {
+                    "type": "GestureDetector",
+                    "visible": true,
+                    "bounds": {
+                      "x": 200.0,
+                      "y": 568.0,
+                      "width": 164.0,
+                      "height": 79.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    },
+                    "children": [
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 265.0,
+                          "y": 581.5,
+                          "width": 34.0,
+                          "height": 34.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "text": "Invite Friends +",
+                        "visible": true,
+                        "bounds": {
+                          "x": 226.68121337890625,
+                          "y": 621.5,
+                          "width": 110.6375732421875,
+                          "height": 12.0
+                        },
+                        "properties": {
+                          "fontSize": 14.0,
+                          "fontWeight": 500,
+                          "fontFamily": "Poppins",
+                          "color": "#353535ff",
+                          "routeIndex": 3
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "InkWell",
+                "label": "My Orders",
+                "enabled": true,
+                "visible": true,
+                "bounds": {
+                  "x": 31.0,
+                  "y": 662.0,
+                  "width": 322.0,
+                  "height": 60.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                },
+                "children": [
+                  {
+                    "type": "GestureDetector",
+                    "visible": true,
+                    "bounds": {
+                      "x": 31.0,
+                      "y": 662.0,
+                      "width": 322.0,
+                      "height": 60.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    },
+                    "children": [
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 31.0,
+                          "y": 675.0,
+                          "width": 34.0,
+                          "height": 34.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "text": "My Orders",
+                        "visible": true,
+                        "bounds": {
+                          "x": 81.0,
+                          "y": 686.0,
+                          "width": 73.71969604492188,
+                          "height": 12.0
+                        },
+                        "properties": {
+                          "fontSize": 14.0,
+                          "fontWeight": 500,
+                          "fontFamily": "Poppins",
+                          "color": "#353535ff",
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 335.0,
+                          "y": 683.0,
+                          "width": 18.0,
+                          "height": 18.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "InkWell",
+                "label": "My Addresses",
+                "enabled": true,
+                "visible": true,
+                "bounds": {
+                  "x": 31.0,
+                  "y": 722.0,
+                  "width": 322.0,
+                  "height": 60.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                },
+                "children": [
+                  {
+                    "type": "GestureDetector",
+                    "visible": true,
+                    "bounds": {
+                      "x": 31.0,
+                      "y": 722.0,
+                      "width": 322.0,
+                      "height": 60.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    },
+                    "children": [
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 31.0,
+                          "y": 735.0,
+                          "width": 34.0,
+                          "height": 34.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "text": "My Addresses",
+                        "visible": true,
+                        "bounds": {
+                          "x": 81.0,
+                          "y": 746.0,
+                          "width": 100.95759582519531,
+                          "height": 12.0
+                        },
+                        "properties": {
+                          "fontSize": 14.0,
+                          "fontWeight": 500,
+                          "fontFamily": "Poppins",
+                          "color": "#353535ff",
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 335.0,
+                          "y": 743.0,
+                          "width": 18.0,
+                          "height": 18.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "InkWell",
+                "label": "FAQ",
+                "enabled": true,
+                "visible": true,
+                "bounds": {
+                  "x": 31.0,
+                  "y": 798.0,
+                  "width": 322.0,
+                  "height": 60.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                },
+                "children": [
+                  {
+                    "type": "GestureDetector",
+                    "visible": true,
+                    "bounds": {
+                      "x": 31.0,
+                      "y": 798.0,
+                      "width": 322.0,
+                      "height": 60.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    },
+                    "children": [
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 31.0,
+                          "y": 811.0,
+                          "width": 34.0,
+                          "height": 34.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "text": "FAQ",
+                        "visible": true,
+                        "bounds": {
+                          "x": 81.0,
+                          "y": 822.0,
+                          "width": 28.73590087890625,
+                          "height": 12.0
+                        },
+                        "properties": {
+                          "fontSize": 14.0,
+                          "fontWeight": 500,
+                          "fontFamily": "Poppins",
+                          "color": "#353535ff",
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 335.0,
+                          "y": 819.0,
+                          "width": 18.0,
+                          "height": 18.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "InkWell",
+                "label": "T&C / Privacy Policy",
+                "enabled": true,
+                "visible": true,
+                "bounds": {
+                  "x": 31.0,
+                  "y": 858.0,
+                  "width": 322.0,
+                  "height": 60.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                },
+                "children": [
+                  {
+                    "type": "GestureDetector",
+                    "visible": true,
+                    "bounds": {
+                      "x": 31.0,
+                      "y": 858.0,
+                      "width": 322.0,
+                      "height": 60.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    },
+                    "children": [
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 31.0,
+                          "y": 871.0,
+                          "width": 34.0,
+                          "height": 34.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "text": "T&C / Privacy Policy",
+                        "visible": true,
+                        "bounds": {
+                          "x": 81.0,
+                          "y": 882.0,
+                          "width": 145.19541931152344,
+                          "height": 12.0
+                        },
+                        "properties": {
+                          "fontSize": 14.0,
+                          "fontWeight": 500,
+                          "fontFamily": "Poppins",
+                          "color": "#353535ff",
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 335.0,
+                          "y": 879.0,
+                          "width": 18.0,
+                          "height": 18.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "InkWell",
+                "label": "Logout",
+                "enabled": true,
+                "visible": true,
+                "bounds": {
+                  "x": 20.0,
+                  "y": 937.0,
+                  "width": 344.0,
+                  "height": 60.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                },
+                "children": [
+                  {
+                    "type": "GestureDetector",
+                    "visible": true,
+                    "bounds": {
+                      "x": 20.0,
+                      "y": 937.0,
+                      "width": 344.0,
+                      "height": 60.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    },
+                    "children": [
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 20.0,
+                          "y": 950.0,
+                          "width": 34.0,
+                          "height": 34.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "text": "Logout",
+                        "visible": true,
+                        "bounds": {
+                          "x": 70.0,
+                          "y": 961.0,
+                          "width": 49.36579895019531,
+                          "height": 12.0
+                        },
+                        "properties": {
+                          "fontSize": 14.0,
+                          "fontWeight": 500,
+                          "fontFamily": "Poppins",
+                          "color": "#353535ff",
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 346.0,
+                          "y": 958.0,
+                          "width": 18.0,
+                          "height": 18.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "InkWell",
+                "label": "Delete My Account",
+                "enabled": true,
+                "visible": true,
+                "bounds": {
+                  "x": 20.0,
+                  "y": 997.0,
+                  "width": 344.0,
+                  "height": 60.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                },
+                "children": [
+                  {
+                    "type": "GestureDetector",
+                    "visible": true,
+                    "bounds": {
+                      "x": 20.0,
+                      "y": 997.0,
+                      "width": 344.0,
+                      "height": 60.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    },
+                    "children": [
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 20.0,
+                          "y": 1010.0,
+                          "width": 34.0,
+                          "height": 34.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "text": "Delete My Account",
+                        "visible": true,
+                        "bounds": {
+                          "x": 70.0,
+                          "y": 1021.0,
+                          "width": 135.6394805908203,
+                          "height": 12.0
+                        },
+                        "properties": {
+                          "fontSize": 14.0,
+                          "fontWeight": 500,
+                          "fontFamily": "Poppins",
+                          "color": "#353535ff",
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 346.0,
+                          "y": 1018.0,
+                          "width": 18.0,
+                          "height": 18.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "InkWell",
+                "label": "Powered By\nExample App",
+                "enabled": true,
+                "visible": true,
+                "bounds": {
+                  "x": 20.0,
+                  "y": 1057.0,
+                  "width": 344.0,
+                  "height": 60.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                },
+                "children": [
+                  {
+                    "type": "GestureDetector",
+                    "visible": true,
+                    "bounds": {
+                      "x": 20.0,
+                      "y": 1057.0,
+                      "width": 344.0,
+                      "height": 60.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    },
+                    "children": [
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 20.0,
+                          "y": 1070.0,
+                          "width": 34.0,
+                          "height": 34.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "text": "Powered By",
+                        "visible": true,
+                        "bounds": {
+                          "x": 70.0,
+                          "y": 1081.0,
+                          "width": 84.06367492675781,
+                          "height": 12.0
+                        },
+                        "properties": {
+                          "fontSize": 14.0,
+                          "fontWeight": 500,
+                          "fontFamily": "Poppins",
+                          "color": "#353535ff",
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 259.74432373046875,
+                          "y": 1078.0,
+                          "width": 18.0,
+                          "height": 18.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "text": "Example App",
+                        "visible": true,
+                        "bounds": {
+                          "x": 280.74432373046875,
+                          "y": 1078.5,
+                          "width": 83.25567626953125,
+                          "height": 17.0
+                        },
+                        "properties": {
+                          "fontSize": 14.0,
+                          "fontWeight": 700,
+                          "fontFamily": "Poppins",
+                          "color": "#353535ff",
+                          "routeIndex": 3
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "InkWell",
+                "label": "Version 1.0.0",
+                "enabled": false,
+                "visible": true,
+                "bounds": {
+                  "x": 20.0,
+                  "y": 1117.0,
+                  "width": 344.0,
+                  "height": 60.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                },
+                "children": [
+                  {
+                    "type": "GestureDetector",
+                    "visible": true,
+                    "bounds": {
+                      "x": 20.0,
+                      "y": 1117.0,
+                      "width": 344.0,
+                      "height": 60.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    },
+                    "children": [
+                      {
+                        "type": "SvgPicture",
+                        "visible": true,
+                        "bounds": {
+                          "x": 20.0,
+                          "y": 1130.0,
+                          "width": 34.0,
+                          "height": 34.0
+                        },
+                        "properties": {
+                          "routeIndex": 3
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "text": "Version 1.0.0",
+                        "visible": true,
+                        "bounds": {
+                          "x": 70.0,
+                          "y": 1141.0,
+                          "width": 89.41966247558594,
+                          "height": 12.0
+                        },
+                        "properties": {
+                          "fontSize": 14.0,
+                          "fontWeight": 500,
+                          "fontFamily": "Poppins",
+                          "color": "#353535ff",
+                          "routeIndex": 3
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "testId": "nav.home",
+        "type": "TestId",
+        "visible": true,
+        "bounds": {
+          "x": 0.0,
+          "y": 745.3333333333334,
+          "width": 96.0,
+          "height": 60.0
+        },
+        "properties": {
+          "routeIndex": 3
+        },
+        "children": [
+          {
+            "type": "InkWell",
+            "label": "Home",
+            "enabled": true,
+            "visible": true,
+            "bounds": {
+              "x": 0.0,
+              "y": 745.3333333333334,
+              "width": 96.0,
+              "height": 60.0
+            },
+            "properties": {
+              "routeIndex": 3
+            },
+            "children": [
+              {
+                "type": "GestureDetector",
+                "visible": true,
+                "bounds": {
+                  "x": 0.0,
+                  "y": 745.3333333333334,
+                  "width": 96.0,
+                  "height": 60.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                },
+                "children": [
+                  {
+                    "type": "SvgPicture",
+                    "visible": true,
+                    "bounds": {
+                      "x": 33.0,
+                      "y": 751.8333333333334,
+                      "width": 30.0,
+                      "height": 30.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    }
+                  },
+                  {
+                    "type": "SvgPicture",
+                    "visible": true,
+                    "bounds": {
+                      "x": 33.0,
+                      "y": 751.8333333333334,
+                      "width": 30.0,
+                      "height": 30.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    }
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Home",
+                    "visible": true,
+                    "bounds": {
+                      "x": 30.005874633789062,
+                      "y": 781.8333333333334,
+                      "width": 35.988250732421875,
+                      "height": 17.0
+                    },
+                    "properties": {
+                      "fontSize": 12.0,
+                      "fontWeight": 500,
+                      "fontFamily": "Poppins",
+                      "color": "#2d3a4bff",
+                      "routeIndex": 3
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "testId": "nav.orders",
+        "type": "TestId",
+        "visible": true,
+        "bounds": {
+          "x": 96.0,
+          "y": 745.3333333333334,
+          "width": 96.0,
+          "height": 60.0
+        },
+        "properties": {
+          "routeIndex": 3
+        },
+        "children": [
+          {
+            "type": "InkWell",
+            "label": "Orders",
+            "enabled": true,
+            "visible": true,
+            "bounds": {
+              "x": 96.0,
+              "y": 745.3333333333334,
+              "width": 96.0,
+              "height": 60.0
+            },
+            "properties": {
+              "routeIndex": 3
+            },
+            "children": [
+              {
+                "type": "GestureDetector",
+                "visible": true,
+                "bounds": {
+                  "x": 96.0,
+                  "y": 745.3333333333334,
+                  "width": 96.0,
+                  "height": 60.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                },
+                "children": [
+                  {
+                    "type": "SvgPicture",
+                    "visible": true,
+                    "bounds": {
+                      "x": 130.72905520484562,
+                      "y": 753.8333333333334,
+                      "width": 26.54188959030878,
+                      "height": 26.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    }
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Orders",
+                    "visible": true,
+                    "bounds": {
+                      "x": 123.71385192871094,
+                      "y": 779.8333333333334,
+                      "width": 40.572296142578125,
+                      "height": 17.0
+                    },
+                    "properties": {
+                      "fontSize": 12.0,
+                      "fontWeight": 500,
+                      "fontFamily": "Poppins",
+                      "color": "#2d3a4bff",
+                      "routeIndex": 3
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "testId": "nav.rewards",
+        "type": "TestId",
+        "visible": true,
+        "bounds": {
+          "x": 192.0,
+          "y": 745.3333333333334,
+          "width": 96.0,
+          "height": 60.0
+        },
+        "properties": {
+          "routeIndex": 3
+        },
+        "children": [
+          {
+            "type": "InkWell",
+            "label": "Rewards",
+            "enabled": true,
+            "visible": true,
+            "bounds": {
+              "x": 192.0,
+              "y": 745.3333333333334,
+              "width": 96.0,
+              "height": 60.0
+            },
+            "properties": {
+              "routeIndex": 3
+            },
+            "children": [
+              {
+                "type": "GestureDetector",
+                "visible": true,
+                "bounds": {
+                  "x": 192.0,
+                  "y": 745.3333333333334,
+                  "width": 96.0,
+                  "height": 60.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                },
+                "children": [
+                  {
+                    "type": "SvgPicture",
+                    "visible": true,
+                    "bounds": {
+                      "x": 225.0,
+                      "y": 751.8333333333334,
+                      "width": 30.0,
+                      "height": 30.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    }
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Rewards",
+                    "visible": true,
+                    "bounds": {
+                      "x": 213.91180419921875,
+                      "y": 781.8333333333334,
+                      "width": 52.1763916015625,
+                      "height": 17.0
+                    },
+                    "properties": {
+                      "fontSize": 12.0,
+                      "fontWeight": 500,
+                      "fontFamily": "Poppins",
+                      "color": "#2d3a4bff",
+                      "routeIndex": 3
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "testId": "nav.profile",
+        "type": "TestId",
+        "visible": true,
+        "bounds": {
+          "x": 288.0,
+          "y": 745.3333333333334,
+          "width": 96.0,
+          "height": 60.0
+        },
+        "properties": {
+          "routeIndex": 3
+        },
+        "children": [
+          {
+            "type": "InkWell",
+            "label": "Profile",
+            "enabled": true,
+            "visible": true,
+            "bounds": {
+              "x": 288.0,
+              "y": 745.3333333333334,
+              "width": 96.0,
+              "height": 60.0
+            },
+            "properties": {
+              "routeIndex": 3
+            },
+            "children": [
+              {
+                "type": "GestureDetector",
+                "visible": true,
+                "bounds": {
+                  "x": 288.0,
+                  "y": 745.3333333333334,
+                  "width": 96.0,
+                  "height": 60.0
+                },
+                "properties": {
+                  "routeIndex": 3
+                },
+                "children": [
+                  {
+                    "type": "SvgPicture",
+                    "visible": true,
+                    "bounds": {
+                      "x": 321.0,
+                      "y": 751.8333333333334,
+                      "width": 30.0,
+                      "height": 30.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    }
+                  },
+                  {
+                    "type": "SvgPicture",
+                    "visible": true,
+                    "bounds": {
+                      "x": 321.0,
+                      "y": 751.8333333333334,
+                      "width": 30.0,
+                      "height": 30.0
+                    },
+                    "properties": {
+                      "routeIndex": 3
+                    }
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Profile",
+                    "visible": true,
+                    "bounds": {
+                      "x": 317.4358673095703,
+                      "y": 781.8333333333334,
+                      "width": 37.128265380859375,
+                      "height": 17.0
+                    },
+                    "properties": {
+                      "fontSize": 12.0,
+                      "fontWeight": 500,
+                      "fontFamily": "Poppins",
+                      "color": "#2d3a4bff",
+                      "routeIndex": 3
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

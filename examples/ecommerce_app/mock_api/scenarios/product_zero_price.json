@@ -1,0 +1,19 @@
+{
+  "name": "product_zero_price",
+  "description": "price is 0 - a real state for a free sample, and the one a falsy check gets wrong",
+  "inherits": "default",
+  "routes": {
+    "GET /products/123": {
+      "status": 200,
+      "body": {
+        "id": "123",
+        "name": "Nonveg-Burger",
+        "price": 0,
+        "discount": 0,
+        "available": true,
+        "image": "https://example.com/nonveg-burger.png",
+        "rating": 4.5
+      }
+    }
+  }
+}

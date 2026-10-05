@@ -1,0 +1,30 @@
+appId: com.example.ecommerce_app
+flow: cart_empty
+
+# An empty collection is a state, not an absence of one.
+#
+# The assertion is on /home rather than /cart, and that is not a
+# shortcut: with an empty cart the application does not offer a way in,
+# so "the cart screen shows its empty state" is not a state a person can
+# reach. What is reachable - and what a regression here would break - is
+# that the way in is closed.
+fixture: cart_empty
+
+steps:
+  - launchApp
+  - waitForSettle
+  - tap:
+      id: login.submit
+  - expectScreen:
+      id: /home
+  - waitForSettle
+
+  - validateScreen
+
+  - expectElement:
+      id: home.cart_badge
+      text: "Cart (0)"
+
+  - expectElement:
+      id: home.open_cart
+      enabled: false

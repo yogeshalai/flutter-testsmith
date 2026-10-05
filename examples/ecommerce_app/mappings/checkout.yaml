@@ -1,0 +1,50 @@
+# How the Checkout screen relates to its API.
+#
+# Bound to GET /cart, not POST /checkout: what the screen *shows* before
+# the order is placed comes from the cart. The order response is what the
+# success screen shows, and has its own mappings file.
+
+screen: /checkout
+api: GET /cart
+
+mappings:
+  - target: checkout.total
+    source: response.total
+    transformation: currency(INR)
+
+  - target: checkout.delivery_fee
+    source: response.deliveryFee
+    transformation: currency(INR)
+
+figma:
+  # A dense form. Tighter than the platform default, and looser than the
+  # product screen, which states every margin as a fraction of the design
+  # frame and so lands sub-pixel.
+  positionPx: 4
+  sizePx: 3
+
+  # Both amounts on this screen are right-aligned in a row, so what the
+  # layout fixes is their right edge. Their x is that edge minus a width
+  # the font decided, and a font is compared absolutely while positions
+  # are compared in projected space - so comparing x reported a
+  # pixel-perfect element as 50.8px out on the device.
+  #
+  # Declared rather than inferred: Figma's own `textAlign` describes
+  # where the glyphs sit inside the text node's box, not how the box is
+  # anchored, and reading it as an anchor breaks other screens. A screen
+  # that mixes anchors cannot be expressed yet - see the Phase 12
+  # limitations.
+  textAnchor: right
+
+rules:
+  - condition: "total > 0"
+    expectations:
+      - element: checkout.place_order
+        property: enabled
+        equals: true
+
+  - condition: "total == 0"
+    expectations:
+      - element: checkout.place_order
+        property: enabled
+        equals: false

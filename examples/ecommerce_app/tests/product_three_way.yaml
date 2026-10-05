@@ -1,0 +1,38 @@
+appId: com.example.ecommerce_app
+flow: product_three_way
+
+# A user-written test case. Nothing generates it, and nothing rewrites
+# it.
+#
+# What this file owns is what the test *does*. What the screen *is* -
+# its API source, its design source, its field mappings, its rules and
+# its tolerances - lives in mappings/product_details.yaml, so a URL is
+# declared once and inherited by every flow that visits the screen.
+steps:
+  - launchApp
+  - waitForSettle
+
+  # The app opens on the sign-in screen, and the token it returns is
+  # what every later request carries.
+  - tap:
+      id: login.submit
+
+  - expectScreen:
+      id: /home
+
+  - waitForSettle
+
+  - tap:
+      id: home.open_product
+
+  - expectScreen:
+      id: /product/details
+
+  # Settle before validating: a tree captured mid-transition contains
+  # both screens.
+  - waitForSettle
+
+  # One step. API, UI, rules, Figma and visual each report separately,
+  # and a dimension that was not configured says why rather than going
+  # quiet.
+  - validateScreen

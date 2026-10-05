@@ -1,0 +1,18 @@
+{
+  "name": "product_missing_price",
+  "description": "the price key is absent entirely, which is not the same as a price of zero",
+  "inherits": "default",
+  "routes": {
+    "GET /products/123": {
+      "status": 200,
+      "body": {
+        "id": "123",
+        "name": "Nonveg-Burger",
+        "discount": 0,
+        "available": true,
+        "image": "https://example.com/nonveg-burger.png",
+        "rating": 4.5
+      }
+    }
+  }
+}

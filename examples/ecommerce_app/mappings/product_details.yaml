@@ -1,0 +1,137 @@
+# How the ProductDetails screen relates to its API.
+#
+# Human-owned and git-tracked. The engine never rewrites this file: AI
+# proposals land under `suggested:` and stay inert until a person moves
+# them up into `mappings:`.
+
+screen: /product/details
+api: GET /products/123
+
+# Where the runner may fetch this screen's response if the application's
+# own traffic did not supply it.
+#
+# A fallback, never the first choice. Captured traffic is always
+# preferred: asserting against the server's own reply proves only that
+# the server works, and a response served from the app's own cache
+# appears in one and not the other. A fully-instrumented run therefore
+# issues no request of its own, and an *ambiguous* capture never falls
+# back at all.
+apiSource:
+  baseUrl: env:EXAMPLE_MOCK_BASE
+  method: GET
+  endpoint: /products/123
+  # No token: the fixture server needs none. A real backend would name
+  # one here as `token: env:EXAMPLE_API_TOKEN` - a reference, never the
+  # credential itself, which the parser refuses outright.
+
+# The design this screen is validated against is the committed
+# `figma/product_details.json`, matched by screen id, so a run needs no
+# Figma token or network. An application with a live design file would
+# declare it here instead, and a declared source wins over the file:
+#
+#   figmaSource:
+#     url: https://www.figma.com/design/<fileKey>/<name>?node-id=<id>
+#     token: env:FIGMA_TOKEN
+#     mapping: figma/product_details.mapping.yaml
+
+mappings:
+  - target: product.name
+    source: response.name
+
+  - target: product.price
+    source: response.price
+    # What the application *should* render. When the app disagrees with
+    # this, that is the finding.
+    transformation: currency(INR)
+
+  - target: product.add_to_cart
+    property: enabled
+    source: response.available
+
+# Thresholds for comparing this screen with its Figma frame. Every
+# value is optional; what is left out uses the platform default.
+figma:
+  # Tighter than the platform defaults, deliberately. The screen states
+  # its margins as fractions of the 402pt design frame rather than as
+  # absolute numbers, so a correct layout projects onto the device
+  # exactly and the measured drift is sub-pixel. Slack we do not need is
+  # slack that hides a regression.
+  positionPx: 2
+  sizePx: 2
+
+  # Left at the default: the design holds placeholder copy ("₹90/Unit")
+  # while the app renders whatever the API returned, formatted by the
+  # app's own currency logic.
+  # text: strict
+
+# Screenshot comparison against the accepted baseline in
+# visual_baselines/. Screencap captures the whole device, so the system
+# chrome comes with it.
+visual:
+  # Left at the default, `screencap`, because every baseline committed
+  # here was recorded with it and because it is the only path that sees
+  # a system dialog sitting on top of the application.
+  #
+  # `capture: surface` works and was measured on this device - see
+  # ADR-0010 - but note that the ignore regions below are written for a
+  # screencap. A surface image has no system bars in it, so these two
+  # regions would mask 105 rows of real content instead. Ignore regions
+  # belong to a capture path, not to a screen.
+  ignoreRegions:
+    # The Android status bar. Its clock changes every minute and the
+    # battery icon changes on its own, so ~480 pixels here differ on
+    # every run and would slowly eat the tolerance that should be
+    # reserved for real regressions.
+    #
+    # Logical pixels, converted with the ratio from the same capture.
+    # The width is deliberately larger than any phone: regions are
+    # clamped to the image, so this reads "the full width" without
+    # naming a device.
+    - x: 0
+      y: 0
+      width: 9999
+      height: 24
+
+    # The Android navigation bar. Measured in Phase 12: it differed from
+    # the accepted baseline on every one of five identical runs, by a
+    # constant 723 pixels - 0.065%, a third of the whole-screen budget,
+    # spent on something that is never a regression.
+    #
+    # A negative y is measured from the bottom, because the bar is
+    # anchored there: writing its absolute y would tie this file to one
+    # device's screen height.
+    - x: 0
+      y: -32
+      width: 9999
+      height: 32
+
+rules:
+  # The specification's motivating example.
+  - condition: "available == false"
+    expectations:
+      - element: product.unavailable
+        property: visible
+        equals: true
+      - element: product.add_to_cart
+        property: enabled
+        equals: false
+
+  - condition: "discount > 0"
+    expectations:
+      - element: product.discount_badge
+        property: visible
+        equals: true
+
+  - condition: "discount == 0"
+    expectations:
+      - element: product.discount_badge
+        property: visible
+        equals: false
+
+suggested:
+  # Proposed by AI, inert until promoted by a human. Nothing below this
+  # line affects a run.
+  - target: product.rating
+    source: response.rating
+    transformation: toText
+    confidence: 0.91

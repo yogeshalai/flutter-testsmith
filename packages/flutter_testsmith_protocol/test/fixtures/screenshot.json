@@ -1,0 +1,22 @@
+{
+  "protocolVersion": "1.0",
+  "event": "SCREENSHOT",
+  "eventId": "708192a3-b4c5-d6e7-f809-102132435465",
+  "timestamp": "2026-09-10T12:31:01.000000Z",
+  "sessionId": "8c7b6a59-4837-2615-0493-a2b1c0d9e8f7",
+  "screenId": "ProductDetails",
+  "app": {
+    "appVersion": "1.2.3",
+    "buildMode": "debug",
+    "environment": "test",
+    "platform": "android",
+    "devicePixelRatio": 1.875
+  },
+  "payload": {
+    "source": "repaintBoundary",
+    "width": 720,
+    "height": 1600,
+    "byteLength": 40950,
+    "path": "out/ProductDetails.png"
+  }
+}

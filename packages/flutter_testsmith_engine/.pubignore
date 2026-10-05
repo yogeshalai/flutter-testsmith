@@ -1,0 +1,11 @@
+# Kept in the repository, left out of the published archive.
+#
+# test/fixtures/external/ holds UI trees captured from an external
+# application on a device, with its text replaced by synthetic values.
+# The published package does not need them; the two tests listed below
+# read them.
+#
+# .gitignore at the repository root still applies; this file only adds.
+test/fixtures/external/
+test/external_app_tree_test.dart
+test/ui_property_resolution_test.dart

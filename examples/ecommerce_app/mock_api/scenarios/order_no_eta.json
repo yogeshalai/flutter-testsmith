@@ -1,0 +1,16 @@
+{
+  "name": "order_no_eta",
+  "description": "the order is confirmed but no delivery estimate is available",
+  "inherits": "default",
+  "routes": {
+    "POST /checkout": {
+      "status": 200,
+      "body": {
+        "orderId": "ORD-20260912-0002",
+        "status": "confirmed",
+        "etaMinutes": null,
+        "paidAmount": 4129
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "screen": "/product/details",
+  "fixture": "product_out_of_stock",
+  "source": "deviceScreencap",
+  "width": 720,
+  "height": 1600,
+  "recordedAt": "2026-09-12T10:35:48.093511Z"
+}

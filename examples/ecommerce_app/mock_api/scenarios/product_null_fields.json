@@ -1,0 +1,19 @@
+{
+  "name": "product_null_fields",
+  "description": "image and rating are explicitly null - a normal catalogue entry, not an error",
+  "inherits": "default",
+  "routes": {
+    "GET /products/123": {
+      "status": 200,
+      "body": {
+        "id": "123",
+        "name": "Nonveg-Burger",
+        "price": 90,
+        "discount": 0,
+        "available": true,
+        "image": null,
+        "rating": null
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "protocolVersion": "1.0",
+  "event": "SESSION_START",
+  "eventId": "2b3c4d5e-6f70-8192-a3b4-c5d6e7f80910",
+  "timestamp": "2026-09-10T12:30:40.000000Z",
+  "sessionId": "8c7b6a59-4837-2615-0493-a2b1c0d9e8f7",
+  "app": {
+    "appVersion": "1.2.3",
+    "buildMode": "debug",
+    "environment": "test",
+    "platform": "android",
+    "devicePixelRatio": 1.875
+  },
+  "payload": {
+    "sdkVersion": "0.1.0",
+    "appId": "com.example.ecommerce",
+    "capabilities": ["navigation"]
+  }
+}

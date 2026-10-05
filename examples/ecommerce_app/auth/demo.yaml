@@ -1,0 +1,68 @@
+# Authentication setup for the example application.
+#
+# Exists so the E-05 machinery can be driven end to end on real hardware
+# without real credentials: the fixture backend accepts any email and
+# password, so the values below are references to *fake* secrets. An
+# auth file for a real application has the same shape and names real
+# ones.
+#
+# Nothing here bypasses the login screen. The application's own login
+# request is made by the application's own HTTP client, and it is that
+# request - and the route its own router then chose - that this file
+# asserts on.
+
+auth: ecommerce-example
+
+app:
+  # Relative to this file's own directory, so the auth file travels with
+  # the application rather than with the platform.
+  path: ..
+  target: lib/main.dart
+
+# Asserted against the device, so the runner proves which application it
+# is driving rather than assuming the one it asked for is the one that
+# answered.
+appId: com.example.ecommerce_app
+
+device:
+  profile: samsung-m127g
+
+secrets:
+  email: env:MYTEST_DEMO_EMAIL
+  password: env:MYTEST_DEMO_PASSWORD
+
+# Where this application's own router sends an unmet session. Declared by
+# a person, because only a person knows that *this* application shows
+# this route when it holds no session.
+signedOutOn: [/login]
+
+login:
+  - expectScreen: {id: /login, timeoutMs: 40000}
+  - waitForSettle: {timeoutMs: 30000}
+  - inputSecret: {id: login.email, secret: email}
+  - inputSecret: {id: login.password, secret: password}
+  - tap: {id: login.submit}
+
+  # Settle before verification reads the tree. The landing screen loads
+  # its own summary after the route arrives, so the element that proves
+  # it rendered does not exist the instant the navigation event fires.
+  # Measured: without this, verification reported that "home.greeting"
+  # was absent from a screen that was about to draw it.
+  - waitForSettle: {timeoutMs: 30000}
+
+verify:
+  # The authenticated route, the element that proves it actually
+  # rendered, and the application's own authentication exchange. All
+  # three, because a route event without a rendered screen and a screen
+  # without a granted session are both things that photograph well.
+  route: /home
+  timeoutMs: 60000
+  element: home.greeting
+  request: {endpoint: POST /auth/login, status: 200}
+
+  # How this application says the credential was wrong: it stays on
+  # /login and renders its own error element. Declared rather than
+  # inferred from an HTTP status.
+  invalidCredentialOn:
+    route: /login
+    element: login.error

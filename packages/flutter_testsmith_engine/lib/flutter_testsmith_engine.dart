@@ -1,0 +1,72 @@
+/// The out-of-process engine for Flutter Testsmith.
+///
+/// This package never depends on Flutter. That constraint is what lets the
+/// CLI compile to a native binary and lets validation logic be unit tested
+/// in milliseconds without a Flutter harness.
+library;
+
+export 'src/ai/ai_analysis.dart';
+export 'src/ai/failure_analyst.dart';
+export 'src/ai/test_generator.dart';
+export 'src/auth/auth_flow.dart';
+export 'src/auth/auth_result.dart';
+export 'src/auth/auth_verification.dart';
+export 'src/secrets/secret_ref.dart';
+export 'src/config/doctor.dart';
+export 'src/device/adb_device_controller.dart';
+export 'src/device/adb_location.dart';
+export 'src/device/coordinates.dart';
+export 'src/device/device_controller.dart';
+export 'src/device/device_profile.dart';
+export 'src/device/process_runner.dart';
+export 'src/device/surface_screenshot.dart';
+export 'src/dsl/steps.dart';
+export 'src/fixtures/scenario.dart';
+export 'src/dsl/suite_file.dart';
+export 'src/dsl/test_flow.dart';
+export 'src/environment/device_environment.dart';
+export 'src/environment/flutter_location.dart';
+export 'src/environment/preflight.dart';
+export 'src/environment/preflight_checks.dart';
+export 'src/environment/prerequisite.dart';
+export 'src/impact/git_changes.dart';
+export 'src/impact/impact_analyser.dart';
+export 'src/impact/impact_index.dart';
+export 'src/inspection/element_locator.dart';
+export 'src/inspection/element_waiter.dart';
+export 'src/reporting/dimension_verdict.dart';
+export 'src/reporting/e2e_summary.dart';
+export 'src/reporting/html_reporter.dart';
+export 'src/reporting/network_record.dart';
+export 'src/reporting/run_result.dart';
+export 'src/reporting/suite_html_reporter.dart';
+export 'src/reporting/suite_result.dart';
+export 'src/session/screen_session.dart';
+export 'src/session/session_correlator.dart';
+export 'src/session/session_manager.dart';
+export 'src/transport/flutter_machine.dart';
+export 'src/validation/api_acquisition.dart';
+export 'src/validation/api_expectation.dart';
+export 'src/validation/api_fetcher.dart';
+export 'src/validation/api_source.dart';
+export 'src/validation/figma_source.dart';
+export 'src/validation/figma_projection.dart';
+export 'src/validation/anchor_projection.dart';
+export 'src/validation/figma_structure_validator.dart';
+export 'src/validation/figma_tolerances.dart';
+export 'src/validation/mappings.dart';
+export 'src/validation/quiescence.dart';
+export 'src/validation/response_source.dart';
+export 'src/validation/settle_reading.dart';
+export 'src/validation/transformations.dart';
+export 'src/validation/validation_dimension.dart';
+export 'src/validation/validation_result.dart';
+export 'src/validation/validators.dart';
+export 'src/transport/sdk_transport.dart';
+export 'src/visual/baseline_store.dart';
+export 'src/visual/steady_capture.dart';
+export 'src/visual/visual_comparator.dart';
+export 'src/visual/visual_comparison.dart';
+export 'src/visual/visual_tolerances.dart';
+export 'src/visual/visual_validator.dart';
+export 'src/transport/vm_service_transport.dart';

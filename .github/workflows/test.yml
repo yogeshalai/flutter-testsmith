@@ -1,0 +1,86 @@
+name: test
+
+# Added in Phase 12. There was no workflow at all, which is why three
+# tests in examples/ecommerce_app failed from Phase 6 to Phase 12
+# without anyone noticing, under a README that said all eleven phases
+# were complete.
+#
+# Every suite runs, including the example application's - the one that
+# was broken. A suite nothing runs is documentation.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Resolve the workspace
+        run: dart pub get
+
+      - name: Dependency rules
+        # The two constraints that hold the layout up: flutter_testsmith must not
+        # link the testing brain, and flutter_testsmith_engine must not depend on
+        # Flutter. Checked first, because a violation makes every later
+        # result less meaningful.
+        run: dart run scripts/check_dependencies.dart
+
+      - name: Analyse
+        run: dart analyze --fatal-infos
+
+      - name: flutter_testsmith_protocol
+        run: dart test
+        working-directory: packages/flutter_testsmith_protocol
+
+      - name: flutter_testsmith_engine
+        run: dart test
+        working-directory: packages/flutter_testsmith_engine
+
+      - name: flutter_testsmith_cli
+        run: dart test
+        working-directory: packages/flutter_testsmith_cli
+
+      - name: flutter_testsmith_figma
+        run: dart test
+        working-directory: integrations/flutter_testsmith_figma
+
+      - name: ai_client
+        run: dart test
+        working-directory: integrations/ai_client
+
+      - name: flutter_testsmith
+        run: flutter test
+        working-directory: packages/flutter_testsmith
+
+      - name: example application
+        # Including the defect matrices, which drive the real validators
+        # over the real widgets. These are the tests that establish the
+        # platform does what the acceptance report says it does.
+        run: flutter test
+        working-directory: examples/ecommerce_app
+
+      - name: Packaging and an application outside this workspace
+        # The root test/ directory, which no step ran: the packaging
+        # rules, the local package registry, and an application that is
+        # not a workspace member resolving, importing and running
+        # flutter_testsmith (finding E-01). No device. It needs
+        # `flutter` on PATH and pub.dev, to which the local registry
+        # redirects every public package. About half a minute.
+        run: dart test test/
+
+      - name: Generated proposals are still valid
+        # A fixture renamed away would leave a committed proposal
+        # naming a state nobody can arrange - the Phase 12 defect, in
+        # its next form.
+        run: dart test test/generated_scenario_validity_test.dart
+        working-directory: packages/flutter_testsmith_cli

@@ -1,0 +1,13 @@
+{
+  "name": "api_403_forbidden",
+  "description": "authenticated, but not permitted to see this product",
+  "inherits": "default",
+  "routes": {
+    "GET /products/123": {
+      "status": 403,
+      "body": {
+        "error": "forbidden"
+      }
+    }
+  }
+}

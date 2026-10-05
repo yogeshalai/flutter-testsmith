@@ -1,0 +1,76 @@
+appId: com.example.ecommerce_app
+flow: full_journey
+
+# The whole shop, end to end. Seven screens, four API calls, one order.
+#
+# Every screen validates, so a regression anywhere in the chain fails
+# here even if no narrower flow covers it.
+steps:
+  - launchApp
+  - waitForSettle
+
+  - expectScreen:
+      id: /login
+  - tap:
+      id: login.submit
+
+  - expectScreen:
+      id: /home
+  - waitForSettle
+  - validateScreen
+
+  - tap:
+      id: home.open_products
+  - expectScreen:
+      id: /products
+  - waitForSettle
+  - validateScreen
+
+  - tap:
+      id: products.item_123
+  - expectScreen:
+      id: /product/details
+  - waitForSettle
+  - validateScreen
+
+  # Back out to the home screen and in through the cart button.
+  #
+  # Not `tap: product.add_to_cart`: the design puts that button at the
+  # foot of a 1198pt page, so on a 805pt viewport it is below the fold,
+  # and the platform has no scroll step. Tapping it used to dispatch a
+  # tap to a y outside the screen, which Android delivered to nothing;
+  # since Phase 12 it is refused with the measurement that explains it.
+  - back
+  - expectScreen:
+      id: /products
+  - back
+  - expectScreen:
+      id: /home
+  - waitForSettle
+
+  - tap:
+      id: home.open_cart
+  - expectScreen:
+      id: /cart
+  - waitForSettle
+  - validateScreen
+
+  - tap:
+      id: cart.checkout
+  - expectScreen:
+      id: /checkout
+  - waitForSettle
+  - validateScreen
+
+  - tap:
+      id: checkout.place_order
+  - expectScreen:
+      id: /order/success
+  - waitForSettle
+
+  - expectElement:
+      id: order.id
+      textContains: "ORD-"
+
+  - screenshot:
+      name: order-success

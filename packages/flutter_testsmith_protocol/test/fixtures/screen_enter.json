@@ -1,0 +1,21 @@
+{
+  "protocolVersion": "1.0",
+  "event": "SCREEN_ENTER",
+  "eventId": "0f1e2d3c-4b5a-6978-8796-a5b4c3d2e1f0",
+  "timestamp": "2026-09-10T12:30:45.123456Z",
+  "sessionId": "8c7b6a59-4837-2615-0493-a2b1c0d9e8f7",
+  "screenId": "ProductDetails",
+  "app": {
+    "appVersion": "1.2.3",
+    "buildMode": "debug",
+    "environment": "test",
+    "platform": "android",
+    "devicePixelRatio": 1.875
+  },
+  "metadata": {"trigger": "tap"},
+  "payload": {
+    "screenId": "ProductDetails",
+    "routeName": "/product/123",
+    "previousScreenId": "ProductList"
+  }
+}

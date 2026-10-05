@@ -1,0 +1,13 @@
+{
+  "name": "checkout_declined",
+  "description": "the card is declined at authorisation",
+  "inherits": "default",
+  "routes": {
+    "POST /checkout": {
+      "status": 402,
+      "body": {
+        "error": "card declined"
+      }
+    }
+  }
+}

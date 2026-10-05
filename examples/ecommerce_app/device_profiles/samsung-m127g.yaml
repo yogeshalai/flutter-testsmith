@@ -1,0 +1,25 @@
+# The handset this repository's real-device evidence was measured on.
+#
+# Read off the device rather than copied from a datasheet:
+#   adb shell getprop ro.product.model      -> SM-M127G
+#   adb shell getprop ro.build.version.sdk  -> 33
+#   adb shell wm size                       -> 720x1600
+#   adb shell wm density                    -> 300
+#
+# The logical size is deliberately absent: it is derived from the
+# physical size and the ratio. Two numbers that must agree are one number
+# and an opportunity to get it wrong.
+#
+# devicePixelRatio is 1.875, which is not an integer on purpose - a
+# logical/physical confusion is caught immediately here rather than being
+# masked by a convenient 2x.
+
+id: samsung-m127g
+model: SM-M127G
+os: Android 13
+physical:
+  width: 720
+  height: 1600
+devicePixelRatio: 1.875
+orientation: portrait
+buildMode: debug

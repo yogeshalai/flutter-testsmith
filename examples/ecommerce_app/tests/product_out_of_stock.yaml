@@ -1,0 +1,39 @@
+appId: com.example.ecommerce_app
+flow: product_out_of_stock
+
+# The specification's motivating example, on a device.
+#
+# The fixture makes the API say the product cannot be bought; the rules
+# in mappings/product_details.yaml say what the screen must then do.
+fixture: product_out_of_stock
+
+steps:
+  - launchApp
+  - waitForSettle
+  - tap:
+      id: login.submit
+  - expectScreen:
+      id: /home
+  - waitForSettle
+  - tap:
+      id: home.open_product
+  - expectScreen:
+      id: /product/details
+  - waitForSettle
+
+  # `visual: true` because this screen's baseline is per fixture: the
+  # out-of-stock line moves everything below it, so comparing against
+  # the in-stock baseline reported 2.028% of the screen differing -
+  # correctly, and uselessly. The recorded file is
+  # visual_baselines/product_details@product_out_of_stock.png.
+  - validateScreen:
+      visual: true
+
+  # Stated again as a flow-level assertion, because a rule that stopped
+  # being evaluated would take its own evidence with it.
+  - expectElement:
+      id: product.add_to_cart
+      enabled: false
+  - expectElement:
+      id: product.unavailable
+      visible: true

@@ -1,0 +1,34 @@
+# Dart / Flutter
+.dart_tool/
+.packages
+pubspec.lock
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Native / IDE
+*.iml
+.idea/
+.vscode/
+
+# Platform build output
+android/.gradle/
+ios/Pods/
+
+# Test output
+/out/
+/reports/
+*.log
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Secrets - never commit
+.env
+*.token
+figma_token*
+/out/
+
+# Cached Figma responses: large, regenerable, not source
+**/figma/.cache/

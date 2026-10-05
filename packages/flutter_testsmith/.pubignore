@@ -1,0 +1,8 @@
+# Kept in the repository, left out of the published archive.
+#
+# This test reads a Figma fixture from another package by a relative path
+# that does not exist in a published archive. It runs from the
+# repository only.
+#
+# .gitignore at the repository root still applies; this file only adds.
+test/figma_defect_matrix_test.dart

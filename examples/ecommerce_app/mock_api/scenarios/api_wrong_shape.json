@@ -1,0 +1,11 @@
+{
+  "name": "api_wrong_shape",
+  "description": "valid JSON, but an array where an object was promised",
+  "inherits": "default",
+  "routes": {
+    "GET /products/123": {
+      "status": 200,
+      "rawBody": "[1,2,3]"
+    }
+  }
+}

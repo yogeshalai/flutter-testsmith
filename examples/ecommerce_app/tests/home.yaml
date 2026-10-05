@@ -1,0 +1,21 @@
+appId: com.example.ecommerce_app
+flow: home
+
+# A second flow, so test selection has something to choose between.
+# It never reaches the product screen, so a change confined to
+# product_details_screen.dart cannot affect it.
+steps:
+  - launchApp
+  - waitForSettle
+
+  - expectScreen:
+      id: /login
+
+  - tap:
+      id: login.submit
+
+  - expectScreen:
+      id: /home
+
+  - waitForSettle
+  - validateScreen

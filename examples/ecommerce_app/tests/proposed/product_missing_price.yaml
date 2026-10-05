@@ -1,0 +1,36 @@
+# PROPOSED - generated, and not yet reviewed by anyone.
+#
+# Why: Verifies that the UI shows a placeholder or appropriate message when the price field is absent from the product payload.
+# Needs: The product details response omits the 'price' field entirely
+# Model confidence: 90%
+#
+# `testsmith run` refuses this while the status line below is
+# present. Delete it to accept this as a test.
+
+appId: com.example.ecommerce_app
+flow: product_missing_price
+fixture: product_missing_price
+status: proposed
+steps:
+  - launchApp
+  - waitForSettle
+  - expectScreen:
+      id: /login
+  - tap:
+      id: login.submit
+  - expectScreen:
+      id: /home
+  - waitForSettle
+  - validateScreen
+  - tap:
+      id: home.open_products
+  - expectScreen:
+      id: /products
+  - waitForSettle
+  - validateScreen
+  - tap:
+      id: products.item_123
+  - expectScreen:
+      id: /product/details
+  - waitForSettle
+  - validateScreen

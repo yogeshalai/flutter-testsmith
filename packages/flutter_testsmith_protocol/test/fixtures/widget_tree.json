@@ -1,0 +1,53 @@
+{
+  "protocolVersion": "1.0",
+  "event": "WIDGET_TREE",
+  "eventId": "6f708192-a3b4-c5d6-e7f8-091021324354",
+  "timestamp": "2026-09-10T12:31:00.000000Z",
+  "sessionId": "8c7b6a59-4837-2615-0493-a2b1c0d9e8f7",
+  "screenId": "ProductDetails",
+  "app": {
+    "appVersion": "1.2.3",
+    "buildMode": "debug",
+    "environment": "test",
+    "platform": "android",
+    "devicePixelRatio": 1.875
+  },
+  "payload": {
+    "snapshot": {
+      "screenId": "ProductDetails",
+      "capturedAt": "2026-09-10T12:31:00.000000Z",
+      "devicePixelRatio": 1.875,
+      "totalElementsWalked": 1842,
+      "root": {
+        "testId": "product.card",
+        "type": "TestId",
+        "visible": true,
+        "bounds": {"x": 0.0, "y": 56.0, "width": 384.0, "height": 797.0},
+        "children": [
+          {
+            "testId": "product.name",
+            "type": "Text",
+            "text": "Nike Air Max",
+            "visible": true,
+            "bounds": {"x": 24.0, "y": 80.0, "width": 200.0, "height": 32.0}
+          },
+          {
+            "testId": "product.price",
+            "type": "Text",
+            "text": "Rs 2,999",
+            "visible": true,
+            "bounds": {"x": 24.0, "y": 120.0, "width": 100.0, "height": 20.0}
+          },
+          {
+            "testId": "product.add_to_cart",
+            "type": "FilledButton",
+            "label": "Add to cart",
+            "enabled": true,
+            "visible": true,
+            "bounds": {"x": 24.0, "y": 164.0, "width": 160.0, "height": 40.0}
+          }
+        ]
+      }
+    }
+  }
+}

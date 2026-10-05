@@ -1,0 +1,29 @@
+{
+  "name": "cart_empty",
+  "description": "an empty cart, so checkout must be unreachable",
+  "inherits": "default",
+  "routes": {
+    "GET /cart": {
+      "status": 200,
+      "body": {
+        "currency": "INR",
+        "lines": [],
+        "subtotal": 0,
+        "discount": 0,
+        "deliveryFee": 0,
+        "total": 0
+      }
+    },
+    "GET /home/summary": {
+      "status": 200,
+      "body": {
+        "greeting": "Good evening, Test",
+        "cartCount": 0,
+        "featuredProductId": "123",
+        "banner": {
+          "title": "Free delivery over Rs 500"
+        }
+      }
+    }
+  }
+}

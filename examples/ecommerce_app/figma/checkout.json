@@ -1,0 +1,129 @@
+{
+  "screen": "/checkout",
+  "nodeId": "2100:0001",
+  "figmaName": "Checkout",
+  "_provenance": "HAND-AUTHORED, not pulled from Figma. No Figma file exists for this screen and no token is configured in this repository, so pretending otherwise would be a lie in a document about honesty. It is in the exact shape `testsmith figma pull` writes, so the validators cannot tell the difference - which is what makes it usable for testing them. What it does NOT establish is that this screen matches a designer's intent.\n\nGeometry was measured from the implementation at the 402pt frame width and rounded. The two TEXT widths are wider than the strings really are: `flutter_test` renders with a placeholder font whose glyphs are uniform squares, so any text width measured in a widget test is fiction. That is harmless here and worth knowing: a TEXT node's width is not compared (checkTextSize is off by default), and since both are `textAlign: RIGHT` the validator compares the right edge, which is the edge the layout actually fixes.",
+  "width": 402.0,
+  "height": 900.0,
+  "totalNodesWalked": 24,
+  "elements": [
+    {
+      "nodeId": "2100:0010",
+      "figmaName": "Frame / form",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 20.0,
+        "y": 76.0,
+        "width": 362.0,
+        "height": 392.0
+      }
+    },
+    {
+      "nodeId": "2100:0011",
+      "figmaName": "Field / address",
+      "semanticId": "checkout.address",
+      "type": "INSTANCE",
+      "rect": {
+        "x": 20.0,
+        "y": 76.0,
+        "width": 362.0,
+        "height": 56.0
+      },
+      "cornerRadius": 4.0
+    },
+    {
+      "nodeId": "2100:0012",
+      "figmaName": "Field / card",
+      "semanticId": "checkout.card_number",
+      "type": "INSTANCE",
+      "rect": {
+        "x": 20.0,
+        "y": 144.0,
+        "width": 362.0,
+        "height": 56.0
+      },
+      "cornerRadius": 4.0
+    },
+    {
+      "nodeId": "2100:0013",
+      "figmaName": "Field / cvv",
+      "semanticId": "checkout.cvv",
+      "type": "INSTANCE",
+      "rect": {
+        "x": 20.0,
+        "y": 212.0,
+        "width": 362.0,
+        "height": 56.0
+      },
+      "cornerRadius": 4.0
+    },
+    {
+      "nodeId": "2100:0014",
+      "figmaName": "Field / otp",
+      "semanticId": "checkout.otp",
+      "type": "INSTANCE",
+      "rect": {
+        "x": 20.0,
+        "y": 280.0,
+        "width": 362.0,
+        "height": 56.0
+      },
+      "cornerRadius": 4.0
+    },
+    {
+      "nodeId": "2100:0020",
+      "figmaName": "payable-amount",
+      "semanticId": "checkout.total",
+      "type": "TEXT",
+      "rect": {
+        "x": 268.0,
+        "y": 360.0,
+        "width": 114.0,
+        "height": 20.0
+      },
+      "text": "Rs 0",
+      "typography": {
+        "fontFamily": "Roboto",
+        "fontSize": 14.0,
+        "fontWeight": 700,
+        "lineHeight": 20.0,
+        "textAlign": "RIGHT"
+      },
+      "fill": "#1d1b20ff"
+    },
+    {
+      "nodeId": "2100:0021",
+      "figmaName": "delivery-amount",
+      "semanticId": "checkout.delivery_fee",
+      "type": "TEXT",
+      "rect": {
+        "x": 310.0,
+        "y": 380.0,
+        "width": 72.0,
+        "height": 20.0
+      },
+      "text": "Rs 0",
+      "typography": {
+        "fontFamily": "Roboto",
+        "fontSize": 14.0,
+        "fontWeight": 400,
+        "lineHeight": 20.0,
+        "textAlign": "RIGHT"
+      },
+      "fill": "#1d1b20ff"
+    },
+    {
+      "nodeId": "2100:0030",
+      "figmaName": "Button / primary",
+      "semanticId": "checkout.place_order",
+      "type": "INSTANCE",
+      "rect": {
+        "x": 20.0,
+        "y": 420.0,
+        "width": 362.0,
+        "height": 48.0
+      },
+      "cornerRadius": 24.0
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+appId: com.example.ecommerce_app
+flow: product_server_error
+
+# A 500 on the product endpoint.
+#
+# No `validateScreen` here, and that is the point: with this fixture
+# every mapped element is legitimately absent and there is no response
+# to compare against, so the validators would report error - correctly,
+# and unhelpfully. What this flow asserts is that the screen reaches a
+# defined error state and says which one.
+fixture: api_500_server_error
+
+steps:
+  - launchApp
+  - waitForSettle
+  - tap:
+      id: login.submit
+  - expectScreen:
+      id: /home
+  - waitForSettle
+  - tap:
+      id: home.open_product
+  - expectScreen:
+      id: /product/details
+  - waitForSettle
+
+  - expectElement:
+      id: product.error
+      textContains: "our end"
+
+  - expectElement:
+      id: product.price
+      present: false

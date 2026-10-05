@@ -1,0 +1,10 @@
+# `network` marks the tests that really call Figma.
+#
+# They gate themselves on FIGMA_TOKEN and FIGMA_FILE_KEY being in the
+# environment and skip when they are not, so `dart test` is green
+# offline and without credentials. The tag is declared so a run can also
+# be made unconditionally offline:
+#
+#     dart test --exclude-tags network
+tags:
+  network:

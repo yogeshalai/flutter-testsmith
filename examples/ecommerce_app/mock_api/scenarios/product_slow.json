@@ -1,0 +1,20 @@
+{
+  "name": "product_slow",
+  "description": "the product answers after 2s, inside the client's 5s timeout - a slow success, so a request's measured duration can be compared with a delay that is known",
+  "inherits": "default",
+  "routes": {
+    "GET /products/123": {
+      "status": 200,
+      "delayMs": 2000,
+      "body": {
+        "id": "123",
+        "name": "Nonveg-Burger",
+        "price": 90,
+        "discount": 0,
+        "available": true,
+        "image": "https://example.com/nonveg-burger.png",
+        "rating": 4.5
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+# PROPOSED - generated, and not yet reviewed by anyone.
+#
+# Why: Checks that malformed JSON from the API does not crash the UI and presents a generic error state.
+# Needs: API returns malformed JSON for the product details endpoint
+# Model confidence: 90%
+#
+# `testsmith run` refuses this while the status line below is
+# present. Delete it to accept this as a test.
+
+appId: com.example.ecommerce_app
+flow: api_malformed_product_details
+fixture: api_malformed
+status: proposed
+steps:
+  - launchApp
+  - waitForSettle
+  - expectScreen:
+      id: /login
+  - tap:
+      id: login.submit
+  - expectScreen:
+      id: /home
+  - waitForSettle
+  - validateScreen
+  - tap:
+      id: home.open_products
+  - expectScreen:
+      id: /products
+  - waitForSettle
+  - validateScreen
+  - tap:
+      id: products.item_123
+  - expectScreen:
+      id: /product/details
+  - waitForSettle
+  - validateScreen

@@ -1,0 +1,44 @@
+# How the Cart screen relates to its API.
+
+screen: /cart
+api: GET /cart
+
+mappings:
+  - target: cart.total
+    source: response.total
+    transformation: currency(INR)
+
+  - target: cart.subtotal
+    source: response.subtotal
+    transformation: currency(INR)
+
+  - target: cart.delivery_fee
+    source: response.deliveryFee
+    transformation: currency(INR)
+
+  - target: cart.name_123
+    source: response.lines.0.name
+
+  - target: cart.line_total_123
+    source: response.lines.0.lineTotal
+    transformation: currency(INR)
+
+rules:
+  - condition: "total > 0"
+    expectations:
+      - element: cart.checkout
+        property: enabled
+        equals: true
+
+  # A zero discount must not produce a line reading "Rs 0 off".
+  - condition: "discount == 0"
+    expectations:
+      - element: cart.discount
+        property: visible
+        equals: false
+
+  - condition: "discount > 0"
+    expectations:
+      - element: cart.discount
+        property: visible
+        equals: true

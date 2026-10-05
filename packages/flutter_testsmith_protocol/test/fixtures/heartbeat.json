@@ -1,0 +1,17 @@
+{
+  "protocolVersion": "1.0",
+  "event": "HEARTBEAT",
+  "eventId": "5e6f7081-92a3-b4c5-d6e7-f80910213243",
+  "timestamp": "2026-09-10T12:30:55.000000Z",
+  "sessionId": "8c7b6a59-4837-2615-0493-a2b1c0d9e8f7",
+  "app": {
+    "appVersion": "1.2.3",
+    "buildMode": "debug",
+    "environment": "test",
+    "platform": "android",
+    "devicePixelRatio": 1.875
+  },
+  "payload": {
+    "sequence": 3
+  }
+}

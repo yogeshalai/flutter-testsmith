@@ -1,0 +1,50 @@
+# How the ProductList screen relates to its API.
+#
+# Mapped by index into the fixture's list. That is honest about what is
+# being asserted: this is the catalogue the `default` scenario serves,
+# and a scenario that serves a different list needs its own flow.
+
+screen: /products
+api: GET /products
+
+mappings:
+  - target: products.name_123
+    source: response.items.0.name
+
+  - target: products.price_123
+    source: response.items.0.price
+    transformation: currency(INR)
+
+  - target: products.name_456
+    source: response.items.1.name
+
+  - target: products.price_456
+    source: response.items.1.price
+    transformation: currency(INR)
+
+  - target: products.name_789
+    source: response.items.2.name
+
+rules:
+  # The third fixture product is unavailable and has a null image, which
+  # is what makes it worth keeping in the list.
+  - condition: "items.2.available == false"
+    expectations:
+      - element: products.unavailable_789
+        property: visible
+        equals: true
+      - element: products.item_789
+        property: enabled
+        equals: false
+
+  - condition: "items.1.discount > 0"
+    expectations:
+      - element: products.discount_456
+        property: visible
+        equals: true
+
+  - condition: "items.0.discount == 0"
+    expectations:
+      - element: products.discount_123
+        property: visible
+        equals: false

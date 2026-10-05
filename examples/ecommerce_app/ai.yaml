@@ -1,0 +1,23 @@
+# Which model explains failures. Analysis is advisory: it never changes
+# a verdict, and an unreachable provider cannot fail a run.
+#
+# Switching provider is a change to this file and nothing else. Anything
+# speaking the OpenAI chat-completions shape works - groq, openai,
+# openrouter, together, ollama, or `custom` with your own baseUrl.
+
+provider: groq
+model: openai/gpt-oss-120b
+
+# The NAME of the environment variable holding the key, never the key.
+# Read from the real environment first, then from .env (gitignored).
+# A secret in this file would be a secret in your repository.
+apiKeyEnv: GROQ_API_KEY
+
+# Zero: two runs over the same failures should tell the same story.
+temperature: 0
+# Raised in Phase 12. Generation now has to name a fixture and explain
+# the state it needs, and a reply truncated at 2048 tokens is not
+# invalid JSON in an interesting way - it is a proposal that was cut in
+# half.
+maxTokens: 4096
+timeoutSeconds: 60

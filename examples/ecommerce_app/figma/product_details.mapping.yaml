@@ -1,0 +1,21 @@
+# Figma node id -> semantic element id.
+#
+# Mapped by node id, not by layer name. This frame's layers are called
+# "Frame 42980", "Rectangle 91" and "Component 3"; only a handful carry
+# any meaning. Node ids also survive a rename, which names do not.
+#
+# Generated as a template with:
+#   testsmith figma pull ... --write-mapping-template
+# then filled in by hand. The engine never writes this file.
+
+screen: /product/details
+
+nodes:
+  "913:2": product.image
+  "913:10": product.name
+  "913:66": product.price
+  "913:12": product.description
+  "913:78": product.highlights_label
+  "913:83": product.information_label
+  "913:28": product.add_to_cart
+  "913:42": product.cart_total

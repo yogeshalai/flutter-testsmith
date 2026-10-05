@@ -1,0 +1,1217 @@
+{
+  "screen": "/product/details",
+  "nodeId": "913:1",
+  "figmaName": "Product Details",
+  "width": 402.0,
+  "height": 1198.0,
+  "totalNodesWalked": 119,
+  "elements": [
+    {
+      "nodeId": "913:2",
+      "figmaName": "image 9",
+      "semanticId": "product.image",
+      "type": "IMAGE",
+      "rect": {
+        "x": 20.0,
+        "y": 137.0,
+        "width": 362.0,
+        "height": 362.0
+      },
+      "cornerRadius": 12.0
+    },
+    {
+      "nodeId": "913:3",
+      "figmaName": "Group 42975",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 177.0,
+        "y": 466.0,
+        "width": 48.0,
+        "height": 8.0
+      },
+      "cornerRadius": 10.0
+    },
+    {
+      "nodeId": "913:4",
+      "figmaName": "Rectangle 91",
+      "type": "SHAPE",
+      "rect": {
+        "x": 177.0,
+        "y": 466.0,
+        "width": 22.0,
+        "height": 8.0
+      },
+      "fill": "#ffffffff",
+      "cornerRadius": 10.0
+    },
+    {
+      "nodeId": "913:5",
+      "figmaName": "Rectangle 92",
+      "type": "SHAPE",
+      "rect": {
+        "x": 204.0,
+        "y": 466.0,
+        "width": 8.0,
+        "height": 8.0
+      },
+      "fill": "#ffffffff",
+      "cornerRadius": 10.0
+    },
+    {
+      "nodeId": "913:6",
+      "figmaName": "Rectangle 93",
+      "type": "SHAPE",
+      "rect": {
+        "x": 217.0,
+        "y": 466.0,
+        "width": 8.0,
+        "height": 8.0
+      },
+      "fill": "#ffffffff",
+      "cornerRadius": 10.0
+    },
+    {
+      "nodeId": "913:7",
+      "figmaName": "Frame 42980",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 20.0,
+        "y": 515.0,
+        "width": 362.0,
+        "height": 250.0
+      },
+      "fill": "#ffffffff",
+      "cornerRadius": 12.0
+    },
+    {
+      "nodeId": "913:8",
+      "figmaName": "Frame 42981",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 34.0,
+        "y": 529.0,
+        "width": 334.0,
+        "height": 222.0
+      }
+    },
+    {
+      "nodeId": "913:9",
+      "figmaName": "Frame 42976",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 34.0,
+        "y": 529.0,
+        "width": 334.0,
+        "height": 16.0
+      }
+    },
+    {
+      "nodeId": "913:65",
+      "figmaName": "Component 3",
+      "type": "INSTANCE",
+      "rect": {
+        "x": 34.0,
+        "y": 529.0,
+        "width": 46.0,
+        "height": 15.0
+      }
+    },
+    {
+      "nodeId": "I913:65;903:3",
+      "figmaName": "Group 2",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 34.0,
+        "y": 530.0,
+        "width": 13.0,
+        "height": 13.0
+      }
+    },
+    {
+      "nodeId": "I913:65;903:4",
+      "figmaName": "Ellipse 6",
+      "type": "SHAPE",
+      "rect": {
+        "x": 34.0,
+        "y": 530.0,
+        "width": 13.0,
+        "height": 13.0
+      },
+      "fill": "#ff9021ff"
+    },
+    {
+      "nodeId": "I913:65;903:5",
+      "figmaName": "fi_929495",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 37.0,
+        "y": 533.0,
+        "width": 7.0,
+        "height": 7.0
+      }
+    },
+    {
+      "nodeId": "I913:65;903:6",
+      "figmaName": "Group",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 36.0,
+        "y": 532.0,
+        "width": 9.0,
+        "height": 9.0
+      }
+    },
+    {
+      "nodeId": "I913:65;903:7",
+      "figmaName": "Group",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 36.0,
+        "y": 532.0,
+        "width": 9.0,
+        "height": 9.0
+      }
+    },
+    {
+      "nodeId": "I913:65;903:9",
+      "figmaName": "best seller",
+      "type": "TEXT",
+      "rect": {
+        "x": 52.0,
+        "y": 529.0,
+        "width": 28.0,
+        "height": 15.0
+      },
+      "text": "new",
+      "typography": {
+        "fontFamily": "Poppins",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "lineHeight": 15.0,
+        "letterSpacing": 0.10000000149011612,
+        "textAlign": "LEFT"
+      },
+      "fill": "#a83b3bff"
+    },
+    {
+      "nodeId": "914:1",
+      "figmaName": "veg-non-veg 6",
+      "type": "INSTANCE",
+      "rect": {
+        "x": 352.0,
+        "y": 529.0,
+        "width": 16.0,
+        "height": 16.0
+      }
+    },
+    {
+      "nodeId": "I914:1;903:12",
+      "figmaName": "Group",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 352.0,
+        "y": 529.0,
+        "width": 16.0,
+        "height": 16.0
+      }
+    },
+    {
+      "nodeId": "913:10",
+      "figmaName": "Nonveg-Burger",
+      "semanticId": "product.name",
+      "type": "TEXT",
+      "rect": {
+        "x": 34.0,
+        "y": 555.0,
+        "width": 334.0,
+        "height": 20.0
+      },
+      "text": "Nonveg-Burger",
+      "typography": {
+        "fontFamily": "Poppins",
+        "fontSize": 16.0,
+        "fontWeight": 500,
+        "lineHeight": 20.0,
+        "letterSpacing": 0.10000000149011612,
+        "textAlign": "LEFT"
+      },
+      "fill": "#353535ff"
+    },
+    {
+      "nodeId": "913:66",
+      "figmaName": "label-text",
+      "semanticId": "product.price",
+      "type": "TEXT",
+      "rect": {
+        "x": 34.0,
+        "y": 585.0,
+        "width": 91.0,
+        "height": 15.0
+      },
+      "text": "₹90/Unit",
+      "typography": {
+        "fontFamily": "Inter",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "lineHeight": 15.0,
+        "letterSpacing": 0.10000000149011612,
+        "textAlign": "LEFT"
+      },
+      "fill": "#353535ff"
+    },
+    {
+      "nodeId": "913:11",
+      "figmaName": "Frame 42976",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 34.0,
+        "y": 610.0,
+        "width": 334.0,
+        "height": 29.0
+      }
+    },
+    {
+      "nodeId": "913:57",
+      "figmaName": "Component 4",
+      "type": "INSTANCE",
+      "rect": {
+        "x": 34.0,
+        "y": 615.0,
+        "width": 141.0,
+        "height": 20.0
+      }
+    },
+    {
+      "nodeId": "I913:57;902:2",
+      "figmaName": "Rectangle 9",
+      "type": "SHAPE",
+      "rect": {
+        "x": 34.0,
+        "y": 615.0,
+        "width": 141.0,
+        "height": 20.0
+      },
+      "fill": "#3535350d",
+      "cornerRadius": 4.0
+    },
+    {
+      "nodeId": "I913:57;902:4",
+      "figmaName": "Frame 42981",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 40.0,
+        "y": 617.5,
+        "width": 129.0,
+        "height": 15.0
+      }
+    },
+    {
+      "nodeId": "I913:57;902:5",
+      "figmaName": "fi_879757",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 40.0,
+        "y": 618.0,
+        "width": 14.0,
+        "height": 14.0
+      }
+    },
+    {
+      "nodeId": "I913:57;902:6",
+      "figmaName": "Group",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 40.28125,
+        "y": 618.0,
+        "width": 13.433523178100586,
+        "height": 14.000080108642578
+      }
+    },
+    {
+      "nodeId": "I913:57;902:7",
+      "figmaName": "Group",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 40.28125,
+        "y": 618.0,
+        "width": 13.433523178100586,
+        "height": 14.000080108642578
+      }
+    },
+    {
+      "nodeId": "I913:57;902:9",
+      "figmaName": "Group",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 43.9296875,
+        "y": 621.9296875,
+        "width": 6.136437892913818,
+        "height": 6.136462211608887
+      }
+    },
+    {
+      "nodeId": "I913:57;902:10",
+      "figmaName": "Group",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 43.9296875,
+        "y": 621.9296875,
+        "width": 6.136437892913818,
+        "height": 6.136462211608887
+      }
+    },
+    {
+      "nodeId": "I913:57;902:12",
+      "figmaName": "Group",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 43.90625,
+        "y": 621.3671875,
+        "width": 2.9607090950012207,
+        "height": 2.9607090950012207
+      }
+    },
+    {
+      "nodeId": "I913:57;902:13",
+      "figmaName": "Group",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 43.90625,
+        "y": 621.3671875,
+        "width": 2.9607090950012207,
+        "height": 2.9607090950012207
+      }
+    },
+    {
+      "nodeId": "I913:57;902:15",
+      "figmaName": "Group",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 47.1328125,
+        "y": 625.671875,
+        "width": 2.960709571838379,
+        "height": 2.960709571838379
+      }
+    },
+    {
+      "nodeId": "I913:57;902:16",
+      "figmaName": "Group",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 47.1328125,
+        "y": 625.671875,
+        "width": 2.960709571838379,
+        "height": 2.960709571838379
+      }
+    },
+    {
+      "nodeId": "I913:57;902:1",
+      "figmaName": "10% Off upto ₹50",
+      "type": "TEXT",
+      "rect": {
+        "x": 60.0,
+        "y": 617.5,
+        "width": 109.0,
+        "height": 15.0
+      },
+      "text": "10% Off upto ₹50",
+      "typography": {
+        "fontFamily": "Poppins",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "lineHeight": 15.0,
+        "letterSpacing": 0.10000000149011612,
+        "textAlign": "LEFT"
+      },
+      "fill": "#a83b3bff"
+    },
+    {
+      "nodeId": "913:58",
+      "figmaName": "Component 4",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 34.0,
+        "y": 649.0,
+        "width": 75.0,
+        "height": 20.0
+      },
+      "fill": "#35353500",
+      "cornerRadius": 4.0
+    },
+    {
+      "nodeId": "913:59",
+      "figmaName": "Rectangle 9",
+      "type": "SHAPE",
+      "rect": {
+        "x": 34.0,
+        "y": 649.0,
+        "width": 75.0,
+        "height": 20.0
+      },
+      "cornerRadius": 4.0
+    },
+    {
+      "nodeId": "913:60",
+      "figmaName": "Frame 42981",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 34.0,
+        "y": 651.5,
+        "width": 69.0,
+        "height": 15.0
+      }
+    },
+    {
+      "nodeId": "913:61",
+      "figmaName": "exercise",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 34.0,
+        "y": 653.0,
+        "width": 12.0,
+        "height": 12.0
+      }
+    },
+    {
+      "nodeId": "913:62",
+      "figmaName": "Bounding box",
+      "type": "SHAPE",
+      "rect": {
+        "x": 34.0,
+        "y": 653.0,
+        "width": 12.0,
+        "height": 12.0
+      },
+      "fill": "#d9d9d9ff"
+    },
+    {
+      "nodeId": "913:64",
+      "figmaName": "30Cal/gm",
+      "type": "TEXT",
+      "rect": {
+        "x": 49.0,
+        "y": 651.5,
+        "width": 54.0,
+        "height": 15.0
+      },
+      "text": "30Cal/gm",
+      "typography": {
+        "fontFamily": "Poppins",
+        "fontSize": 10.0,
+        "fontWeight": 500,
+        "lineHeight": 15.0,
+        "letterSpacing": 0.10000000149011612,
+        "textAlign": "LEFT"
+      },
+      "fill": "#5da367ff"
+    },
+    {
+      "nodeId": "913:12",
+      "figmaName": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "semanticId": "product.description",
+      "type": "TEXT",
+      "rect": {
+        "x": 34.0,
+        "y": 679.0,
+        "width": 281.0,
+        "height": 72.0
+      },
+      "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "typography": {
+        "fontFamily": "Poppins",
+        "fontSize": 12.0,
+        "fontWeight": 400,
+        "lineHeight": 18.0,
+        "letterSpacing": 0.10000000149011612,
+        "textAlign": "LEFT"
+      },
+      "fill": "#6f6f6fff"
+    },
+    {
+      "nodeId": "913:43",
+      "figmaName": "Logo",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 119.0,
+        "y": 946.0,
+        "width": 164.0,
+        "height": 164.0
+      }
+    },
+    {
+      "nodeId": "913:44",
+      "figmaName": "Group 43008",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 123.0,
+        "y": 957.4140625,
+        "width": 156.0,
+        "height": 141.0859375
+      }
+    },
+    {
+      "nodeId": "913:45",
+      "figmaName": "Group",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 150.0,
+        "y": 957.4140625,
+        "width": 101.6659927368164,
+        "height": 98.31401062011719
+      }
+    },
+    {
+      "nodeId": "913:52",
+      "figmaName": "Example Restaurant",
+      "type": "TEXT",
+      "rect": {
+        "x": 123.0,
+        "y": 1052.8359375,
+        "width": 156.0,
+        "height": 32.0
+      },
+      "text": "Example Restaurant",
+      "typography": {
+        "fontFamily": "Agu Display",
+        "fontSize": 21.1200008392334,
+        "fontWeight": 400,
+        "lineHeight": 31.68000030517578,
+        "letterSpacing": 0.0,
+        "textAlign": "CENTER"
+      },
+      "fill": "#2d3a4bff"
+    },
+    {
+      "nodeId": "913:53",
+      "figmaName": "Restaurant",
+      "type": "TEXT",
+      "rect": {
+        "x": 175.0,
+        "y": 1086.5,
+        "width": 52.0,
+        "height": 12.0
+      },
+      "text": "Restaurant",
+      "typography": {
+        "fontFamily": "Inter",
+        "fontSize": 10.0,
+        "fontWeight": 400,
+        "lineHeight": 12.102272033691406,
+        "letterSpacing": 0.0,
+        "textAlign": "CENTER"
+      },
+      "fill": "#2d3a4bff"
+    },
+    {
+      "nodeId": "913:74",
+      "figmaName": "Frame 43322",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 20.0,
+        "y": 783.0,
+        "width": 362.0,
+        "height": 60.0
+      },
+      "fill": "#ffffffff"
+    },
+    {
+      "nodeId": "913:89",
+      "figmaName": "event_list",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 30.0,
+        "y": 796.0,
+        "width": 34.0,
+        "height": 34.0
+      }
+    },
+    {
+      "nodeId": "913:87",
+      "figmaName": "Bounding box",
+      "type": "SHAPE",
+      "rect": {
+        "x": 30.0,
+        "y": 796.0,
+        "width": 34.0,
+        "height": 34.0
+      },
+      "fill": "#d9d9d9ff"
+    },
+    {
+      "nodeId": "913:75",
+      "figmaName": "arrow_forward_ios",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 346.9999992131925,
+        "y": 803.9999992131925,
+        "width": 18.000000786807504,
+        "height": 18.000000786807504
+      }
+    },
+    {
+      "nodeId": "913:76",
+      "figmaName": "Bounding box",
+      "type": "SHAPE",
+      "rect": {
+        "x": 346.9999992131925,
+        "y": 803.9999992131925,
+        "width": 18.000000786807504,
+        "height": 18.000000786807504
+      },
+      "fill": "#d9d9d9ff"
+    },
+    {
+      "nodeId": "913:78",
+      "figmaName": "Highlights",
+      "semanticId": "product.highlights_label",
+      "type": "TEXT",
+      "rect": {
+        "x": 74.0,
+        "y": 807.0,
+        "width": 69.0,
+        "height": 12.0
+      },
+      "text": "Highlights",
+      "typography": {
+        "fontFamily": "Poppins",
+        "fontSize": 14.0,
+        "fontWeight": 500,
+        "lineHeight": 12.0,
+        "letterSpacing": -0.28,
+        "textAlign": "LEFT"
+      },
+      "fill": "#2d3a4bff"
+    },
+    {
+      "nodeId": "913:79",
+      "figmaName": "Frame 43323",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 20.0,
+        "y": 842.0,
+        "width": 362.0,
+        "height": 60.0
+      },
+      "fill": "#ffffffff"
+    },
+    {
+      "nodeId": "913:86",
+      "figmaName": "newsstand",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 30.0,
+        "y": 855.0,
+        "width": 34.0,
+        "height": 34.0
+      }
+    },
+    {
+      "nodeId": "913:84",
+      "figmaName": "Bounding box",
+      "type": "SHAPE",
+      "rect": {
+        "x": 30.0,
+        "y": 855.0,
+        "width": 34.0,
+        "height": 34.0
+      },
+      "fill": "#d9d9d9ff"
+    },
+    {
+      "nodeId": "913:80",
+      "figmaName": "arrow_forward_ios",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 346.9999992131925,
+        "y": 862.9999992131925,
+        "width": 18.000000786807504,
+        "height": 18.000000786807504
+      }
+    },
+    {
+      "nodeId": "913:81",
+      "figmaName": "Bounding box",
+      "type": "SHAPE",
+      "rect": {
+        "x": 346.9999992131925,
+        "y": 862.9999992131925,
+        "width": 18.000000786807504,
+        "height": 18.000000786807504
+      },
+      "fill": "#d9d9d9ff"
+    },
+    {
+      "nodeId": "913:83",
+      "figmaName": "Information",
+      "semanticId": "product.information_label",
+      "type": "TEXT",
+      "rect": {
+        "x": 74.0,
+        "y": 866.0,
+        "width": 80.0,
+        "height": 12.0
+      },
+      "text": "Information",
+      "typography": {
+        "fontFamily": "Poppins",
+        "fontSize": 14.0,
+        "fontWeight": 500,
+        "lineHeight": 12.0,
+        "letterSpacing": -0.28,
+        "textAlign": "LEFT"
+      },
+      "fill": "#2d3a4bff"
+    },
+    {
+      "nodeId": "913:13",
+      "figmaName": "Group 42966",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 402.0,
+        "height": 117.0
+      }
+    },
+    {
+      "nodeId": "913:14",
+      "figmaName": "Rectangle 6",
+      "type": "SHAPE",
+      "rect": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 402.0,
+        "height": 57.0
+      },
+      "fill": "#baddd4ff"
+    },
+    {
+      "nodeId": "913:15",
+      "figmaName": "Group 42965",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 0.0,
+        "y": 57.0,
+        "width": 402.0,
+        "height": 60.0
+      }
+    },
+    {
+      "nodeId": "913:16",
+      "figmaName": "Rectangle 7",
+      "type": "SHAPE",
+      "rect": {
+        "x": 0.0,
+        "y": 57.0,
+        "width": 402.0,
+        "height": 60.0
+      },
+      "fill": "#fffaf5ff"
+    },
+    {
+      "nodeId": "913:17",
+      "figmaName": "Frame 42962",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 20.0,
+        "y": 81.0,
+        "width": 153.0,
+        "height": 26.0
+      },
+      "fill": "#fffaf5ff"
+    },
+    {
+      "nodeId": "913:18",
+      "figmaName": "Group 42979",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 20.0,
+        "y": 81.0,
+        "width": 153.0,
+        "height": 26.0
+      }
+    },
+    {
+      "nodeId": "913:54",
+      "figmaName": "arrow_left_alt",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 20.0,
+        "y": 83.0,
+        "width": 24.0,
+        "height": 24.0
+      }
+    },
+    {
+      "nodeId": "913:55",
+      "figmaName": "Bounding box",
+      "type": "SHAPE",
+      "rect": {
+        "x": 20.0,
+        "y": 83.0,
+        "width": 24.0,
+        "height": 24.0
+      },
+      "fill": "#d9d9d9ff"
+    },
+    {
+      "nodeId": "913:19",
+      "figmaName": "nonveg-Burger",
+      "type": "TEXT",
+      "rect": {
+        "x": 46.0,
+        "y": 81.0,
+        "width": 127.0,
+        "height": 24.0
+      },
+      "text": "nonveg-Burger",
+      "typography": {
+        "fontFamily": "Poppins",
+        "fontSize": 16.0,
+        "fontWeight": 600,
+        "lineHeight": 24.0,
+        "letterSpacing": 0.0,
+        "textAlign": "LEFT"
+      },
+      "fill": "#353535ff"
+    },
+    {
+      "nodeId": "913:67",
+      "figmaName": "Frame 43023",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 270.0,
+        "y": 77.0,
+        "width": 122.0,
+        "height": 34.0
+      }
+    },
+    {
+      "nodeId": "913:68",
+      "figmaName": "Group 43003",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 358.0,
+        "y": 77.0,
+        "width": 34.0,
+        "height": 34.0
+      }
+    },
+    {
+      "nodeId": "913:69",
+      "figmaName": "Rectangle 76294",
+      "type": "SHAPE",
+      "rect": {
+        "x": 358.0,
+        "y": 77.0,
+        "width": 34.0,
+        "height": 34.0
+      },
+      "fill": "#3535350d",
+      "cornerRadius": 7.0
+    },
+    {
+      "nodeId": "913:70",
+      "figmaName": "share",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 363.0,
+        "y": 82.0,
+        "width": 24.0,
+        "height": 24.0
+      }
+    },
+    {
+      "nodeId": "913:71",
+      "figmaName": "Bounding box",
+      "type": "SHAPE",
+      "rect": {
+        "x": 363.0,
+        "y": 82.0,
+        "width": 24.0,
+        "height": 24.0
+      },
+      "fill": "#d9d9d9ff"
+    },
+    {
+      "nodeId": "913:73",
+      "figmaName": "Rectangle 76294",
+      "type": "SHAPE",
+      "rect": {
+        "x": 314.0,
+        "y": 77.0,
+        "width": 34.0,
+        "height": 34.0
+      },
+      "fill": "#3535350d",
+      "cornerRadius": 7.0
+    },
+    {
+      "nodeId": "915:1",
+      "figmaName": "bookmark",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 319.0,
+        "y": 82.0,
+        "width": 24.0,
+        "height": 24.0
+      }
+    },
+    {
+      "nodeId": "915:2",
+      "figmaName": "Bounding box",
+      "type": "SHAPE",
+      "rect": {
+        "x": 319.0,
+        "y": 82.0,
+        "width": 24.0,
+        "height": 24.0
+      },
+      "fill": "#d9d9d9ff"
+    },
+    {
+      "nodeId": "913:20",
+      "figmaName": "Group 42977",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 0.0,
+        "y": 1104.0,
+        "width": 402.0,
+        "height": 94.0
+      }
+    },
+    {
+      "nodeId": "913:21",
+      "figmaName": "Frame 72",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 0.0,
+        "y": 1104.0,
+        "width": 402.0,
+        "height": 94.0
+      }
+    },
+    {
+      "nodeId": "913:22",
+      "figmaName": "Rectangle 90",
+      "type": "SHAPE",
+      "rect": {
+        "x": 0.0,
+        "y": 1104.0,
+        "width": 402.0,
+        "height": 94.0
+      }
+    },
+    {
+      "nodeId": "913:23",
+      "figmaName": "Rectangle 21",
+      "type": "SHAPE",
+      "rect": {
+        "x": 16.0,
+        "y": 1120.0,
+        "width": 370.0,
+        "height": 66.0
+      },
+      "fill": "#6ec8b1ff",
+      "cornerRadius": 100.0
+    },
+    {
+      "nodeId": "913:24",
+      "figmaName": "Frame 42980",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 250.0,
+        "y": 1130.0,
+        "width": 126.0,
+        "height": 46.0
+      }
+    },
+    {
+      "nodeId": "913:25",
+      "figmaName": "Group 42976",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 250.0,
+        "y": 1130.0,
+        "width": 126.0,
+        "height": 46.0
+      }
+    },
+    {
+      "nodeId": "913:26",
+      "figmaName": "Rectangle 19",
+      "type": "SHAPE",
+      "rect": {
+        "x": 250.0,
+        "y": 1130.0,
+        "width": 126.0,
+        "height": 46.0
+      },
+      "fill": "#ffffffff",
+      "cornerRadius": 38.0
+    },
+    {
+      "nodeId": "913:27",
+      "figmaName": "Customisable",
+      "type": "TEXT",
+      "rect": {
+        "x": 266.0,
+        "y": 1157.0,
+        "width": 93.0,
+        "height": 12.0
+      },
+      "text": "Customisable",
+      "typography": {
+        "fontFamily": "Montserrat",
+        "fontSize": 12.0,
+        "fontWeight": 500,
+        "lineHeight": 12.0,
+        "letterSpacing": -0.24,
+        "textAlign": "CENTER"
+      },
+      "fill": "#4b5d6cff"
+    },
+    {
+      "nodeId": "913:28",
+      "figmaName": "Add",
+      "semanticId": "product.add_to_cart",
+      "type": "TEXT",
+      "rect": {
+        "x": 293.0,
+        "y": 1138.0,
+        "width": 34.0,
+        "height": 12.0
+      },
+      "text": "Add",
+      "typography": {
+        "fontFamily": "Montserrat",
+        "fontSize": 16.0,
+        "fontWeight": 600,
+        "lineHeight": 12.0,
+        "letterSpacing": -0.32,
+        "textAlign": "CENTER"
+      },
+      "fill": "#6ec8b1ff"
+    },
+    {
+      "nodeId": "913:30",
+      "figmaName": "Line 8",
+      "type": "SHAPE",
+      "rect": {
+        "x": 138.99999798927456,
+        "y": 1130.0,
+        "width": 0.000002010725438594818,
+        "height": 46.0
+      }
+    },
+    {
+      "nodeId": "913:31",
+      "figmaName": "cart 1",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 39.0,
+        "y": 1140.0,
+        "width": 26.0,
+        "height": 26.0
+      }
+    },
+    {
+      "nodeId": "913:35",
+      "figmaName": "Ellipse 11",
+      "type": "SHAPE",
+      "rect": {
+        "x": 55.0,
+        "y": 1138.0,
+        "width": 14.0,
+        "height": 14.0
+      },
+      "fill": "#ff4c4cff"
+    },
+    {
+      "nodeId": "913:36",
+      "figmaName": "1",
+      "type": "TEXT",
+      "rect": {
+        "x": 60.0,
+        "y": 1139.0,
+        "width": 4.0,
+        "height": 12.0
+      },
+      "text": "1",
+      "typography": {
+        "fontFamily": "Montserrat",
+        "fontSize": 10.0,
+        "fontWeight": 500,
+        "lineHeight": 12.0,
+        "letterSpacing": -0.2,
+        "textAlign": "CENTER"
+      },
+      "fill": "#ffffffff"
+    },
+    {
+      "nodeId": "913:37",
+      "figmaName": "Group 42978",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 161.0,
+        "y": 1145.0,
+        "width": 67.0,
+        "height": 16.0
+      }
+    },
+    {
+      "nodeId": "913:38",
+      "figmaName": "icon-back-theme 1",
+      "type": "CONTAINER",
+      "rect": {
+        "x": 161.0,
+        "y": 1145.0,
+        "width": 16.0,
+        "height": 16.0
+      }
+    },
+    {
+      "nodeId": "913:41",
+      "figmaName": "Done",
+      "type": "TEXT",
+      "rect": {
+        "x": 184.0,
+        "y": 1147.0,
+        "width": 44.0,
+        "height": 12.0
+      },
+      "text": "Done",
+      "typography": {
+        "fontFamily": "Montserrat",
+        "fontSize": 16.0,
+        "fontWeight": 600,
+        "lineHeight": 12.0,
+        "letterSpacing": -0.32,
+        "textAlign": "CENTER"
+      },
+      "fill": "#ffffffff"
+    },
+    {
+      "nodeId": "913:42",
+      "figmaName": "₹90",
+      "semanticId": "product.cart_total",
+      "type": "TEXT",
+      "rect": {
+        "x": 83.0,
+        "y": 1147.0,
+        "width": 32.0,
+        "height": 12.0
+      },
+      "text": "₹90",
+      "typography": {
+        "fontFamily": "Montserrat",
+        "fontSize": 16.0,
+        "fontWeight": 600,
+        "lineHeight": 12.0,
+        "letterSpacing": -0.32,
+        "textAlign": "CENTER"
+      },
+      "fill": "#ffffffff"
+    }
+  ]
+}
