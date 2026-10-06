@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
-import 'package:flutter_testsmith_figma/flutter_testsmith_figma.dart';
+import 'package:flutter_testsmith/figma.dart';
 import 'package:flutter_testsmith/engine.dart';
 
 import '../dotenv.dart';

@@ -21,7 +21,7 @@
 //
 // Every case below is a document a person could plausibly leave in that
 // directory. None of them may be an `Error`.
-import 'package:flutter_testsmith_figma/flutter_testsmith_figma.dart';
+import 'package:flutter_testsmith/figma.dart';
 import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
 import 'package:test/test.dart';
 

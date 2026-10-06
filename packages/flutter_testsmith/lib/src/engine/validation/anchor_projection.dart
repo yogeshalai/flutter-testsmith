@@ -1,4 +1,4 @@
-import 'package:flutter_testsmith_figma/flutter_testsmith_figma.dart';
+import 'package:flutter_testsmith/figma.dart';
 import 'package:meta/meta.dart';
 
 /// One axis of a box: where it starts, and how long it is.

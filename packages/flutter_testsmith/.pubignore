@@ -1,10 +1,10 @@
 # Kept in the repository, left out of the published archive.
 #
-# This test reads a Figma fixture from another package by a relative path
-# that does not exist in a published archive. It runs from the
-# repository only.
-#
 # .gitignore at the repository root still applies; this file only adds.
+
+# This test reads the Figma component's fixture (test/figma/fixtures/,
+# excluded below), so it cannot run from a published archive. It runs
+# from the repository only.
 test/sdk/figma_defect_matrix_test.dart
 
 # test/engine/fixtures/external/ holds UI trees captured from an external
@@ -14,3 +14,14 @@ test/sdk/figma_defect_matrix_test.dart
 test/engine/fixtures/external/
 test/engine/external_app_tree_test.dart
 test/engine/ui_property_resolution_test.dart
+
+# The Figma fixtures keep the geometry, typography and structure of a real
+# Figma frame; identifying names and text, node ids and keys are
+# synthetic. The published package does not need them, and the tests
+# listed below read them and cannot run without them. (Moved here with
+# the Figma component, ADR-0011.)
+test/figma/fixtures/
+test/figma/layout_semantics_test.dart
+test/figma/login_normalisation_test.dart
+test/figma/normaliser_test.dart
+test/figma/token_redaction_test.dart

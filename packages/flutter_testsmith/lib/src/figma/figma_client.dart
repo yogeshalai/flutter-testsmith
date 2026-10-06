@@ -114,8 +114,8 @@ class FigmaClient {
     required String token,
     FigmaHttp? http,
     Directory? cacheDirectory,
-  })  : _token = token,
-        _cacheDirectory = cacheDirectory,
+  })  : _token = token, // ignore: prefer_initializing_formals
+        _cacheDirectory = cacheDirectory, // ignore: prefer_initializing_formals
         _http = http ?? const _RealFigmaHttp();
 
   // Fields are private, so initialising formals cannot be used with

@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:ai_client/ai_client.dart';
 import 'package:args/command_runner.dart';
-import 'package:flutter_testsmith_figma/flutter_testsmith_figma.dart';
+import 'package:flutter_testsmith/figma.dart';
 import 'package:flutter_testsmith/engine.dart';
 
 import '../device_selection.dart';

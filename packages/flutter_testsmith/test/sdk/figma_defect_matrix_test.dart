@@ -4,7 +4,7 @@ library;
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter_testsmith_figma/flutter_testsmith_figma.dart';
+import 'package:flutter_testsmith/figma.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_testsmith/engine.dart';
@@ -51,10 +51,9 @@ nodes:
 ''';
 
 /// The real captured response. Single source of truth: the same file
-/// `flutter_testsmith_figma`'s own tests read, rather than a second copy
-/// that could drift from it.
-const String _fixturePath =
-    '../../integrations/flutter_testsmith_figma/test/fixtures/login_node.json';
+/// the Figma component's own tests (test/figma/) read, rather than a
+/// second copy that could drift from it.
+const String _fixturePath = 'test/figma/fixtures/login_node.json';
 
 FigmaScreenSpec _spec() => const FigmaNormaliser().normalise(
   jsonDecode(File(_fixturePath).readAsStringSync()) as Map<String, Object?>,

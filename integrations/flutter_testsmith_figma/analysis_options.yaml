@@ -1,7 +1,0 @@
-include: ../../analysis_options.yaml
-
-linter:
-  rules:
-    # Fields here are private while the constructor parameters are
-    # public, so an initialising formal would expose the private name.
-    prefer_initializing_formals: false

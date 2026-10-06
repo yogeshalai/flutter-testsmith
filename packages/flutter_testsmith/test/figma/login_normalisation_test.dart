@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter_testsmith_figma/flutter_testsmith_figma.dart';
+import 'package:flutter_testsmith/figma.dart';
 import 'package:test/test.dart';
 
 /// A `Login` frame captured from `GET /v1/files/{key}/nodes?ids=909:1`.
@@ -15,7 +15,7 @@ import 'package:test/test.dart';
 /// Every number asserted below was read out of this response, not chosen
 /// to make a comparison work.
 Map<String, Object?> loadLogin() => jsonDecode(
-      File('test/fixtures/login_node.json').readAsStringSync(),
+      File('test/figma/fixtures/login_node.json').readAsStringSync(),
     ) as Map<String, Object?>;
 
 FigmaScreenSpec normaliseLogin({FigmaNodeMapping? mapping}) =>

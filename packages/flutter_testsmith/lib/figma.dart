@@ -5,8 +5,8 @@
 /// no design is available.
 library;
 
-export 'src/figma_spec.dart';
-export 'src/layout_semantics.dart';
-export 'src/node_mapping.dart';
-export 'src/normaliser.dart';
-export 'src/figma_client.dart';
+export 'src/figma/figma_spec.dart';
+export 'src/figma/layout_semantics.dart';
+export 'src/figma/node_mapping.dart';
+export 'src/figma/normaliser.dart';
+export 'src/figma/figma_client.dart';

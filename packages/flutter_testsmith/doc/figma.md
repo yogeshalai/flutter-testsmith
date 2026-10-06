@@ -1,35 +1,42 @@
-# flutter_testsmith_figma
+# The Figma component (`package:flutter_testsmith/figma.dart`)
 
 Fetches Figma frames and normalises them into a `FigmaScreenSpec`: a
 design specification Flutter Testsmith can compare a running Flutter
 screen against for structure, element kind, geometry, order, typography
 and colour.
 
+Until ADR-0011 it was its own package, `flutter_testsmith_figma`. It now
+lives in `lib/src/figma/` of `flutter_testsmith`, and this page was that
+package's README.
+
 It is the design side of that comparison and nothing else. It knows the
 Figma REST API and the shape of a design. The comparison itself, scaling
-a design to a device and deciding pass or fail, belongs to
-`flutter_testsmith_engine`. Most people use this package through
-`testsmith figma pull` in `flutter_testsmith` rather than directly.
+a design to a device and deciding pass or fail, belongs to the engine
+(`package:flutter_testsmith/engine.dart`). Most people use it through
+`testsmith figma pull` rather than directly.
 
-> Developed as `figma_client`. That name is owned on pub.dev by an
-> unrelated package, so this one is published as
-> `flutter_testsmith_figma`. The Dart API is unchanged.
+> Developed as `figma_client`, a name owned on pub.dev by an unrelated
+> package, then as `flutter_testsmith_figma`. The Dart API
+> (`FigmaClient`, `FigmaNormaliser`, `FigmaScreenSpec`,
+> `FigmaNodeMapping`) is unchanged by either rename.
 
 ## Installation
 
-```yaml
-dependencies:
-  flutter_testsmith_figma: ^0.1.0
+It comes with `flutter_testsmith`; there is nothing extra to add:
+
+```dart
+import 'package:flutter_testsmith/figma.dart';
 ```
 
-Pure Dart; no Flutter dependency.
+Pure Dart: its code never imports Flutter (rule B in
+`scripts/check_dependencies.dart`).
 
 ## Usage
 
 ```dart
 import 'dart:io';
 
-import 'package:flutter_testsmith_figma/flutter_testsmith_figma.dart';
+import 'package:flutter_testsmith/figma.dart';
 
 Future<void> main() async {
   final target = FigmaTarget.parseUrl(

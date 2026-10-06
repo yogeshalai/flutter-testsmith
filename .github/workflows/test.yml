@@ -54,9 +54,12 @@ jobs:
         run: dart test test/cli
         working-directory: packages/flutter_testsmith
 
-      - name: flutter_testsmith_figma
-        run: dart test
-        working-directory: integrations/flutter_testsmith_figma
+      - name: figma (flutter_testsmith/lib/src/figma)
+        # Plain Dart tests inside the Flutter package (ADR-0011). The live
+        # Figma API tests carry the `network` tag and skip without
+        # credentials.
+        run: dart test test/figma
+        working-directory: packages/flutter_testsmith
 
       - name: ai_client
         run: dart test

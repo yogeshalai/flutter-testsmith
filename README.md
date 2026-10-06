@@ -590,7 +590,7 @@ which parses perfectly and fails only once someone runs it on a device.
 | `packages/flutter_testsmith/lib/src/engine` | The engine: transport, device control, session and API correlation, element lookup. Part of `flutter_testsmith` since ADR-0011, imported as `package:flutter_testsmith/engine.dart`. **Its code never imports Flutter.** |
 | `packages/flutter_testsmith/lib/src/cli` | The `testsmith` binary (`bin/testsmith.dart`, run as `dart run flutter_testsmith:testsmith`). Argument parsing and formatting only. Part of `flutter_testsmith` since ADR-0011. |
 | `examples/ecommerce_app` | Seven-screen example: login, home, products, product details, cart, checkout, order success. Every screen has loading, error, empty and data states, null-tolerant parsing, and conditional sections. Product Details implements the `Product Details` Figma frame, expressing its margins as fractions of the 402pt design width so the layout projects onto any device exactly. |
-| `integrations/flutter_testsmith_figma` | Figma REST client and design normalisation into a comparable spec. |
+| `packages/flutter_testsmith/lib/src/figma` | Figma REST client and design normalisation into a comparable spec, imported as `package:flutter_testsmith/figma.dart`. Part of `flutter_testsmith` since ADR-0011. |
 | `integrations/ai_client` | Provider-agnostic chat completions. Knows nothing about testing, so the provider is a config value. |
 
 ## Adding the SDK to an app

@@ -50,17 +50,17 @@ in git history before that date.
 Eleven CLI commands: `auth`, `doctor`, `devices`, `figma`, `generate`,
 `impact`, `inspect`, `preflight`, `run`, `smoke`, `suite`.
 
-Four packages plus the example application, all workspace members:
+Three packages plus the example application, all workspace members:
 `flutter_testsmith_protocol`; `flutter_testsmith` (the SDK, and since
-ADR-0011 steps 2 and 3 the engine at `lib/src/engine/` and the CLI at
-`lib/src/cli/` with `bin/testsmith.dart`); `integrations/flutter_testsmith_figma`;
+ADR-0011 steps 2 to 4 the engine at `lib/src/engine/`, the CLI at
+`lib/src/cli/` with `bin/testsmith.dart`, and Figma at `lib/src/figma/`);
 `integrations/ai_client`; `examples/ecommerce_app`.
 
 The Figma integration was named `figma_client` until pub.dev release
 preparation found that name owned by an unrelated package. Milestone
 reports and evidence written before the rename keep the old name.
 
-The Figma fixtures in `integrations/flutter_testsmith_figma/test/fixtures/`
+The Figma fixtures in `flutter_testsmith/test/figma/fixtures/`
 and the device captures in `flutter_testsmith/test/engine/fixtures/external/`
 keep the geometry, typography, colour and structure of what was captured,
 along with Figma's auto-generated layer names and generic UI copy. Every
@@ -191,7 +191,7 @@ pending. Do not resolve one silently.
   components ([ADR-0011](adr/0011-single-published-package.md)), because
   pub.dev refuses a published package whose dependencies it cannot serve.
   Migration in progress. Engine: migrated (step 2). CLI: migrated
-  (step 3). Figma: not migrated. AI: not migrated. Protocol: not
+  (step 3). Figma: migrated (step 4). AI: not migrated. Protocol: not
   migrated. They move in that order (ADR-0011, "Correction to the
   order"). Until it finishes, every package declares
   `publish_to: none`. `scripts/check_dependencies.dart` already

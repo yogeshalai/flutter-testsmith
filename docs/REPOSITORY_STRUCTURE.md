@@ -136,12 +136,16 @@ boundary. A command file that grows logic is a smell to be pushed down.
 
 ```
 integrations/
-├── flutter_testsmith_figma/   # REST client, normalised FigmaScreenSpec, response cache
 └── ai_client/                 # Claude client, prompt templates, strict output contracts
 ```
 
-Separate from `packages/` because both are **optional** and both talk to
-external paid services. Keeping them out of the core dependency graph means
+The Figma integration lived here as `flutter_testsmith_figma` until
+ADR-0011 step 4; it is now `packages/flutter_testsmith/lib/src/figma/`
+(REST client, normalised FigmaScreenSpec, response cache), imported as
+`package:flutter_testsmith/figma.dart`, with its tests in `test/figma/`.
+
+Separate from `packages/` because both integrations were **optional** and
+both talk to external paid services. Keeping them out of the core dependency graph means
 the platform builds, tests and runs with neither configured.
 
 ---

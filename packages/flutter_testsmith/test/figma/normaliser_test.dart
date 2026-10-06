@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter_testsmith_figma/flutter_testsmith_figma.dart';
+import 'package:flutter_testsmith/figma.dart';
 import 'package:test/test.dart';
 
 /// The real `Product Details` frame, fetched from Figma.
@@ -17,7 +17,7 @@ import 'package:test/test.dart';
 /// `thumbnailUrl` - a presigned S3 link carrying AWS credential
 /// material - with an `example.invalid` URL; nothing reads it.
 Map<String, Object?> loadFixture() => jsonDecode(
-      File('test/fixtures/product_details_node.json').readAsStringSync(),
+      File('test/figma/fixtures/product_details_node.json').readAsStringSync(),
     ) as Map<String, Object?>;
 
 FigmaScreenSpec normalise({FigmaNodeMapping? mapping}) =>

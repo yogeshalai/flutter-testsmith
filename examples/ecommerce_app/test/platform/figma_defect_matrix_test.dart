@@ -5,7 +5,7 @@ import 'package:ecommerce_app/api/models.dart';
 import 'package:ecommerce_app/product_details_screen.dart'
     show ProductDetailsScreen;
 import 'package:ecommerce_app/screens/checkout_screen.dart';
-import 'package:flutter_testsmith_figma/flutter_testsmith_figma.dart';
+import 'package:flutter_testsmith/figma.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_testsmith/engine.dart';
 import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';

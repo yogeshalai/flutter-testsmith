@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter_testsmith_figma/flutter_testsmith_figma.dart';
+import 'package:flutter_testsmith/figma.dart';
 import 'package:test/test.dart';
 
 /// What the real Login frame says about how each element resizes.
@@ -14,7 +14,7 @@ import 'package:test/test.dart';
 ///
 /// Every expectation below was read out of the response.
 Map<String, Object?> loadLogin() => jsonDecode(
-      File('test/fixtures/login_node.json').readAsStringSync(),
+      File('test/figma/fixtures/login_node.json').readAsStringSync(),
     ) as Map<String, Object?>;
 
 FigmaScreenSpec spec() => const FigmaNormaliser()

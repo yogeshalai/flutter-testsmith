@@ -17,7 +17,7 @@
 // commands now share, and that the suite actually calls them.
 import 'dart:io';
 
-import 'package:flutter_testsmith_figma/flutter_testsmith_figma.dart';
+import 'package:flutter_testsmith/figma.dart';
 import 'package:test/test.dart';
 import 'package:flutter_testsmith/src/cli/figma_source_resolver.dart';
 import 'package:flutter_testsmith/engine.dart';

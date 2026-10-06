@@ -19,14 +19,15 @@ dependencies:
   meta: ^1.15.0
   flutter_testsmith_protocol: ^0.1.1
 
-  # The engine and CLI components' dependencies (lib/src/engine,
-  # lib/src/cli, ADR-0011). The application under test never links them:
-  # nothing reachable from lib/flutter_testsmith.dart imports engine or
-  # CLI code, which scripts/check_dependencies.dart enforces as rule A.
-  # The two workspace members leave this list when they move in too.
+  # The engine, CLI and Figma components' dependencies (lib/src/engine,
+  # lib/src/cli, lib/src/figma, ADR-0011). The application under test
+  # never links them: nothing reachable from lib/flutter_testsmith.dart
+  # imports engine, CLI or Figma code, which
+  # scripts/check_dependencies.dart enforces as rule A. ai_client leaves
+  # this list when it moves in too; the Figma component also uses
+  # flutter_testsmith_protocol, declared above.
   ai_client: ^0.1.0
   args: ^2.6.0
-  flutter_testsmith_figma: ^0.1.0
   image: ^4.9.2
   vm_service: ^15.0.0
   yaml: ^3.1.2

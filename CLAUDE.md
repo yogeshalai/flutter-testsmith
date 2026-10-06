@@ -25,7 +25,7 @@ status, in order:
 |---|---|
 | Engine | migrated: `lib/src/engine/`, public `lib/engine.dart` |
 | CLI | migrated: `lib/src/cli/`, executable `bin/testsmith.dart` (`dart run flutter_testsmith:testsmith`) |
-| Figma | not migrated (still `integrations/flutter_testsmith_figma`) |
+| Figma | migrated: `lib/src/figma/`, public `lib/figma.dart` |
 | AI | not migrated (still `integrations/ai_client`) |
 | Protocol | not migrated (still `packages/flutter_testsmith_protocol`); moves last |
 
@@ -148,7 +148,7 @@ dart analyze --fatal-infos
 cd packages/flutter_testsmith_protocol && dart test
 cd packages/flutter_testsmith          && dart test test/engine
 cd packages/flutter_testsmith          && dart test test/cli
-cd integrations/flutter_testsmith_figma && dart test
+cd packages/flutter_testsmith          && dart test test/figma
 cd integrations/ai_client              && dart test
 cd packages/flutter_testsmith          && flutter test test/sdk
 cd examples/ecommerce_app              && flutter test
@@ -198,7 +198,7 @@ dart test test/                             # from the repository root
 | Concern | Rule |
 |---|---|
 | Line endings | LF, enforced by `.gitattributes`. Windows host: count bytes and trust `git diff --check`; `awk` and `grep` mis-measure CR here. |
-| Public surface | At most one barrel per component; `src/` is private. In `flutter_testsmith` that is `lib/flutter_testsmith.dart` (the SDK) and `lib/engine.dart`; the CLI has no public library, only the `testsmith` executable (ADR-0011). A still-separate package has one barrel |
+| Public surface | At most one barrel per component; `src/` is private. In `flutter_testsmith` that is `lib/flutter_testsmith.dart` (the SDK), `lib/engine.dart` and `lib/figma.dart`; the CLI has no public library, only the `testsmith` executable (ADR-0011). A still-separate package has one barrel |
 | Semantic test IDs | Dotted lowercase: `product.add_to_cart` |
 | Wire namespace | `ext.mytest.*` — **frozen deliberately**. Renaming a protocol is a protocol change (434a57f). |
 | Operator variables | `MYTEST_*` — also frozen; it is the operator's contract with their own shell and CI |
