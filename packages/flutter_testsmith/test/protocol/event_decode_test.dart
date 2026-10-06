@@ -21,7 +21,7 @@
 //
 // Refusing the second would break a legitimately compatible newer SDK.
 import 'package:test/test.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 Map<String, Object?> event({
   String? protocolVersion = '1.0',

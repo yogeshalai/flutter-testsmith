@@ -4,7 +4,7 @@ final Random _random = Random.secure();
 
 /// Generates a random RFC 4122 version 4 UUID.
 ///
-/// Hand-rolled rather than taking a dependency: `flutter_testsmith_protocol` and this SDK
+/// Hand-rolled rather than taking a dependency: the protocol and this SDK
 /// are linked into production applications, so every dependency added here
 /// becomes a dependency of every application under test.
 String generateUuidV4() {

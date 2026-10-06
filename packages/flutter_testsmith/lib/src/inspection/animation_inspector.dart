@@ -1,6 +1,6 @@
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 import '../identity/test_id.dart';
 

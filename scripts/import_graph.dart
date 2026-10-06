@@ -88,8 +88,13 @@ const String sdkEntry = '$publishedPackageDir/lib/flutter_testsmith.dart';
 /// The SDK has always lived in the published package, so it has no legacy
 /// location. Its destination is the whole of lib/: the longest matching
 /// entry wins, so lib/src/engine/ is the engine, not the SDK, and the
-/// planned public libraries lib/engine.dart, lib/figma.dart and
-/// lib/ai.dart belong to their components rather than to the SDK.
+/// public libraries lib/engine.dart, lib/figma.dart, lib/ai.dart and
+/// lib/protocol.dart belong to their components rather than to the SDK.
+///
+/// lib/protocol.dart was added with the protocol's move (ADR-0011 step 6):
+/// it is the protocol's barrel, the same file that was
+/// flutter_testsmith_protocol.dart, so components that import it reach
+/// protocol code - not the SDK, which a lib/ prefix match alone would say.
 const Map<Component, ComponentLayout> layouts = {
   Component.sdk: ComponentLayout(
     legacy: [],
@@ -97,7 +102,10 @@ const Map<Component, ComponentLayout> layouts = {
   ),
   Component.protocol: ComponentLayout(
     legacy: ['packages/flutter_testsmith_protocol/lib'],
-    destination: ['$publishedPackageDir/lib/src/protocol'],
+    destination: [
+      '$publishedPackageDir/lib/src/protocol',
+      '$publishedPackageDir/lib/protocol.dart',
+    ],
   ),
   Component.engine: ComponentLayout(
     legacy: ['packages/flutter_testsmith_engine/lib'],

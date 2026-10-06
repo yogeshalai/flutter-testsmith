@@ -17,6 +17,5 @@ dev_dependencies:
   yaml: ^3.1.2
 
 workspace:
-  - packages/flutter_testsmith_protocol
   - packages/flutter_testsmith
   - examples/ecommerce_app

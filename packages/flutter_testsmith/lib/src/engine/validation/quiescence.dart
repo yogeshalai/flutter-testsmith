@@ -1,5 +1,5 @@
 import 'package:meta/meta.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 /// One animation a screen says it expects to run for ever.
 ///

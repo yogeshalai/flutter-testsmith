@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 import 'capture/http_overrides_capture.dart';
 import 'capture/surface_capture.dart';

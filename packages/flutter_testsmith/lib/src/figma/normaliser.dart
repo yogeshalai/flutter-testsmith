@@ -1,4 +1,4 @@
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 import 'figma_client.dart';
 import 'figma_spec.dart';

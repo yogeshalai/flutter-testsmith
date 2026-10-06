@@ -90,6 +90,8 @@ void main() {
       expect(classify('packages/flutter_testsmith_engine/lib/src/a.dart'), Component.engine);
       expect(classify('packages/flutter_testsmith/lib/src/engine/a.dart'), Component.engine);
       expect(classify('packages/flutter_testsmith/lib/engine.dart'), Component.engine);
+      expect(classify('packages/flutter_testsmith/lib/protocol.dart'), Component.protocol);
+      expect(classify('packages/flutter_testsmith/lib/src/protocol/envelope.dart'), Component.protocol);
       expect(classify('packages/flutter_testsmith_cli/bin/testsmith.dart'), Component.cli);
       expect(classify('packages/flutter_testsmith/bin/testsmith.dart'), Component.cli);
       expect(classify('integrations/ai_client/lib/ai_client.dart'), Component.ai);

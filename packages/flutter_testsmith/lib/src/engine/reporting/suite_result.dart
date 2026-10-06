@@ -1,5 +1,5 @@
 import 'package:meta/meta.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 import '../device/device_profile.dart';
 import '../environment/preflight.dart';

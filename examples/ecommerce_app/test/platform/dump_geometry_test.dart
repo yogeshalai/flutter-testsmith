@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:ecommerce_app/screens/checkout_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 import 'harness.dart';
 

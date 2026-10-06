@@ -1,5 +1,5 @@
 import 'package:flutter_testsmith/figma.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 import 'anchor_projection.dart';
 import 'figma_projection.dart';

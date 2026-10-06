@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:test/test.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 /// The fixture files are the canonical wire format.
 ///
@@ -24,7 +24,7 @@ const List<String> fixtureNames = [
 ];
 
 Map<String, Object?> loadFixture(String name) {
-  final file = File('test/fixtures/$name.json');
+  final file = File('test/protocol/fixtures/$name.json');
   if (!file.existsSync()) {
     fail('Missing fixture: ${file.path}');
   }

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 import 'package:vm_service/vm_service.dart' as vm;
 import 'package:vm_service/vm_service_io.dart' as vm_io;
 
@@ -12,7 +12,7 @@ const String kEventStreamKind = 'mytest';
 /// Carries events and RPCs over the Dart VM Service.
 ///
 /// Deliberately thin: isolate selection lives in [selectSdkIsolate] and
-/// event decoding in `flutter_testsmith_protocol`, both unit tested. What remains here
+/// event decoding in the protocol (lib/src/protocol), both unit tested. What remains here
 /// needs a live VM Service and is covered by the on-device smoke test.
 class VmServiceTransport implements SdkTransport {
   VmServiceTransport({

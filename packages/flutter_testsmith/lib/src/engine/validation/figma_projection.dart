@@ -1,5 +1,5 @@
 import 'package:meta/meta.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 /// Maps a Figma frame's coordinate space onto the device's.
 ///

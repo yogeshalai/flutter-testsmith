@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 /// An event together with the order it reached the engine.
 class _Received {

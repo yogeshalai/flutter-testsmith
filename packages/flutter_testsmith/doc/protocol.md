@@ -1,8 +1,12 @@
-# flutter_testsmith_protocol
+# The protocol (`package:flutter_testsmith/protocol.dart`)
 
 The versioned wire contract of Flutter Testsmith, shared verbatim by the
-in-app SDK (`flutter_testsmith`) and the out-of-process engine
-(`flutter_testsmith_engine`).
+in-app SDK (`package:flutter_testsmith/flutter_testsmith.dart`) and the
+out-of-process engine (`package:flutter_testsmith/engine.dart`).
+
+Until ADR-0011 it was its own package, `flutter_testsmith_protocol`. It now
+lives in `lib/src/protocol/` of `flutter_testsmith`, and this page was that
+package's README. Its Dart API and the wire format are unchanged.
 
 It defines what crosses the Dart VM Service between an application under
 test and the machine testing it:
@@ -21,28 +25,26 @@ test and the machine testing it:
 
 ```
 application under test                      testing machine
-  flutter_testsmith  ──── VM Service ────  flutter_testsmith_engine
-          └──────── flutter_testsmith_protocol ────────┘
+  SDK (flutter_testsmith.dart) ── VM Service ── engine (engine.dart)
+          └──────────── protocol (protocol.dart) ────────────┘
+          all three inside the one package, flutter_testsmith
 ```
 
-This package is linked into applications through `flutter_testsmith`, so
-anything it depends on becomes a dependency of every application under
-test. It therefore depends on nothing but `meta`, and never on Flutter.
+The protocol is linked into applications through the SDK, so anything it
+reaches becomes part of every application under test. Its code therefore
+imports nothing but `meta` and `dart:convert`, and never Flutter
+(`scripts/check_dependencies.dart`, rule B).
 
-## Do you need to depend on it?
+## Do you need to import it?
 
-Usually not. `flutter_testsmith` re-exports this package in full, so an
-application adds `flutter_testsmith` and nothing else. Depend on it
-directly only if you are writing your own engine-side tooling that reads
-Testsmith events:
-
-```yaml
-dependencies:
-  flutter_testsmith_protocol: ^0.1.1
-```
+Usually not. The SDK library re-exports the protocol in full, so an
+application imports `package:flutter_testsmith/flutter_testsmith.dart` and
+nothing else. Import the protocol library on its own only if you are
+writing engine-side tooling that reads Testsmith events, where pulling in
+the SDK library (which needs Flutter) would be wrong:
 
 ```dart
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 void main() {
   final theirs = ProtocolVersion.parse('1.3');

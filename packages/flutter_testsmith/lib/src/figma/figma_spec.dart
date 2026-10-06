@@ -1,5 +1,5 @@
 import 'package:meta/meta.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 import 'layout_semantics.dart';
 
@@ -552,7 +552,7 @@ class FigmaScreenSpec {
 /// `{"a": 1}` in `<app>/figma` ended `run`, `suite run` and `preflight`
 /// with an unhandled exception and exit 255.
 ///
-/// The shape is `flutter_testsmith_protocol`'s `JsonMapReader`, which
+/// The shape is the protocol's `JsonMapReader` (lib/src/protocol), which
 /// answers the same question for the wire format, and every other parser
 /// in this package already raises `FormatException`. It is copied rather
 /// than shared because that one is deliberately not exported and raises
@@ -647,7 +647,7 @@ List<Object?> _list(Object? value, String what) {
 
 /// A [LogicalRect] from [json], reported as a problem with [field].
 ///
-/// The rectangle's shape belongs to `flutter_testsmith_protocol` and is
+/// The rectangle's shape belongs to the protocol (lib/src/protocol) and is
 /// read there: a second definition of x, y, width and height here would
 /// be a second answer to one question. What that one raises is
 /// `ProtocolFormatException`, which is not a `FormatException` and so

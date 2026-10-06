@@ -17,7 +17,7 @@
 // nobody can see is not one a reader could have meant.
 import 'package:test/test.dart';
 import 'package:flutter_testsmith/engine.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 const LogicalRect _box = LogicalRect(x: 100, y: 200, width: 120, height: 40);
 const LogicalRect _screen = LogicalRect(x: 0, y: 0, width: 400, height: 800);

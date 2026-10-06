@@ -50,11 +50,12 @@ in git history before that date.
 Eleven CLI commands: `auth`, `doctor`, `devices`, `figma`, `generate`,
 `impact`, `inspect`, `preflight`, `run`, `smoke`, `suite`.
 
-Two packages plus the example application, all workspace members:
-`flutter_testsmith_protocol`; `flutter_testsmith` (the SDK, and since
-ADR-0011 steps 2 to 5 the engine at `lib/src/engine/`, the CLI at
-`lib/src/cli/` with `bin/testsmith.dart`, Figma at `lib/src/figma/` and
-AI at `lib/src/ai/`); `examples/ecommerce_app`.
+One package plus the example application, both workspace members:
+`flutter_testsmith`, which since ADR-0011 holds the whole implementation
+(the SDK; the protocol at `lib/src/protocol/`; the engine at
+`lib/src/engine/`; the CLI at `lib/src/cli/` with `bin/testsmith.dart`;
+Figma at `lib/src/figma/`; AI at `lib/src/ai/`), and
+`examples/ecommerce_app`.
 
 The Figma integration was named `figma_client` until pub.dev release
 preparation found that name owned by an unrelated package. Milestone
@@ -186,15 +187,14 @@ pending. Do not resolve one silently.
 ## 6. Not in scope now
 
 - **Publishing to pub.dev** is decided, not performed. The product is
-  released as **one** package, `flutter_testsmith`. The other five
-  packages are not released on their own: they move inside it as
-  components ([ADR-0011](adr/0011-single-published-package.md)), because
-  pub.dev refuses a published package whose dependencies it cannot serve.
-  Migration in progress. Engine: migrated (step 2). CLI: migrated
-  (step 3). Figma: migrated (step 4). AI: migrated (step 5). Protocol: not
-  migrated. They move in that order (ADR-0011, "Correction to the
-  order"). Until it finishes, every package declares
-  `publish_to: none`. `scripts/check_dependencies.dart` already
+  released as **one** package, `flutter_testsmith`. The five packages it
+  used to depend on moved inside it as components
+  ([ADR-0011](adr/0011-single-published-package.md)), because pub.dev
+  refuses a published package whose dependencies it cannot serve.
+  Migration complete. Engine: migrated (step 2). CLI: migrated (step 3).
+  Figma: migrated (step 4). AI: migrated (step 5). Protocol: migrated
+  (step 6). `flutter_testsmith` still declares `publish_to: none` until
+  the release-readiness audit. `scripts/check_dependencies.dart` already
   enforces the import-graph form of the layering rules (A, B), and lists
   what still stands between the tree and a publishable package (C,
   pending). `--release` fails on anything pending. Releases are published

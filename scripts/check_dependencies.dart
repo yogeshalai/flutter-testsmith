@@ -11,8 +11,8 @@
 //      validation logic be unit tested in milliseconds without a Flutter
 //      harness. It is the single most valuable constraint in the layout.
 //
-//   3. The packages an external application consumes — flutter_testsmith and
-//      flutter_testsmith_protocol — must not reach back into this repository through a
+//   3. The package an external application consumes — flutter_testsmith, and
+//      before ADR-0011 flutter_testsmith_protocol too — must not reach back into this repository through a
 //      path or git dependency. An application that fetched them from a
 //      package repository cannot resolve such a dependency, which is
 //      finding E-01.

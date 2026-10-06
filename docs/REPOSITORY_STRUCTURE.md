@@ -35,30 +35,36 @@ sufficient for every package.
 
 ## packages/
 
-### `packages/flutter_testsmith_protocol/` - the contract
+### `packages/flutter_testsmith/lib/src/protocol/` - the contract
 
-Pure Dart. **Zero dependencies** other than `meta`. This constraint is
-deliberate: the package is linked into production applications through
-`flutter_testsmith`, so anything it depends on becomes a dependency of every app under
-test.
+Until ADR-0011 step 6 this was its own package, `flutter_testsmith_protocol`.
+It is now a component of `flutter_testsmith`, imported as
+`package:flutter_testsmith/protocol.dart` and re-exported by the SDK, with
+its tests in `packages/flutter_testsmith/test/protocol/`.
+
+Pure Dart. Its code reaches **nothing** but `meta` and `dart:convert`:
+rule B in `scripts/check_dependencies.dart` holds it to no Flutter, and
+`test/packaging_test.dart` holds it to no other component. This constraint is deliberate: the protocol is linked
+into production applications through the SDK, so anything it reaches
+becomes part of every app under test.
 
 ```
-flutter_testsmith_protocol/
+flutter_testsmith/
 ├── lib/
-│   ├── flutter_testsmith_protocol.dart        # barrel; the entire public surface
-│   └── src/
+│   ├── protocol.dart             # the protocol's barrel; its entire public surface
+│   └── src/protocol/
 │       ├── envelope.dart         # TestEvent, AppContext, EventType
 │       ├── payloads/             # one file per sealed payload subtype
 │       ├── handshake.dart        # HandshakeRequest/Response, version rules
 │       ├── version.dart          # protocolVersion constant + compatibility
 │       └── json.dart             # shared codec helpers
-└── test/
+└── test/protocol/
     ├── fixtures/                 # canonical JSON, asserted by BOTH sides
     └── *_test.dart
 ```
 
-`test/fixtures/` is load-bearing rather than incidental: the same files are
-asserted by `flutter_testsmith` and `flutter_testsmith_engine` tests, so a change that breaks one
+`test/protocol/fixtures/` is load-bearing rather than incidental: the same files are
+asserted by the SDK's and the engine's tests, so a change that breaks one
 side fails the other's suite. This is the primary defence against protocol
 drift.
 
@@ -199,8 +205,12 @@ scripts/
 ```
 
 `check_dependencies.dart` mechanically enforces the two invariants that
-matter: `flutter_testsmith` must not depend on `flutter_testsmith_engine`, and `flutter_testsmith_engine` must
-not depend on Flutter. Architectural rules that are only written down erode;
+matter, over the import graph of the one package (ADR-0011): nothing
+reachable from `lib/flutter_testsmith.dart` is engine, CLI, Figma or AI
+code, and the protocol, engine, CLI, Figma and AI code never reaches
+Flutter. (Before ADR-0011 they were stated as package dependencies:
+`flutter_testsmith` must not depend on `flutter_testsmith_engine`, and the
+engine must not depend on Flutter.) Architectural rules that are only written down erode;
 these two are worth a CI check.
 
 ---

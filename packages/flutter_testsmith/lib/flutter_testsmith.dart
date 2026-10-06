@@ -5,18 +5,19 @@
 /// entirely; see the gating discussion in ARCHITECTURE 9.2.
 library;
 
-// The protocol is re-exported, not merely depended on.
+// The protocol is re-exported, not merely imported.
 //
 // flutter_testsmith's own public API is written in protocol types: `initialize`
 // takes an `AppContext`, the tree inspector returns a `UiSnapshot`, the
-// channel carries a `TestEvent`. An application outside this monorepo adds
-// `flutter_testsmith` and nothing else, so any of those types it cannot name would
-// force it to declare an internal platform package of its own — which is
-// exactly the packaging failure this re-export removes.
+// channel carries a `TestEvent`. An application adds `flutter_testsmith` and
+// imports this one library, so every one of those types has to be nameable
+// from here. The protocol was a separate package until ADR-0011 and now
+// lives in lib/src/protocol; the re-export is what keeps it reachable from
+// the single app-side import either way.
 //
 // This also makes flutter_testsmith the single app-side surface: there is one
 // import for an application to write, and one package for it to version.
-export 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+export 'protocol.dart';
 
 export 'src/buffer/event_ring_buffer.dart';
 export 'src/capture/http_overrides_capture.dart';

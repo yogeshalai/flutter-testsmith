@@ -1,7 +1,9 @@
 # ADR-0011: One published package, `flutter_testsmith`; boundaries move from packages to imports
 
-**Status:** accepted (2026-10-06). Migration in progress. Engine: migrated.
-CLI: migrated. Figma: migrated. AI: migrated. Protocol: not migrated.
+**Status:** accepted (2026-10-06). Migration complete. Engine: migrated.
+CLI: migrated. Figma: migrated. AI: migrated. Protocol: migrated.
+`flutter_testsmith` is the only package; it keeps `publish_to: none` until the
+release-readiness audit.
 The migration order was corrected on 2026-10-06 (see "Correction to the
 order"), and so was the claim about global activation (see "Why the CLI can
 share the package").
@@ -69,7 +71,7 @@ rejects. **The components must live inside the published package.**
    | Component | Today | After the migration |
    |---|---|---|
    | SDK | `packages/flutter_testsmith/lib/` | unchanged |
-   | protocol | `packages/flutter_testsmith_protocol/lib/` | `lib/src/protocol/` |
+   | protocol | `packages/flutter_testsmith_protocol/lib/` | `lib/src/protocol/`, public `lib/protocol.dart` (added at step 6) |
    | engine | `packages/flutter_testsmith_engine/lib/` | `lib/src/engine/`, public `lib/engine.dart` |
    | CLI | `packages/flutter_testsmith_cli/{lib,bin}/` | `lib/src/cli/`, `bin/testsmith.dart` |
    | Figma | `integrations/flutter_testsmith_figma/lib/` | `lib/src/figma/`, public `lib/figma.dart` |
@@ -160,6 +162,14 @@ Flutter application outside the workspace that names only `flutter_testsmith`:
 - `package:flutter_testsmith/engine.dart`, `figma.dart` and `ai.dart`:
   component libraries replacing today's per-package barrels, for the
   example's validator matrices and anyone scripting the engine.
+- `package:flutter_testsmith/protocol.dart` (added at step 6): the protocol's
+  barrel, the former `flutter_testsmith_protocol.dart` with the same eleven
+  exports. The SDK re-exports it, so an application needs nothing more. The
+  engine, CLI and Figma import it directly, because they must not reach SDK
+  code. `scripts/import_graph.dart` classifies the file as protocol code for
+  the same reason it classifies `engine.dart` as engine code: without that
+  entry it would fall under the SDK's `lib/` prefix, and every component
+  importing it would read as reaching the SDK.
 - The `testsmith` executable: `dart run flutter_testsmith:testsmith`. Global
   activation also installs it, with the caveat above. The CLI's code lives under
   `lib/src/cli/` and is not public API: there is no `lib/cli.dart`.
@@ -183,7 +193,7 @@ the last. Nothing about the future layout is assumed to exist.
 | CLI moved (**done**) | enforced; `lib/src/cli/` and `bin/` are CLI code | enforced; CLI at its destination | 7: those three dependencies; three outside; `publish_to` |
 | Figma moved (**done**) | enforced; `lib/src/figma/` and `lib/figma.dart` are Figma code | enforced; Figma at its destination | 5: protocol and AI dependencies; two outside; `publish_to` |
 | AI moved (**done**) | enforced; `lib/src/ai/` and `lib/ai.dart` are AI code | enforced; AI at its destination | 3: protocol dependency; protocol outside; `publish_to` |
-| protocol moved | enforced; protocol under `lib/src/protocol/` | enforced | 1: `publish_to` only |
+| protocol moved (**done**) | enforced; `lib/src/protocol/` and `lib/protocol.dart` are protocol code | enforced; protocol at its destination | 1: `publish_to` only |
 | `publish_to` removed | enforced | enforced | nothing; `--release` passes |
 
 The pending count rises after the engine move, and that is correct: the engine
@@ -206,7 +216,7 @@ tests, the local registry, CI and the documentation.
 3. move the CLI; add `bin/testsmith.dart` and `executables:` (**done**);
 4. move Figma (**done**);
 5. move AI (**done**);
-6. move the protocol;
+6. move the protocol; add `lib/protocol.dart`, re-exported by the SDK (**done**);
 7. documentation, version, and `publish_to` removed from `flutter_testsmith`.
    `check_dependencies.dart --release` must pass.
 

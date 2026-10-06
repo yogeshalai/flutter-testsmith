@@ -19,7 +19,7 @@
 import 'package:test/test.dart';
 import 'package:flutter_testsmith/src/cli/flow_executor.dart';
 import 'package:flutter_testsmith/engine.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 const LogicalRect _box = LogicalRect(x: 0, y: 0, width: 120, height: 40);
 

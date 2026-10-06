@@ -79,7 +79,8 @@ Two consequences are load-bearing:
 
 SDK, protocol, engine and CLI are all Dart.
 
-The decisive reason is the protocol. `flutter_testsmith_protocol` is consumed **verbatim**
+The decisive reason is the protocol. The protocol (`lib/src/protocol`, the
+`flutter_testsmith_protocol` package until ADR-0011) is consumed **verbatim**
 by both the in-app SDK and the out-of-process runner: one definition of every
 event, with no mirrored models to drift apart. In a split-language stack the
 event schema must be hand-mirrored or code-generated across a language
@@ -128,12 +129,12 @@ class of version-skew problems for no loss of capability.
 
 ```
                     +-------------------------------+
-                    |  testsmith CLI  (flutter_testsmith_cli)       |
+                    |  testsmith CLI  (lib/src/cli) |
                     |  doctor / devices / run       |
                     +---------------+---------------+
                                     |
                     +---------------v---------------+
-                    |        flutter_testsmith_engine            |
+                    |   engine  (lib/src/engine)    |
                     |                               |
                     |  transport/   device/         |
                     |  session/     inspection/     |
@@ -145,11 +146,11 @@ class of version-skew problems for no loss of capability.
                          |                     |
    +---------------------v---------+  +--------v------------------+
    |   Flutter app (debug/profile) |  | Android device / emulator |
-   |   + flutter_testsmith                  |  | OS input, install, launch |
+   |   + flutter_testsmith (SDK)   |  | OS input, install, launch |
    |     nav observer              |  +---------------------------+
    |     ui inspector              |
    |     network capture           |        both sides share
-   |     ring buffer               |        ... flutter_testsmith_protocol ...
+   |     ring buffer               |        ... the protocol (lib/src/protocol) ...
    +-------------------------------+
 ```
 
@@ -157,13 +158,13 @@ class of version-skew problems for no loss of capability.
 
 > **Superseded in part by [ADR-0011](adr/0011-single-published-package.md)
 > (2026-10-06).** Only `flutter_testsmith` is published. The other
-> packages below move inside it as components, and the two invariants
-> at the end of this section are now enforced over the import graph as
-> well as the dependency graph. The topology below describes the
-> repository until that migration completes. The engine, the CLI,
-> Figma and AI have moved (`packages/flutter_testsmith/lib/src/engine/`,
-> `lib/src/cli/` with `bin/testsmith.dart`, `lib/src/figma/`,
-> `lib/src/ai/`); only the protocol has not.
+> packages below moved inside it as components, and the two invariants
+> at the end of this section are now enforced over the import graph. The topology below describes the
+> repository as it was before that migration, which is now complete:
+> every component is a directory of `packages/flutter_testsmith/`
+> (`lib/src/protocol/`, `lib/src/engine/`, `lib/src/cli/` with
+> `bin/testsmith.dart`, `lib/src/figma/`, `lib/src/ai/`). The dependency
+> arrows below hold as import-graph rules inside that one package.
 
 ```
 packages/

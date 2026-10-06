@@ -14,23 +14,24 @@ API request, API response, app state, widget tree, UI field values,
 Figma spec, screenshot, visual comparison, then AI *explanation*.
 
 **Current focus: architectural consistency and compatibility with
-Flutter projects this repository did not grow up with.** Users will get
-the product as **one** pub.dev package, `flutter_testsmith`. The other
-packages are moving inside it as components, and none of them is
-released on its own
-([ADR-0011](docs/adr/0011-single-published-package.md)). Migration
-status, in order:
+Flutter projects this repository did not grow up with.** The product is
+**one** package, `flutter_testsmith` (`packages/flutter_testsmith/`),
+which holds the whole implementation as components
+([ADR-0011](docs/adr/0011-single-published-package.md)). The five packages
+it used to depend on have all moved inside it:
 
 | Component | Status |
 |---|---|
+| SDK | `lib/flutter_testsmith.dart`, `lib/src/` (the app-side import) |
 | Engine | migrated: `lib/src/engine/`, public `lib/engine.dart` |
 | CLI | migrated: `lib/src/cli/`, executable `bin/testsmith.dart` (`dart run flutter_testsmith:testsmith`) |
 | Figma | migrated: `lib/src/figma/`, public `lib/figma.dart` |
 | AI | migrated: `lib/src/ai/`, public `lib/ai.dart` |
-| Protocol | not migrated (still `packages/flutter_testsmith_protocol`); moves last |
+| Protocol | migrated: `lib/src/protocol/`, public `lib/protocol.dart`, also re-exported by the SDK |
 
-Do not add further publishing, versioning or changelog machinery unless
-asked.
+It is not published yet: `publish_to: none` stays until the
+release-readiness audit. Do not add further publishing, versioning or
+changelog machinery unless asked.
 
 The current state of the work lives in one file:
 [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). It is the only document
@@ -55,11 +56,11 @@ checkout of this repository's `main`.
   updating the pubspec.
 - Commits are made as `yogeshalai <yogeshalai17@gmail.com>`, set in this
   repository's local git config.
-- All six packages declare `publish_to: none` until the migration in
-  ADR-0011 is finished. That is the rail against an accidental
-  `dart pub publish`. It is removed from `flutter_testsmith` alone, as the
-  last migration step, once `dart run scripts/check_dependencies.dart
-  --release` passes.
+- `flutter_testsmith` declares `publish_to: none`. That is the rail against
+  an accidental `dart pub publish`. The ADR-0011 migration is complete;
+  the rail comes off only at the release-readiness audit, and
+  `dart run scripts/check_dependencies.dart --release` fails until it
+  does (that `publish_to` line is the only item it still reports).
 
 ---
 
@@ -85,9 +86,9 @@ loud that you are changing it.
 
 | Invariant | Enforced by | Reasoning |
 |---|---|---|
-| The app under test must not link the testing brain: nothing reachable from `lib/flutter_testsmith.dart` imports engine, CLI, Figma or AI code (rule A). The package-level form, "`flutter_testsmith` never depends on `flutter_testsmith_engine`", is also checked while that package exists | `scripts/check_dependencies.dart` (CI step 1), rules in `scripts/import_graph.dart`, tests in `test/import_graph_test.dart` | ARCHITECTURE §6, ADR-0011 |
-| Protocol, engine, CLI, Figma and AI code never reaches Flutter: no `package:flutter`, `dart:ui`, Flutter-dependent package or SDK file in its import closure (rule B). Package-level form and the engine source scan also run while their packages exist | same script | ARCHITECTURE §6, ADR-0003, ADR-0011 |
-| `flutter_testsmith` and `flutter_testsmith_protocol` never path- or git-depend back into this repository | same script | docs/E-01 |
+| The app under test must not link the testing brain: nothing reachable from `lib/flutter_testsmith.dart` imports engine, CLI, Figma or AI code (rule A). Its package-level form, "`flutter_testsmith` never depends on `flutter_testsmith_engine`", retired with that package (ADR-0011) | `scripts/check_dependencies.dart` (CI step 1), rules in `scripts/import_graph.dart`, tests in `test/import_graph_test.dart` | ARCHITECTURE §6, ADR-0011 |
+| Protocol, engine, CLI, Figma and AI code never reaches Flutter: no `package:flutter`, `dart:ui`, Flutter-dependent package or SDK file in its import closure (rule B). Its package-level form retired with the packages; the engine source scan still runs over `lib/src/engine` | same script | ARCHITECTURE §6, ADR-0003, ADR-0011 |
+| `flutter_testsmith` never path- or git-depends back into this repository (until ADR-0011 the protocol package was held to this too) | same script | docs/E-01 |
 | The published package depends only on pub.dev and the Flutter SDK (rule C). A workspace-member dependency is *pending* during the migration; `--release` fails on anything pending | same script, `--release` | ADR-0011 |
 | No AI output can reach a pass/fail verdict | `flutter_testsmith/test/engine/ai_boundaries_test.dart` | ADR-0009 |
 | An unrecognised AI claim level parses to `hypothesis`, the weakest | `ai_boundaries_test.dart` | ADR-0009 |
@@ -145,7 +146,7 @@ dart pub get                                # one resolve, whole workspace
 dart run scripts/check_dependencies.dart    # the layering rules, first
 dart analyze --fatal-infos
 
-cd packages/flutter_testsmith_protocol && dart test
+cd packages/flutter_testsmith          && dart test test/protocol
 cd packages/flutter_testsmith          && dart test test/engine
 cd packages/flutter_testsmith          && dart test test/cli
 cd packages/flutter_testsmith          && dart test test/figma
@@ -198,7 +199,7 @@ dart test test/                             # from the repository root
 | Concern | Rule |
 |---|---|
 | Line endings | LF, enforced by `.gitattributes`. Windows host: count bytes and trust `git diff --check`; `awk` and `grep` mis-measure CR here. |
-| Public surface | At most one barrel per component; `src/` is private. In `flutter_testsmith` that is `lib/flutter_testsmith.dart` (the SDK), `lib/engine.dart`, `lib/figma.dart` and `lib/ai.dart`; the CLI has no public library, only the `testsmith` executable (ADR-0011). A still-separate package has one barrel |
+| Public surface | At most one barrel per component; `src/` is private. In `flutter_testsmith` that is `lib/flutter_testsmith.dart` (the SDK), `lib/engine.dart`, `lib/figma.dart`, `lib/ai.dart` and `lib/protocol.dart`; the CLI has no public library, only the `testsmith` executable (ADR-0011). A still-separate package has one barrel |
 | Semantic test IDs | Dotted lowercase: `product.add_to_cart` |
 | Wire namespace | `ext.mytest.*` — **frozen deliberately**. Renaming a protocol is a protocol change (434a57f). |
 | Operator variables | `MYTEST_*` — also frozen; it is the operator's contract with their own shell and CI |

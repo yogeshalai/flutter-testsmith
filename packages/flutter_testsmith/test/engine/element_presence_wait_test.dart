@@ -14,7 +14,7 @@
 // its deadline, and it never sleeps blindly.
 import 'package:test/test.dart';
 import 'package:flutter_testsmith/engine.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 UiSnapshot _snapshot({required bool withBody}) => UiSnapshot(
       screenId: '/home',

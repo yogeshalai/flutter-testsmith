@@ -29,18 +29,19 @@ jobs:
         run: dart pub get
 
       - name: Dependency rules
-        # The two constraints that hold the layout up: flutter_testsmith must not
-        # link the testing brain, and flutter_testsmith_engine must not depend on
-        # Flutter. Checked first, because a violation makes every later
-        # result less meaningful.
+        # The two constraints that hold the layout up, over the import graph
+        # of the one package (ADR-0011): nothing the application imports
+        # reaches the testing brain, and the engine, CLI, Figma, AI and
+        # protocol code never reaches Flutter. Checked first, because a
+        # violation makes every later result less meaningful.
         run: dart run scripts/check_dependencies.dart
 
       - name: Analyse
         run: dart analyze --fatal-infos
 
-      - name: flutter_testsmith_protocol
-        run: dart test
-        working-directory: packages/flutter_testsmith_protocol
+      - name: protocol (flutter_testsmith/lib/src/protocol)
+        run: dart test test/protocol
+        working-directory: packages/flutter_testsmith
 
       - name: engine (flutter_testsmith/lib/src/engine)
         # Plain Dart tests inside the Flutter package (ADR-0011). The engine's

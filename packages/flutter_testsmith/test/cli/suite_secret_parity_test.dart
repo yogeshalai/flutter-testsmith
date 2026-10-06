@@ -23,7 +23,7 @@ import 'package:test/test.dart';
 import 'package:flutter_testsmith/src/cli/dotenv.dart';
 import 'package:flutter_testsmith/src/cli/secrets/env_secret_resolver.dart';
 import 'package:flutter_testsmith/engine.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 /// Records what the acquirer resolved before issuing a request.
 class RecordingFetcher implements ApiFetcher {

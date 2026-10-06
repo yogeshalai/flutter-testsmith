@@ -50,9 +50,8 @@ dev_dependencies:
   # The fixture server comes with flutter_testsmith too, as the CLI
   # component's src/cli/mock_api_server.dart, so the API error matrix
   # exercises a real socket against the same scenario files a device run
-  # serves.
-
-  flutter_testsmith_protocol: ^0.1.0
+  # serves. So do the protocol types its tests name, through
+  # package:flutter_testsmith/protocol.dart.
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

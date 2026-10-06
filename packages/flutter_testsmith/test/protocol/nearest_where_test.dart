@@ -6,7 +6,7 @@
 // the text. Reading only the node the id names found nothing, so a
 // credential's delivery was never actually verified.
 import 'package:test/test.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 const LogicalRect _rect = LogicalRect(x: 0, y: 0, width: 100, height: 40);
 

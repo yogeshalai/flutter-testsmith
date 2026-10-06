@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 /// Round-trips a payload through the wire form the envelope would use.
 EventPayload roundTrip(EventPayload payload) =>

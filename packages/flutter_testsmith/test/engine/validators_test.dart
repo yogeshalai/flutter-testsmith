@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 import 'package:flutter_testsmith/engine.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 const LogicalRect anyRect =
     LogicalRect(x: 0, y: 0, width: 100, height: 20);

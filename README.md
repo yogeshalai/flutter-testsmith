@@ -581,17 +581,31 @@ references are **checked against ids that actually exist**. The first real
 batch expected screen `product_details` where the id is `/product/details` —
 which parses perfectly and fails only once someone runs it on a device.
 
-## Packages
+## Package layout
 
-| Package | Purpose |
-|---|---|
-| `packages/flutter_testsmith_protocol` | Versioned event and handshake contract. No dependency beyond `meta`, because it is linked into apps under test. |
-| `packages/flutter_testsmith` | In-app instrumentation: session, navigation, semantic test ids, UI tree inspection, network capture, redaction, production gating. |
-| `packages/flutter_testsmith/lib/src/engine` | The engine: transport, device control, session and API correlation, element lookup. Part of `flutter_testsmith` since ADR-0011, imported as `package:flutter_testsmith/engine.dart`. **Its code never imports Flutter.** |
-| `packages/flutter_testsmith/lib/src/cli` | The `testsmith` binary (`bin/testsmith.dart`, run as `dart run flutter_testsmith:testsmith`). Argument parsing and formatting only. Part of `flutter_testsmith` since ADR-0011. |
-| `examples/ecommerce_app` | Seven-screen example: login, home, products, product details, cart, checkout, order success. Every screen has loading, error, empty and data states, null-tolerant parsing, and conditional sections. Product Details implements the `Product Details` Figma frame, expressing its margins as fractions of the 402pt design width so the layout projects onto any device exactly. |
-| `packages/flutter_testsmith/lib/src/figma` | Figma REST client and design normalisation into a comparable spec, imported as `package:flutter_testsmith/figma.dart`. Part of `flutter_testsmith` since ADR-0011. |
-| `packages/flutter_testsmith/lib/src/ai` | Provider-agnostic chat completions, imported as `package:flutter_testsmith/ai.dart`. Knows nothing about testing, so the provider is a config value. Part of `flutter_testsmith` since ADR-0011 (it was `ai_client`). |
+One package, `flutter_testsmith` (`packages/flutter_testsmith/`), holds the
+whole implementation (ADR-0011). Its components are directories with their
+own public library where one is useful:
+
+| Component | Location | Purpose |
+|---|---|---|
+| SDK | `lib/flutter_testsmith.dart`, `lib/src/` | In-app instrumentation: session, navigation, semantic test ids, UI tree inspection, network capture, redaction, production gating. The one library an application imports. |
+| Protocol | `lib/protocol.dart`, `lib/src/protocol/` | Versioned event and handshake contract. No dependency beyond `meta`, because it is linked into apps under test; re-exported by the SDK. |
+| Engine | `lib/engine.dart`, `lib/src/engine/` | Transport, device control, session and API correlation, element lookup, validation, reporting. **Its code never imports Flutter.** |
+| CLI | `bin/testsmith.dart`, `lib/src/cli/` | The `testsmith` binary, run as `dart run flutter_testsmith:testsmith`. Argument parsing and formatting only; no public library. |
+| Figma | `lib/figma.dart`, `lib/src/figma/` | Figma REST client and design normalisation into a comparable spec. |
+| AI | `lib/ai.dart`, `lib/src/ai/` | Provider-agnostic chat completions. Knows nothing about testing, so the provider is a config value. |
+
+`scripts/check_dependencies.dart` proves over the import graph that the
+SDK reaches no engine, CLI, Figma or AI code, and that none of those, nor
+the protocol, reaches Flutter.
+
+`examples/ecommerce_app` is the seven-screen example: login, home,
+products, product details, cart, checkout, order success. Every screen has
+loading, error, empty and data states, null-tolerant parsing, and
+conditional sections. Product Details implements the `Product Details`
+Figma frame, expressing its margins as fractions of the 402pt design width
+so the layout projects onto any device exactly.
 
 ## Adding the SDK to an app
 
@@ -633,9 +647,12 @@ in release builds at all.
 ```bash
 dart run scripts/check_dependencies.dart   # enforce the layering rules
 
-cd packages/flutter_testsmith_protocol && dart test
-cd packages/flutter_testsmith      && dart test test/engine
-cd packages/flutter_testsmith      && flutter test test/sdk
+cd packages/flutter_testsmith && dart test test/protocol
+cd packages/flutter_testsmith && dart test test/engine
+cd packages/flutter_testsmith && dart test test/cli
+cd packages/flutter_testsmith && dart test test/figma
+cd packages/flutter_testsmith && dart test test/ai
+cd packages/flutter_testsmith && flutter test test/sdk
 cd examples/ecommerce_app && flutter test   # includes the defect matrices
 ```
 

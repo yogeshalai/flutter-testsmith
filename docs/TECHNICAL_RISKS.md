@@ -377,7 +377,9 @@ of the VM Service in release builds. A test asserts that a release-mode
 
 **Likelihood:** low (by construction) **Impact:** high
 
-**Mitigation:** both sides consume the same `flutter_testsmith_protocol` package - the
+**Mitigation:** both sides consume the same protocol code (`lib/src/protocol`
+of `flutter_testsmith`; the `flutter_testsmith_protocol` package before
+ADR-0011) - the
 primary reason for the all-Dart decision. Reinforced by shared JSON fixtures
 asserted from both the SDK and engine test suites, so a change that breaks one
 side fails the other's tests.

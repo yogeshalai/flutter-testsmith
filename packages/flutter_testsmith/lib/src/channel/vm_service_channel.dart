@@ -1,6 +1,6 @@
 import 'dart:developer' as developer;
 
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 import 'rpc_dispatcher.dart';
 import 'sdk_channel.dart';

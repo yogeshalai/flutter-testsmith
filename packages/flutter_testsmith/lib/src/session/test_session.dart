@@ -1,4 +1,4 @@
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 import '../buffer/event_ring_buffer.dart';
 import '../capture/network_capture.dart';

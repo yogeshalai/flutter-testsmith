@@ -1,15 +1,18 @@
 // A pub package repository, small enough to read, that serves this
-// platform's two externally-consumable packages to an application outside
-// the monorepo.
+// platform's externally-consumable package - flutter_testsmith, and before
+// ADR-0011 flutter_testsmith_protocol too - to an application outside the
+// monorepo.
 //
 // It exists because of one fact about pub, measured rather than assumed:
 // **a package fetched from repository X has its own dependencies resolved
 // from the default repository, not from X.** So an application that names
-// only `flutter_testsmith` still looks for `flutter_testsmith_protocol` on pub.dev, finds
-// nothing, and fails version solving outright. That is finding E-01.
+// only `flutter_testsmith` still looked for `flutter_testsmith_protocol` on pub.dev,
+// found nothing, and failed version solving outright. That is finding E-01.
+// (Since ADR-0011 the protocol ships inside flutter_testsmith, so the same
+// fact now matters for nothing but flutter_testsmith itself.)
 //
 // The way out is to be the default repository for the duration of a
-// `pub get`: serve the two packages that are not public, and redirect
+// `pub get`: serve the package that is not public, and redirect
 // every other request to pub.dev so the application still gets the ~40
 // public packages it depends on. A consumer then writes the same
 // `flutter_testsmith: ^0.1.0` it would write against pub.dev, and names nothing

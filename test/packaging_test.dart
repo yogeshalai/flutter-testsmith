@@ -10,6 +10,7 @@ import 'dart:io';
 import 'package:test/test.dart';
 import 'package:yaml/yaml.dart';
 
+import '../scripts/import_graph.dart';
 import '../scripts/local_registry.dart';
 import '../scripts/package_boundaries.dart';
 
@@ -97,13 +98,24 @@ dev_dependencies:
       });
     }
 
-    test('flutter_testsmith_protocol stays free of Flutter', () {
-      // It is linked into production applications through flutter_testsmith, and it
-      // is also linked into the Flutter-free engine. Both depend on this.
-      final pubspec = loadYaml(
-        File('packages/flutter_testsmith_protocol/pubspec.yaml').readAsStringSync(),
-      ) as YamlMap;
-      expect((pubspec['dependencies'] as YamlMap).keys, isNot(contains('flutter')));
+    test('the protocol stays free of Flutter', () {
+      // It is linked into production applications through flutter_testsmith,
+      // and it is also linked into the Flutter-free engine. Both depend on
+      // this. Until ADR-0011 it was checked as flutter_testsmith_protocol's
+      // pubspec; the protocol is lib/src/protocol now, inside a package
+      // that depends on Flutter, so what its code reaches is what counts.
+      final graph = ImportGraph.load('.');
+      final protocol = componentFiles('.', Component.protocol);
+      expect(protocol, isNotEmpty);
+      final closure = graph.closure(protocol);
+      expect(closure.dartLibraries.keys, isNot(contains('dart:ui')));
+      expect(
+        closure.packages.keys
+            .where((p) => graph.dependsOnFlutter(p.substring('package:'.length))),
+        isEmpty,
+      );
+      // And it reaches no other component: it is the bottom of the graph.
+      expect(closure.files.keys.map(classify).toSet(), {Component.protocol});
     });
   });
 

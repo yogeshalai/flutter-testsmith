@@ -48,7 +48,7 @@ dependencies:
   flutter:
     sdk: flutter
   # The whole point: one line, a plain version constraint, no awareness
-  # that flutter_testsmith_protocol exists.
+  # of how the platform is built inside.
   flutter_testsmith: ^0.1.0
 
 dev_dependencies:
@@ -66,7 +66,7 @@ dev_dependencies:
     }
   });
 
-  test('resolves flutter_testsmith without the application naming flutter_testsmith_protocol',
+  test('resolves flutter_testsmith as one package, with no internal package beside it',
       () async {
     final result = await Process.run(
       'flutter',
@@ -81,8 +81,19 @@ dev_dependencies:
 
     final lock = File('${app.path}/pubspec.lock').readAsStringSync();
     expect(lock, contains('flutter_testsmith'));
-    expect(lock, contains('flutter_testsmith_protocol'),
-        reason: 'flutter_testsmith_protocol must arrive as a transitive dependency');
+    // Until ADR-0011 the protocol had to arrive as a separate transitive
+    // package. Now every component ships inside flutter_testsmith, so a
+    // consumer's lockfile must name none of the packages they used to be.
+    for (final former in const [
+      'flutter_testsmith_protocol',
+      'flutter_testsmith_engine',
+      'flutter_testsmith_cli',
+      'flutter_testsmith_figma',
+      'ai_client',
+    ]) {
+      expect(lock, isNot(contains(former)),
+          reason: '$former is part of flutter_testsmith now, not a package of its own');
+    }
   });
 
   test('the consumed SDK initialises, stays disarmed, and speaks the '
@@ -109,9 +120,9 @@ void main() {
     expect(TestSdk.isArmed, isFalse);
   });
 
-  test('the protocol arrives transitively and is usable', () {
-    // Named through flutter_testsmith's own export surface, never by depending on
-    // flutter_testsmith_protocol directly.
+  test('the protocol arrives with flutter_testsmith and is usable', () {
+    // Named through flutter_testsmith's own export surface - the one
+    // import an application writes.
     expect(ProtocolVersion.current.value, isNotEmpty);
     const context = AppContext(
       appVersion: '1.0.0',

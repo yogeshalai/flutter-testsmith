@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
+import 'package:flutter_testsmith/protocol.dart';
 
 const AppContext testApp = AppContext(
   appVersion: '1.0.0',

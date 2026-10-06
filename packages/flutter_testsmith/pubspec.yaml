@@ -17,14 +17,13 @@ dependencies:
   flutter:
     sdk: flutter
   meta: ^1.15.0
-  flutter_testsmith_protocol: ^0.1.1
 
   # The engine, CLI, Figma and AI components' dependencies
   # (lib/src/{engine,cli,figma,ai}, ADR-0011). The application under test
   # never links them: nothing reachable from lib/flutter_testsmith.dart
   # imports engine, CLI, Figma or AI code, which
-  # scripts/check_dependencies.dart enforces as rule A. The components
-  # also use meta and flutter_testsmith_protocol, declared above.
+  # scripts/check_dependencies.dart enforces as rule A. The SDK and the
+  # protocol (lib/src/protocol) need only flutter and meta, above.
   args: ^2.6.0
   image: ^4.9.2
   vm_service: ^15.0.0

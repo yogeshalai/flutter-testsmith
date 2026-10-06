@@ -1,8 +1,8 @@
 // The rule that keeps finding E-01 from coming back.
 //
-// `flutter_testsmith` and `flutter_testsmith_protocol` are consumed by applications outside this
-// repository. Such an application fetches them from a package repository,
-// which means every dependency they declare must be resolvable from a
+// `flutter_testsmith` (and, before ADR-0011, `flutter_testsmith_protocol`) is consumed by
+// applications outside this repository. Such an application fetches it from
+// a package repository, which means every dependency it declares must be resolvable from a
 // package repository too. A `path:` dependency points at a directory only
 // this monorepo has; a `git:` dependency pins a URL the consumer has no
 // reason to trust. Either one turns "add flutter_testsmith to your app" into
@@ -18,13 +18,11 @@ import 'package:yaml/yaml.dart';
 /// names, `flutter_testsmith`, and every workspace member that package
 /// depends on.
 ///
-/// Since the engine moved inside flutter_testsmith (ADR-0011), the
-/// integrations it used were dependencies of flutter_testsmith too, and
-/// each left this list when it moved inside as well (Figma to
-/// lib/src/figma, ai_client to lib/src/ai). The protocol is the last
-/// workspace member flutter_testsmith depends on.
+/// Since ADR-0011 that is `flutter_testsmith` alone. The protocol, the
+/// engine, the CLI, Figma and ai_client were packages it depended on;
+/// each left this list when it moved inside (`lib/src/<component>`), the
+/// protocol last.
 const List<String> externallyConsumablePackages = [
-  'flutter_testsmith_protocol',
   'flutter_testsmith',
 ];
 
