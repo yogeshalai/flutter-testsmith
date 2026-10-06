@@ -3,10 +3,10 @@ import 'package:meta/meta.dart';
 /// What a credential is replaced by wherever one might otherwise print.
 ///
 /// The same literal as the SDK's `RedactionPolicy.marker`, and
-/// deliberately not imported from it: `flutter_testsmith_engine` must not depend on
-/// `flutter_testsmith`, because the runner must not pull Flutter in, and
-/// `scripts/package_boundaries.dart` holds that line. One literal in two
-/// packages is the lesser of the two problems.
+/// deliberately not imported from it: engine code must not reach the SDK,
+/// because the runner must not pull Flutter in, and rule B in
+/// `scripts/check_dependencies.dart` holds that line. One literal in two
+/// components is the lesser of the two problems.
 const String redactionMarker = '[REDACTED]';
 
 /// A secret reference that is not one.

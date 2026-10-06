@@ -75,7 +75,7 @@ String skippedDesignMessage(String reported) {
 /// Gathers every environment fact a suite depends on, and reports what it
 /// found.
 ///
-/// The facts come from here; the judgements come from `flutter_testsmith_engine`'s pure
+/// The facts come from here; the judgements come from the engine's pure
 /// check functions. That is the split `doctor` already uses, and it is why
 /// the whole of E-04's decision-making is unit tested without a handset.
 class PreflightRunner {

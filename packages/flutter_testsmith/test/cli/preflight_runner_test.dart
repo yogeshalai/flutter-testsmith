@@ -3,9 +3,9 @@
 // Against a fake device and a scratch project, deliberately. Whether a
 // run should stop before it starts is a decision, and a decision that can
 // only be checked by somebody holding a handset is a decision nobody
-// checks. The adb probes themselves are covered by the parsers in
-// flutter_testsmith_engine; what is covered here is which questions get asked, when,
-// and what the answers add up to.
+// checks. The adb probes themselves are covered by the engine's parsers;
+// what is covered here is which questions get asked, when, and what the
+// answers add up to.
 import 'dart:io';
 
 import 'package:test/test.dart';

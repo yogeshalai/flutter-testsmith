@@ -192,7 +192,7 @@ void main() {
     });
 
     test('a rect that is missing a coordinate', () {
-      // The rectangle's own shape belongs to the protocol package, which
+      // The rectangle's own shape belongs to the protocol component, which
       // raises `ProtocolFormatException` - not a `FormatException`, so
       // it escaped the same guard the cast errors did.
       expect(

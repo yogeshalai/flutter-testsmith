@@ -1,7 +1,7 @@
 /// The versioned contract shared verbatim by the in-app test SDK and the
 /// out-of-process test engine.
 ///
-/// This package has no dependency beyond `meta`, because it is linked into
+/// This component has no dependency beyond `meta`, because it is linked into
 /// production applications through `flutter_testsmith`: anything it depends on becomes
 /// a dependency of every application under test.
 library;

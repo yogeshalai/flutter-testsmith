@@ -131,8 +131,8 @@ void main() {
 /// Which element ids the visual validator would measure.
 ///
 /// Mirrors `VisualValidator._elementRegions` rather than calling it:
-/// flutter_testsmith must not depend on flutter_testsmith_engine, which is the constraint
-/// `scripts/check_dependencies.dart` enforces. The engine side has its
+/// SDK code must not reach engine code, which is the constraint
+/// `scripts/check_dependencies.dart` enforces (rule A). The engine side has its
 /// own test over the same rule.
 Set<String> regionLabelsFor(UiSnapshot snapshot) {
   int? topmost;

@@ -1,7 +1,7 @@
 // Which flutter `testsmith` actually runs, driven through the real
 // executable with a controlled PATH.
 //
-// The policy itself is unit-tested in flutter_testsmith_engine; these
+// The policy itself is unit-tested in the engine's suite; these
 // prove it reaches the process. Before this, every command passed the
 // bare name `flutter` and let the operating system pick - so `testsmith
 // doctor` printed a version with nothing to say which of two SDKs on a

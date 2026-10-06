@@ -17,11 +17,10 @@ question, see "An application under test" at the end.
 ```
 flutter_testsmith/
 ├── pubspec.yaml                 # Dart pub workspace root
-├── analysis_options.yaml        # strict lints, inherited by all packages
+├── analysis_options.yaml        # includes flutter_testsmith's strict lints
 ├── .gitignore
 ├── README.md
 ├── packages/
-├── integrations/                # (Phase 5+)
 ├── examples/
 ├── docs/
 └── scripts/
@@ -219,7 +218,7 @@ these two are worth a CI check.
 
 | Concern | Rule |
 |---|---|
-| Package names | `snake_case`. The one published package takes the bare product name, `flutter_testsmith`. Before ADR-0011 the components were packages named with that prefix (`flutter_testsmith_protocol`, `_engine`, `_cli`, `_figma`) plus `ai_client`; all but the protocol are now directories of `flutter_testsmith` (`lib/src/<component>/`), and the protocol moves last. The workspace root cannot share a name with a member, so it is `flutter_testsmith_workspace`. The Figma integration was `figma_client` until pub.dev release preparation found that name owned by an unrelated package. Older milestone reports and evidence keep the names as written at the time. |
+| Package names | `snake_case`. The one published package takes the bare product name, `flutter_testsmith`. Before ADR-0011 the components were packages named with that prefix (`flutter_testsmith_protocol`, `_engine`, `_cli`, `_figma`) plus `ai_client`; all are now directories of `flutter_testsmith` (`lib/src/<component>/`). The workspace root cannot share a name with a member, so it is `flutter_testsmith_workspace`. The Figma integration was `figma_client` until pub.dev release preparation found that name owned by an unrelated package. Older milestone reports and evidence keep the names as written at the time. |
 | Public surface | Exactly one barrel file per package; `src/` is private |
 | Semantic test IDs | Dotted lowercase: `product.add_to_cart` |
 | VM Service RPCs | Namespaced `ext.mytest.<method>` |

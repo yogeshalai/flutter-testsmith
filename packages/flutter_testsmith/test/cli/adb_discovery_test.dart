@@ -1,8 +1,8 @@
 // Which adb `testsmith` actually runs, driven through the real executable
 // with a controlled environment.
 //
-// The policy itself is unit-tested in flutter_testsmith_engine; these prove it reaches
-// the process. Before this, every command ran the bare name `adb` and let
+// The policy itself is unit-tested in the engine's suite; these prove it
+// reaches the process. Before this, every command ran the bare name `adb` and let
 // the operating system pick - so on a machine with an old standalone
 // platform-tools on PATH and the Android Studio SDK in ANDROID_HOME, the
 // tool used the old one and never said so.

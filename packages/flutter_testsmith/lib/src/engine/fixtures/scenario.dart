@@ -173,7 +173,7 @@ class ScenarioRoute {
 /// must then do. Before this existed the mock API served one static file
 /// and a scenario called `api_404_not_found` tested the happy path.
 ///
-/// Deliberately in `flutter_testsmith_engine` rather than the CLI: parsing and
+/// Deliberately in the engine rather than the CLI: parsing and
 /// resolution are the part worth testing, and neither needs `dart:io`.
 @immutable
 class ApiScenario {

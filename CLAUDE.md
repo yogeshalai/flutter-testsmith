@@ -29,9 +29,10 @@ it used to depend on have all moved inside it:
 | AI | migrated: `lib/src/ai/`, public `lib/ai.dart` |
 | Protocol | migrated: `lib/src/protocol/`, public `lib/protocol.dart`, also re-exported by the SDK |
 
-It is not published yet: `publish_to: none` stays until the
-release-readiness audit. Do not add further publishing, versioning or
-changelog machinery unless asked.
+It is not published yet: the release-readiness audit is done, and
+`publish_to: none` stays until the release candidate is explicitly
+approved. Do not add further publishing, versioning or changelog
+machinery unless asked.
 
 The current state of the work lives in one file:
 [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). It is the only document
@@ -57,8 +58,9 @@ checkout of this repository's `main`.
 - Commits are made as `yogeshalai <yogeshalai17@gmail.com>`, set in this
   repository's local git config.
 - `flutter_testsmith` declares `publish_to: none`. That is the rail against
-  an accidental `dart pub publish`. The ADR-0011 migration is complete;
-  the rail comes off only at the release-readiness audit, and
+  an accidental `dart pub publish`. The ADR-0011 migration and the
+  release-readiness audit are complete; the rail comes off only when the
+  release candidate is explicitly approved, and
   `dart run scripts/check_dependencies.dart --release` fails until it
   does (that `publish_to` line is the only item it still reports).
 

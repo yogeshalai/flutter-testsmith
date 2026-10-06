@@ -37,8 +37,8 @@ final class FetchFailed extends FetchOutcome {
 ///
 /// An interface, mirroring the Figma client's `FigmaHttp`, so every test
 /// in this milestone runs without a network. The `dart:io`
-/// implementation lives in `flutter_testsmith_cli`, keeping `flutter_testsmith_engine` free of
-/// transport - and free of Flutter, which is the constraint that lets
+/// implementation lives in the CLI (`lib/src/cli/http_api_fetcher.dart`),
+/// keeping the engine free of transport - and free of Flutter, which is the constraint that lets
 /// the CLI compile to a native binary.
 abstract interface class ApiFetcher {
   /// [token] is resolved by the caller immediately before this call and

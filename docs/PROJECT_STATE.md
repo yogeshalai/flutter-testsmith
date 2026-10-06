@@ -193,8 +193,11 @@ pending. Do not resolve one silently.
   refuses a published package whose dependencies it cannot serve.
   Migration complete. Engine: migrated (step 2). CLI: migrated (step 3).
   Figma: migrated (step 4). AI: migrated (step 5). Protocol: migrated
-  (step 6). `flutter_testsmith` still declares `publish_to: none` until
-  the release-readiness audit. `scripts/check_dependencies.dart` already
+  (step 6). The release-readiness audit (2026-10-06) rewrote the package
+  README and added an unreleased CHANGELOG entry for the single package;
+  the real `dart pub publish --dry-run` reports 0 warnings. What remains
+  is the release version and removing `publish_to: none`, both waiting
+  on explicit approval. `scripts/check_dependencies.dart` already
   enforces the import-graph form of the layering rules (A, B), and lists
   what still stands between the tree and a publishable package (C,
   pending). `--release` fails on anything pending. Releases are published

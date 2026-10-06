@@ -210,7 +210,7 @@ int _importGraphRules({
     final sink = release ? stderr : stdout;
     sink.writeln(
       '    C: ${policy.pending.length} item(s) before flutter_testsmith is '
-      'publishable${release ? '' : ' (expected during the migration; --release fails on them)'}:',
+      'publishable${release ? '' : ' (expected until the release is approved; --release fails on them)'}:',
     );
     for (final item in policy.pending) {
       sink.writeln('$label  $item');

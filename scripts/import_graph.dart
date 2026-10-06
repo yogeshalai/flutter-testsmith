@@ -26,7 +26,7 @@
 //           build treats anything pending as a failure.
 //
 // Migration-aware by construction. Every component has a legacy location
-// (its own package today) and a destination (a directory inside
+// (its own package, before ADR-0011) and a destination (a directory inside
 // flutter_testsmith). A file is classified by its path against both, so
 // the same rules hold before the first move, after each one, and after
 // the last - and nothing about the future layout is assumed to exist
@@ -72,7 +72,7 @@ const Set<Component> testingBrain = {
 class ComponentLayout {
   const ComponentLayout({required this.legacy, required this.destination});
 
-  /// Its own package, today.
+  /// Its own package, before ADR-0011.
   final List<String> legacy;
 
   /// Inside packages/flutter_testsmith, after the move (ADR-0011).
@@ -555,7 +555,7 @@ PublishPolicy publishPolicy(
     }
   }
   if (pubspec['publish_to']?.toString() == 'none') {
-    pending.add('$package still declares publish_to: none (removed as the last migration step)');
+    pending.add('$package still declares publish_to: none (removed at release, after the release-readiness audit)');
   }
   return PublishPolicy(violations, pending);
 }

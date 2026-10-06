@@ -8,7 +8,7 @@ import 'package:test/test.dart';
 
 /// One test that really talks to Figma.
 ///
-/// Everything else in this package runs against a committed capture of a
+/// Everything else in this suite runs against a committed capture of a
 /// real response, which is repeatable and offline. That is the right
 /// default, and it has one blind spot: a capture cannot notice that the
 /// endpoint changed shape, that the token stopped working, or that the

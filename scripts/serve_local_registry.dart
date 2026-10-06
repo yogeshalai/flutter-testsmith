@@ -13,9 +13,9 @@
 // The second form writes the archives to disk instead of serving them,
 // for inspecting exactly what a consumer would download.
 //
-// Nothing here publishes anything publicly. Both packages keep
-// `publish_to: none`, and this repository is bound to the loopback
-// interface only.
+// Nothing here publishes anything publicly. The package keeps
+// `publish_to: none` until its release is approved, and this repository
+// is bound to the loopback interface only.
 import 'dart:convert';
 import 'dart:io';
 

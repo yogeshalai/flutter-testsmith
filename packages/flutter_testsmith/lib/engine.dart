@@ -1,6 +1,6 @@
 /// The out-of-process engine for Flutter Testsmith.
 ///
-/// This package never depends on Flutter. That constraint is what lets the
+/// This component never reaches Flutter. That constraint is what lets the
 /// CLI compile to a native binary and lets validation logic be unit tested
 /// in milliseconds without a Flutter harness.
 library;

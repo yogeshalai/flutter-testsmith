@@ -1,20 +1,4 @@
-include: package:lints/recommended.yaml
-
-analyzer:
-  language:
-    strict-casts: true
-    strict-inference: true
-    strict-raw-types: true
-  errors:
-    missing_return: error
-    unused_import: error
-    unused_local_variable: error
-
-linter:
-  rules:
-    - always_declare_return_types
-    - avoid_dynamic_calls
-    - prefer_final_locals
-    - prefer_single_quotes
-    - unawaited_futures
-    - use_super_parameters
+# The rules live in the published package's own file, so that the copy in
+# its archive does not point outside it. Scripts and root tests use the same
+# rules.
+include: packages/flutter_testsmith/analysis_options.yaml

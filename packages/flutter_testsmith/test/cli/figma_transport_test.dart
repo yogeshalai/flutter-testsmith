@@ -1,7 +1,7 @@
 // A design that cannot be fetched, through the commands.
 //
 // Everything between deciding to ask Figma and holding a specification
-// belongs to `flutter_testsmith_figma`, and everything that goes wrong in
+// belongs to the Figma component, and everything that goes wrong in
 // there is a `FigmaException` - which `resolveFigmaSources` turns into a
 // failure on the screen that declared the design, and which `figma pull`
 // reports and exits 1 for.

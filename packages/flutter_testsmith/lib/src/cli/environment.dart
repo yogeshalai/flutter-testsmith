@@ -5,8 +5,8 @@ import 'package:flutter_testsmith/engine.dart';
 /// Runs the environment checks behind `testsmith doctor`.
 ///
 /// The checks themselves - what counts as pass, warn or fail, and what the
-/// remedy is - live in `flutter_testsmith_engine` and are unit tested. This file only
-/// gathers the facts from the host.
+/// remedy is - live in the engine (`lib/src/engine`) and are unit tested.
+/// This file only gathers the facts from the host.
 class EnvironmentProbe {
   const EnvironmentProbe({this.runner = const SystemProcessRunner()});
 

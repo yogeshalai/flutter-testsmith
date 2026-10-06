@@ -554,7 +554,7 @@ class FigmaScreenSpec {
 ///
 /// The shape is the protocol's `JsonMapReader` (lib/src/protocol), which
 /// answers the same question for the wire format, and every other parser
-/// in this package already raises `FormatException`. It is copied rather
+/// in this component already raises `FormatException`. It is copied rather
 /// than shared because that one is deliberately not exported and raises
 /// the protocol's own exception; what a reader of a *project* file must
 /// throw is the type its loader already catches.

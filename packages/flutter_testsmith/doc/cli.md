@@ -56,14 +56,14 @@ after upgrading the Dart SDK (ADR-0011).
 | `impact` | Show which test flows a set of changes makes worth running |
 | `generate` | Propose edge-case test scenarios, which never run until a person accepts them |
 
-`testsmith help <command>` lists every option.
+`dart run flutter_testsmith:testsmith help <command>` lists every option.
 
 ## Example
 
 From the application's directory:
 
 ```bash
-testsmith run tests/product.yaml -d <serial> --mock-api 8080
+dart run flutter_testsmith:testsmith run tests/product.yaml -d <serial> --mock-api 8080
 ```
 
 ```yaml

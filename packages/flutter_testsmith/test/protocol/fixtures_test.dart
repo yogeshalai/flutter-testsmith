@@ -7,9 +7,10 @@ import 'package:flutter_testsmith/protocol.dart';
 /// The fixture files are the canonical wire format.
 ///
 /// They are hand-written to express the contract independently of the Dart
-/// implementation, and are asserted by both `flutter_testsmith` and `flutter_testsmith_engine` as
-/// well as here. A change that breaks one side therefore fails the other
-/// side's suite, which is the primary defence against protocol drift.
+/// implementation. The SDK and the engine both speak the wire format
+/// through the one protocol component (lib/src/protocol), so a change to
+/// it that breaks a fixture fails here, which is the primary defence
+/// against protocol drift.
 const List<String> fixtureNames = [
   'session_start',
   'session_end',
