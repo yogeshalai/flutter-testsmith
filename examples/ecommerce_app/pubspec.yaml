@@ -47,9 +47,11 @@ dev_dependencies:
   # them - only lib/flutter_testsmith.dart is imported by app code, and
   # scripts/check_dependencies.dart (rule A) proves it reaches no engine code.
 
-  # For the fixture server, so the API error matrix exercises a real
-  # socket against the same scenario files a device run serves.
-  flutter_testsmith_cli: ^0.1.0
+  # The fixture server comes with flutter_testsmith too, as the CLI
+  # component's src/cli/mock_api_server.dart, so the API error matrix
+  # exercises a real socket against the same scenario files a device run
+  # serves.
+
   flutter_testsmith_protocol: ^0.1.0
   flutter_testsmith_figma: ^0.1.0
 

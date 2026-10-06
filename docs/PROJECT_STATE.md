@@ -50,11 +50,11 @@ in git history before that date.
 Eleven CLI commands: `auth`, `doctor`, `devices`, `figma`, `generate`,
 `impact`, `inspect`, `preflight`, `run`, `smoke`, `suite`.
 
-Five packages plus the example application, all workspace members:
-`flutter_testsmith_protocol`, `flutter_testsmith` (the SDK, and since
-ADR-0011 step 2 the engine at `lib/src/engine/`), `flutter_testsmith_cli`,
-`integrations/flutter_testsmith_figma`, `integrations/ai_client`,
-`examples/ecommerce_app`.
+Four packages plus the example application, all workspace members:
+`flutter_testsmith_protocol`; `flutter_testsmith` (the SDK, and since
+ADR-0011 steps 2 and 3 the engine at `lib/src/engine/` and the CLI at
+`lib/src/cli/` with `bin/testsmith.dart`); `integrations/flutter_testsmith_figma`;
+`integrations/ai_client`; `examples/ecommerce_app`.
 
 The Figma integration was named `figma_client` until pub.dev release
 preparation found that name owned by an unrelated package. Milestone
@@ -190,9 +190,10 @@ pending. Do not resolve one silently.
   packages are not released on their own: they move inside it as
   components ([ADR-0011](adr/0011-single-published-package.md)), because
   pub.dev refuses a published package whose dependencies it cannot serve.
-  Migration in progress: the engine has moved (step 2); the CLI, Figma,
-  AI and protocol have not, and move in that order (ADR-0011,
-  "Correction to the order"). Until it finishes, every package declares
+  Migration in progress. Engine: migrated (step 2). CLI: migrated
+  (step 3). Figma: not migrated. AI: not migrated. Protocol: not
+  migrated. They move in that order (ADR-0011, "Correction to the
+  order"). Until it finishes, every package declares
   `publish_to: none`. `scripts/check_dependencies.dart` already
   enforces the import-graph form of the layering rules (A, B), and lists
   what still stands between the tree and a publishable package (C,

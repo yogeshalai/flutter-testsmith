@@ -9,7 +9,7 @@ It is the design side of that comparison and nothing else. It knows the
 Figma REST API and the shape of a design. The comparison itself, scaling
 a design to a device and deciding pass or fail, belongs to
 `flutter_testsmith_engine`. Most people use this package through
-`testsmith figma pull` in `flutter_testsmith_cli` rather than directly.
+`testsmith figma pull` in `flutter_testsmith` rather than directly.
 
 > Developed as `figma_client`. That name is owned on pub.dev by an
 > unrelated package, so this one is published as

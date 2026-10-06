@@ -8,7 +8,7 @@ screenshot and visual comparison.
 This is the only package an application under test adds. It records
 what the application is doing and serves it over the Dart VM Service to
 the out-of-process engine (`flutter_testsmith_engine`, driven by the
-`testsmith` CLI in `flutter_testsmith_cli`). It makes no verdicts of its
+`testsmith` CLI, also part of this package). It makes no verdicts of its
 own, and it never links the engine: the testing logic stays out of your
 application.
 

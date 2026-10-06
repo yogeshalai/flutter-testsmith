@@ -48,9 +48,11 @@ jobs:
         run: dart test test/engine
         working-directory: packages/flutter_testsmith
 
-      - name: flutter_testsmith_cli
-        run: dart test
-        working-directory: packages/flutter_testsmith_cli
+      - name: cli (flutter_testsmith/lib/src/cli)
+        # Plain Dart tests inside the Flutter package (ADR-0011). The CLI's
+        # code never imports Flutter.
+        run: dart test test/cli
+        working-directory: packages/flutter_testsmith
 
       - name: flutter_testsmith_figma
         run: dart test
@@ -84,5 +86,5 @@ jobs:
         # A fixture renamed away would leave a committed proposal
         # naming a state nobody can arrange - the Phase 12 defect, in
         # its next form.
-        run: dart test test/generated_scenario_validity_test.dart
-        working-directory: packages/flutter_testsmith_cli
+        run: dart test test/cli/generated_scenario_validity_test.dart
+        working-directory: packages/flutter_testsmith

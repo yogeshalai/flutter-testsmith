@@ -112,17 +112,22 @@ They are directories rather than separate packages (ADR-0003); the barrel
 keeps their public surface explicit, so any of them can later be extracted
 into a real package without changing a single import site.
 
-### `packages/flutter_testsmith_cli/` - the `testsmith` binary
+### `packages/flutter_testsmith/lib/src/cli/` - the `testsmith` binary
+
+Until ADR-0011 step 3 this was its own package, `flutter_testsmith_cli`. It is
+now a component of `flutter_testsmith`, run as `dart run
+flutter_testsmith:testsmith`, with its tests in
+`packages/flutter_testsmith/test/cli/`. It has no public library.
 
 ```
-flutter_testsmith_cli/
+flutter_testsmith/
 ├── bin/testsmith.dart
-├── lib/src/commands/             # one file per command
-└── test/
+├── lib/src/cli/commands/         # one file per command
+└── test/cli/
 ```
 
 The CLI holds **argument parsing and output formatting only**. All behaviour
-lives in `flutter_testsmith_engine`, so every capability is testable without a process
+lives in the engine (`lib/src/engine/`), so every capability is testable without a process
 boundary. A command file that grows logic is a smell to be pushed down.
 
 ---

@@ -415,7 +415,7 @@ void main() {
     });
 
     test('the suite CLI still tells ERROR from FAIL', () {
-      final source = _source('flutter_testsmith_cli/lib/src/commands/suite_command.dart');
+      final source = _source('flutter_testsmith/lib/src/cli/commands/suite_command.dart');
 
       expect(source, contains("TestVerdict.error => output.yellow('ERROR')"));
       expect(source, contains("TestVerdict.fail => output.red('FAIL "));

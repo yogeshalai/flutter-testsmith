@@ -334,7 +334,7 @@ void main() {
     });
 
     test('the kind comes from the step, in the executor', () {
-      final executor = _source('flutter_testsmith_cli/lib/src/flow_executor.dart');
+      final executor = _source('flutter_testsmith/lib/src/cli/flow_executor.dart');
 
       expect(executor, contains('kind: stepKindOf(step)'));
       expect(executor, isNot(contains('kind: StepKind.')));

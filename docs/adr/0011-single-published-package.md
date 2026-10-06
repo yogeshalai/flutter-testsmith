@@ -1,8 +1,10 @@
 # ADR-0011: One published package, `flutter_testsmith`; boundaries move from packages to imports
 
-**Status:** accepted (2026-10-06). Migration in progress: the engine has moved;
-CLI, Figma, AI and protocol have not. The migration order was corrected on
-2026-10-06; see "Correction to the order".
+**Status:** accepted (2026-10-06). Migration in progress. Engine: migrated.
+CLI: migrated. Figma: not migrated. AI: not migrated. Protocol: not migrated.
+The migration order was corrected on 2026-10-06 (see "Correction to the
+order"), and so was the claim about global activation (see "Why the CLI can
+share the package").
 **Supersedes, in part:** the package topology of ARCHITECTURE §6, and the
 assumption in ADR-0003 that the platform ships as several packages. ADR-0003
 itself stands: its decision (directories inside a package, not a package per
@@ -129,6 +131,27 @@ executable (2026-10-06, Flutter 3.44.7):
 The executable only has to keep its import closure free of Flutter, which is
 Rule B.
 
+**Correction (2026-10-06, after the CLI moved).** The global-activation line
+above came from a probe activated with `--source path`, which turned out to skip
+a check. Activating the real `flutter_testsmith` from a hosted registry (the
+repository's local registry, as a stand-in for pub.dev) showed:
+
+- `dart pub global activate flutter_testsmith` and its `flutter` equivalent
+  succeed. Both precompile the executable and install a `testsmith` launcher,
+  and that launcher works;
+- `dart pub global run flutter_testsmith:testsmith`, and `flutter pub global run`,
+  are refused: *"requires the Flutter SDK, which is unsupported for global
+  executables"*;
+- the launcher runs a snapshot tied to the exact Dart version. After a Dart SDK
+  upgrade it falls back to `pub global run`, which is refused, so the user has to
+  activate again.
+
+`dart run flutter_testsmith:testsmith`, from the application that depends on the
+package, is therefore the supported invocation. Global activation is a
+convenience that has to be repeated after Dart upgrades. Verified from a fresh
+Flutter application outside the workspace that names only `flutter_testsmith`:
+`--help` and `doctor` run, and the CLI compiles to a native executable.
+
 ## Intended public API
 
 - `package:flutter_testsmith/flutter_testsmith.dart`: the in-app SDK. Same
@@ -137,9 +160,9 @@ Rule B.
 - `package:flutter_testsmith/engine.dart`, `figma.dart` and `ai.dart`:
   component libraries replacing today's per-package barrels, for the
   example's validator matrices and anyone scripting the engine.
-- The `testsmith` executable: `dart run flutter_testsmith:testsmith`, or
-  `dart pub global activate flutter_testsmith`. The CLI's code stays under
-  `lib/src/cli/` and is not public API.
+- The `testsmith` executable: `dart run flutter_testsmith:testsmith`. Global
+  activation also installs it, with the caveat above. The CLI's code lives under
+  `lib/src/cli/` and is not public API: there is no `lib/cli.dart`.
 
 How stable the component libraries promise to be (part of 1.0.0, or
 documented as experimental) is decided before the first publication, not here.
@@ -157,7 +180,7 @@ the last. Nothing about the future layout is assumed to exist.
 |---|---|---|---|
 | this ADR (no moves) | enforced: SDK + protocol packages | enforced: five legacy packages | 7: protocol dependency; five components outside; `publish_to` |
 | engine moved (**done**) | enforced; `lib/src/engine/` and `lib/engine.dart` are engine code | enforced; engine at its destination | 8: protocol, Figma and AI dependencies; four outside; `publish_to` |
-| CLI moved | enforced; `bin/` is CLI code | enforced | 7: those three dependencies; three outside; `publish_to` |
+| CLI moved (**done**) | enforced; `lib/src/cli/` and `bin/` are CLI code | enforced; CLI at its destination | 7: those three dependencies; three outside; `publish_to` |
 | Figma moved | enforced | enforced | 5: protocol and AI dependencies; two outside; `publish_to` |
 | AI moved | enforced | enforced | 3: protocol dependency; protocol outside; `publish_to` |
 | protocol moved | enforced; protocol under `lib/src/protocol/` | enforced | 1: `publish_to` only |
@@ -180,7 +203,7 @@ tests, the local registry, CI and the documentation.
 1. this ADR, `publish_to: none` restored on all six, and the guard (2496d07);
 2. move the engine; add `lib/engine.dart`. Its tests go to `test/engine/`, and the
    SDK's tests to `test/sdk/` so that each suite still runs on its own (**done**);
-3. move the CLI; add `bin/testsmith.dart` and `executables:`;
+3. move the CLI; add `bin/testsmith.dart` and `executables:` (**done**);
 4. move Figma;
 5. move AI;
 6. move the protocol;

@@ -263,7 +263,7 @@ void main() {
     });
 
     test('the CLI reads the screen status rather than recomputing it', () {
-      final source = _source('flutter_testsmith_cli/lib/src/commands/run_command.dart');
+      final source = _source('flutter_testsmith/lib/src/cli/commands/run_command.dart');
 
       expect(source, isNot(contains('screenStatus(')));
       expect(source, contains('screen.status'));

@@ -252,7 +252,7 @@ void main() {
     //     down a scenario the run did not use.
     test('the executor records what it was handed, not what was declared',
         () {
-      final executor = _source('flutter_testsmith_cli/lib/src/flow_executor.dart');
+      final executor = _source('flutter_testsmith/lib/src/cli/flow_executor.dart');
 
       expect(executor, contains('fixture: fixture'));
       expect(executor, contains('appVersion: appVersion'));
@@ -261,7 +261,7 @@ void main() {
     });
 
     test('the runner hands it the effective scenario and the handshake', () {
-      final runner = _source('flutter_testsmith_cli/lib/src/flow_runner.dart');
+      final runner = _source('flutter_testsmith/lib/src/cli/flow_runner.dart');
 
       expect(runner, contains('fixture: fixture'));
       expect(runner, contains('appVersion: described.environment.appVersion'));
@@ -272,7 +272,7 @@ void main() {
       // `suite_runner` reads `environment.appVersion` / `.buildMode`
       // from the same `onDescribed` callback the runner fills from
       // `described.environment`. One source, two artefacts.
-      final suite = _source('flutter_testsmith_cli/lib/src/suite_runner.dart');
+      final suite = _source('flutter_testsmith/lib/src/cli/suite_runner.dart');
 
       expect(suite, contains('environment.appVersion'));
       expect(suite, contains('environment.buildMode'));

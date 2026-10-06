@@ -2,7 +2,7 @@ import 'package:ecommerce_app/api/api_client.dart';
 import 'package:ecommerce_app/screens/checkout_screen.dart';
 import 'package:ecommerce_app/screens/login_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_testsmith_cli/src/mock_api_server.dart';
+import 'package:flutter_testsmith/src/cli/mock_api_server.dart';
 
 import 'harness.dart';
 

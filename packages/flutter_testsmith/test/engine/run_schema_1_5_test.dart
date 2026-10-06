@@ -183,7 +183,7 @@ void main() {
     // device runs. These pin the wiring that the unit tests above cannot
     // reach, as the 1.4 schema test does for the run's preconditions.
     final executor =
-        _source('flutter_testsmith_cli/lib/src/flow_executor.dart');
+        _source('flutter_testsmith/lib/src/cli/flow_executor.dart');
 
     test('capture state comes from the handshake capability', () {
       expect(executor,

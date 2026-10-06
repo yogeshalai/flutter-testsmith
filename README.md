@@ -78,11 +78,11 @@ user-authored file. Both rules are structural rather than conventions. See
 dart pub get                      # one resolve for the whole workspace
 cp .env.example .env              # optional: Figma, AI and auth credentials
 
-dart run packages/flutter_testsmith_cli/bin/testsmith.dart doctor
-dart run packages/flutter_testsmith_cli/bin/testsmith.dart devices
-dart run packages/flutter_testsmith_cli/bin/testsmith.dart preflight <suite.yaml> -d <serial>
-dart run packages/flutter_testsmith_cli/bin/testsmith.dart inspect -d <serial>
-dart run packages/flutter_testsmith_cli/bin/testsmith.dart smoke -d <serial> \
+dart run packages/flutter_testsmith/bin/testsmith.dart doctor
+dart run packages/flutter_testsmith/bin/testsmith.dart devices
+dart run packages/flutter_testsmith/bin/testsmith.dart preflight <suite.yaml> -d <serial>
+dart run packages/flutter_testsmith/bin/testsmith.dart inspect -d <serial>
+dart run packages/flutter_testsmith/bin/testsmith.dart smoke -d <serial> \
     --tap-id home.open_product
 ```
 
@@ -588,7 +588,7 @@ which parses perfectly and fails only once someone runs it on a device.
 | `packages/flutter_testsmith_protocol` | Versioned event and handshake contract. No dependency beyond `meta`, because it is linked into apps under test. |
 | `packages/flutter_testsmith` | In-app instrumentation: session, navigation, semantic test ids, UI tree inspection, network capture, redaction, production gating. |
 | `packages/flutter_testsmith/lib/src/engine` | The engine: transport, device control, session and API correlation, element lookup. Part of `flutter_testsmith` since ADR-0011, imported as `package:flutter_testsmith/engine.dart`. **Its code never imports Flutter.** |
-| `packages/flutter_testsmith_cli` | The `testsmith` binary. Argument parsing and formatting only. |
+| `packages/flutter_testsmith/lib/src/cli` | The `testsmith` binary (`bin/testsmith.dart`, run as `dart run flutter_testsmith:testsmith`). Argument parsing and formatting only. Part of `flutter_testsmith` since ADR-0011. |
 | `examples/ecommerce_app` | Seven-screen example: login, home, products, product details, cart, checkout, order success. Every screen has loading, error, empty and data states, null-tolerant parsing, and conditional sections. Product Details implements the `Product Details` Figma frame, expressing its margins as fractions of the 402pt design width so the layout projects onto any device exactly. |
 | `integrations/flutter_testsmith_figma` | Figma REST client and design normalisation into a comparable spec. |
 | `integrations/ai_client` | Provider-agnostic chat completions. Knows nothing about testing, so the provider is a config value. |

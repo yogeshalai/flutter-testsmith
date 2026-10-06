@@ -19,12 +19,13 @@ dependencies:
   meta: ^1.15.0
   flutter_testsmith_protocol: ^0.1.1
 
-  # The engine component's dependencies (lib/src/engine, ADR-0011). The
-  # application under test never links them: nothing reachable from
-  # lib/flutter_testsmith.dart imports engine code, which
-  # scripts/check_dependencies.dart enforces as rule A. The two workspace
-  # members leave this list when they move in too.
+  # The engine and CLI components' dependencies (lib/src/engine,
+  # lib/src/cli, ADR-0011). The application under test never links them:
+  # nothing reachable from lib/flutter_testsmith.dart imports engine or
+  # CLI code, which scripts/check_dependencies.dart enforces as rule A.
+  # The two workspace members leave this list when they move in too.
   ai_client: ^0.1.0
+  args: ^2.6.0
   flutter_testsmith_figma: ^0.1.0
   image: ^4.9.2
   vm_service: ^15.0.0
@@ -34,5 +35,15 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   lints: ^6.0.0
-  # The engine's tests are plain Dart: `dart test test/engine`.
+  # The engine's and the CLI's tests are plain Dart:
+  # `dart test test/engine`, `dart test test/cli`.
   test: ^1.25.0
+
+# The CLI component (lib/src/cli). The supported invocation is
+# `dart run flutter_testsmith:testsmith` from an application that depends
+# on this package. `dart pub global activate flutter_testsmith` installs a
+# `testsmith` launcher too, but pub runs global executables of packages
+# that need the Flutter SDK only from the snapshot built at activation:
+# after a Dart SDK upgrade, activate again (ADR-0011).
+executables:
+  testsmith: testsmith

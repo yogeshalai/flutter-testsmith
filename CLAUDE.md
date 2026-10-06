@@ -19,10 +19,18 @@ the product as **one** pub.dev package, `flutter_testsmith`. The other
 packages are moving inside it as components, and none of them is
 released on its own
 ([ADR-0011](docs/adr/0011-single-published-package.md)). Migration
-order: engine (**done**: `lib/src/engine/`, public `lib/engine.dart`),
-then CLI, Figma, AI, and the protocol last. CLI, Figma, AI and protocol
-are still separate packages. Do not add further publishing, versioning
-or changelog machinery unless asked.
+status, in order:
+
+| Component | Status |
+|---|---|
+| Engine | migrated: `lib/src/engine/`, public `lib/engine.dart` |
+| CLI | migrated: `lib/src/cli/`, executable `bin/testsmith.dart` (`dart run flutter_testsmith:testsmith`) |
+| Figma | not migrated (still `integrations/flutter_testsmith_figma`) |
+| AI | not migrated (still `integrations/ai_client`) |
+| Protocol | not migrated (still `packages/flutter_testsmith_protocol`); moves last |
+
+Do not add further publishing, versioning or changelog machinery unless
+asked.
 
 The current state of the work lives in one file:
 [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). It is the only document
@@ -106,9 +114,9 @@ answer to any of these is a defect, not a convenience.
 
 | Question | The one rule | Owner |
 |---|---|---|
-| Where is the application? | `--app` if given (it need only exist); otherwise the nearest ancestor holding `pubspec.yaml`. Never a fallback to a directory nobody named. | `flutter_testsmith_cli/lib/src/project_root.dart` |
+| Where is the application? | `--app` if given (it need only exist); otherwise the nearest ancestor holding `pubspec.yaml`. Never a fallback to a directory nobody named. | `flutter_testsmith/lib/src/cli/project_root.dart` |
 | Where does `app: path:` in a suite or auth file point? | Relative to the *declaring file*; an absolute path is taken as written. | `project_root.dart` |
-| Where does `--out` write? | A relative path resolves against the **resolved application root**; an absolute one is the directory named. | `flutter_testsmith_cli/lib/src/output_path.dart` |
+| Where does `--out` write? | A relative path resolves against the **resolved application root**; an absolute one is the directory named. | `flutter_testsmith/lib/src/cli/output_path.dart` |
 | Which `adb`? | `MYTEST_ADB` > `ANDROID_HOME` > `ANDROID_SDK_ROOT` > `PATH`, reporting which source was used and which were set but held nothing. | `flutter_testsmith/lib/src/engine/device/adb_location.dart` |
 | Which `flutter`? | **PATH only**, resolved to one absolute executable with provenance. On Windows only runnable wrappers count (`.bat`, `.cmd`, `.exe`), never the extensionless script. | `flutter_testsmith/lib/src/engine/environment/flutter_location.dart` |
 | Where do credentials come from? | The process environment first, then the first `.env` found beside the application, then beside the caller. The real environment always wins, so CI is never overridden by a developer's file. | `dotenv.dart`, `secrets/env_secret_resolver.dart` |
@@ -139,7 +147,7 @@ dart analyze --fatal-infos
 
 cd packages/flutter_testsmith_protocol && dart test
 cd packages/flutter_testsmith          && dart test test/engine
-cd packages/flutter_testsmith_cli      && dart test
+cd packages/flutter_testsmith          && dart test test/cli
 cd integrations/flutter_testsmith_figma && dart test
 cd integrations/ai_client              && dart test
 cd packages/flutter_testsmith          && flutter test test/sdk
@@ -190,7 +198,7 @@ dart test test/                             # from the repository root
 | Concern | Rule |
 |---|---|
 | Line endings | LF, enforced by `.gitattributes`. Windows host: count bytes and trust `git diff --check`; `awk` and `grep` mis-measure CR here. |
-| Public surface | Exactly one barrel per component; `src/` is private. In `flutter_testsmith` that is `lib/flutter_testsmith.dart` (the SDK) and `lib/engine.dart`, with more as components move in (ADR-0011); a still-separate package has one barrel |
+| Public surface | At most one barrel per component; `src/` is private. In `flutter_testsmith` that is `lib/flutter_testsmith.dart` (the SDK) and `lib/engine.dart`; the CLI has no public library, only the `testsmith` executable (ADR-0011). A still-separate package has one barrel |
 | Semantic test IDs | Dotted lowercase: `product.add_to_cart` |
 | Wire namespace | `ext.mytest.*` — **frozen deliberately**. Renaming a protocol is a protocol change (434a57f). |
 | Operator variables | `MYTEST_*` — also frozen; it is the operator's contract with their own shell and CI |

@@ -160,9 +160,10 @@ class of version-skew problems for no loss of capability.
 > packages below move inside it as components, and the two invariants
 > at the end of this section are now enforced over the import graph as
 > well as the dependency graph. The topology below describes the
-> repository until that migration completes. The engine has moved
-> (`packages/flutter_testsmith/lib/src/engine/`); the CLI, Figma, AI and
-> protocol have not.
+> repository until that migration completes. The engine and the CLI
+> have moved (`packages/flutter_testsmith/lib/src/engine/`,
+> `lib/src/cli/` and `bin/testsmith.dart`); Figma, AI and the protocol
+> have not.
 
 ```
 packages/
@@ -769,7 +770,7 @@ in one file, and a second answer is a defect rather than a convenience.
 
 ### 17.1 Where the application is
 
-`flutter_testsmith_cli/lib/src/project_root.dart` owns it.
+`flutter_testsmith/lib/src/cli/project_root.dart` owns it.
 
 `--app` wins and is taken at its word: a named directory only has to
 exist. It is deliberately **not** required to hold a `pubspec.yaml`,
@@ -790,7 +791,7 @@ application. An absolute declared path is taken as written.
 
 ### 17.2 Where output goes
 
-`flutter_testsmith_cli/lib/src/output_path.dart` owns it, and takes the
+`flutter_testsmith/lib/src/cli/output_path.dart` owns it, and takes the
 root as an argument rather than resolving one - which is what keeps
 17.1 the only answer to that question.
 
@@ -872,7 +873,7 @@ a question that was never asked.
 
 ### 17.6 Reading a project's configuration
 
-`flutter_testsmith_cli/lib/src/project_config.dart` indexes a directory of
+`flutter_testsmith/lib/src/cli/project_config.dart` indexes a directory of
 files by the screen each one names, and is shared by `run` and
 `suite run` so a screen's mappings and design resolve identically either
 way. A suite that read them differently would be a second definition of

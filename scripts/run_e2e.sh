@@ -59,7 +59,7 @@ if [ -z "$DEVICE" ]; then
   exit 1
 fi
 
-MYTEST=(dart run "$PLATFORM_DIR/packages/flutter_testsmith_cli/bin/testsmith.dart")
+MYTEST=(dart run "$PLATFORM_DIR/packages/flutter_testsmith/bin/testsmith.dart")
 
 # The positive suite. `fixture:` inside each flow names the API state, so
 # the runner refuses to run one without arranging it - which is why there

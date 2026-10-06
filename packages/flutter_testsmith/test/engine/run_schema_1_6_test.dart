@@ -105,7 +105,7 @@ void main() {
     // FlowExecutor needs a launched application; these pin the wiring the
     // unit tests above cannot reach, as the 1.4 and 1.5 schema tests do.
     final executor =
-        _source('flutter_testsmith_cli/lib/src/flow_executor.dart');
+        _source('flutter_testsmith/lib/src/cli/flow_executor.dart');
 
     test('monotonic timing comes from the handshake', () {
       // Whitespace removed, so line endings and wrapping cannot decide it.
