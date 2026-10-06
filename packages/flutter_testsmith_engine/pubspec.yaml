@@ -3,6 +3,7 @@ description: >-
   Out-of-process engine for Flutter Testsmith. Owns transport,
   device control, session correlation, validation and reporting.
 version: 0.1.0
+publish_to: none
 repository: https://github.com/yogeshalai/flutter-testsmith/tree/main/packages/flutter_testsmith_engine
 issue_tracker: https://github.com/yogeshalai/flutter-testsmith/issues
 resolution: workspace

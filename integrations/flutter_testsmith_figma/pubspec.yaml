@@ -3,6 +3,7 @@ description: >-
   Fetches Figma designs and normalises them into a specification the
   validation engine can compare a Flutter screen against.
 version: 0.1.0
+publish_to: none
 repository: https://github.com/yogeshalai/flutter-testsmith/tree/main/integrations/flutter_testsmith_figma
 issue_tracker: https://github.com/yogeshalai/flutter-testsmith/issues
 resolution: workspace

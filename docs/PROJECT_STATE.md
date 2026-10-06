@@ -185,14 +185,17 @@ pending. Do not resolve one silently.
 
 ## 6. Not in scope now
 
-- **Publishing to pub.dev** has been decided but not yet performed. The
-  six publishable packages carry a LICENSE, README and CHANGELOG, no
-  longer declare `publish_to: none`, and name their folder in
-  `github.com/yogeshalai/flutter-testsmith` as `repository:`. Releases
-  are published from this repository only (CLAUDE.md, "Canonical
-  repository"), in dependency order: `flutter_testsmith_protocol`;
-  `ai_client` and `flutter_testsmith_figma`; `flutter_testsmith_engine`;
-  `flutter_testsmith_cli`; `flutter_testsmith`.
+- **Publishing to pub.dev** is decided, not performed. The product is
+  released as **one** package, `flutter_testsmith`. The other five
+  packages are not released on their own: they move inside it as
+  components ([ADR-0011](adr/0011-single-published-package.md)), because
+  pub.dev refuses a published package whose dependencies it cannot serve.
+  The migration has not started. Until it finishes, all six packages
+  declare `publish_to: none`. `scripts/check_dependencies.dart` already
+  enforces the import-graph form of the layering rules (A, B), and lists
+  what still stands between the tree and a publishable package (C,
+  pending). `--release` fails on anything pending. Releases are published
+  from this repository only (CLAUDE.md, "Canonical repository").
 - iOS. Impossible on the Windows development host (ARCHITECTURE §3), and
   the interfaces exist so it stays implementation rather than redesign.
 - Cloud backend, dashboard, account system, history server

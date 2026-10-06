@@ -7,6 +7,10 @@ environment:
 # Dev-only, for the tooling under scripts/. Nothing here reaches a shipped
 # package: the root is not a dependency of any workspace member.
 dev_dependencies:
+  # scripts/import_graph.dart reads Dart directives with the real parser,
+  # so the layering rules see conditional imports, exports and parts the
+  # way the compiler does. Already resolved here through package:test.
+  analyzer: ^12.0.0
   archive: ^4.0.0
   lints: ^6.0.0
   test: ^1.25.0

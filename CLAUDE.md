@@ -14,10 +14,13 @@ API request, API response, app state, widget tree, UI field values,
 Figma spec, screenshot, visual comparison, then AI *explanation*.
 
 **Current focus: architectural consistency and compatibility with
-Flutter projects this repository did not grow up with.** The six
-packages are in publishable form and will be released to pub.dev from
-this repository; see "Canonical repository" below. Do not add further
-publishing, versioning or changelog machinery unless asked.
+Flutter projects this repository did not grow up with.** Users will get
+the product as **one** pub.dev package, `flutter_testsmith`. The other
+five packages are moving inside it as components, and none of them is
+released on its own
+([ADR-0011](docs/adr/0011-single-published-package.md)). The migration
+has not started. Do not add further publishing, versioning or changelog
+machinery unless asked.
 
 The current state of the work lives in one file:
 [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). It is the only document
@@ -36,15 +39,17 @@ checkout of this repository's `main`.
 - The earlier private development repository is frozen. Make no
   commits there and port nothing back to it. Its history is not public
   and is not a source for changes.
-- Each package's `repository:` field points at its folder here; pub.dev
-  checks that the published `pubspec.yaml` exists at that path, so a
-  package directory is not moved without updating its pubspec.
+- The one published package is `flutter_testsmith`. Its `repository:`
+  field points at its folder here; pub.dev checks that the published
+  `pubspec.yaml` exists at that path, so the folder is not moved without
+  updating the pubspec.
 - Commits are made as `yogeshalai <yogeshalai17@gmail.com>`, set in this
   repository's local git config.
-- `publish_to: none` was removed from the six packages deliberately, to
-  make them publishable. It was also the rail against an accidental
-  `dart pub publish`; run `dart pub publish` only when a release has
-  been decided, and `--dry-run` otherwise.
+- All six packages declare `publish_to: none` until the migration in
+  ADR-0011 is finished. That is the rail against an accidental
+  `dart pub publish`. It is removed from `flutter_testsmith` alone, as the
+  last migration step, once `dart run scripts/check_dependencies.dart
+  --release` passes.
 
 ---
 
@@ -70,9 +75,10 @@ loud that you are changing it.
 
 | Invariant | Enforced by | Reasoning |
 |---|---|---|
-| `flutter_testsmith` never depends on `flutter_testsmith_engine` — the app under test must not link the testing brain | `scripts/check_dependencies.dart` (CI step 1) | ARCHITECTURE §6 |
-| `flutter_testsmith_engine` never depends on Flutter | same script, including a source-import scan | ARCHITECTURE §6, ADR-0003 |
+| The app under test must not link the testing brain: nothing reachable from `lib/flutter_testsmith.dart` imports engine, CLI, Figma or AI code (rule A). The package-level form, "`flutter_testsmith` never depends on `flutter_testsmith_engine`", is also checked while that package exists | `scripts/check_dependencies.dart` (CI step 1), rules in `scripts/import_graph.dart`, tests in `test/import_graph_test.dart` | ARCHITECTURE §6, ADR-0011 |
+| Protocol, engine, CLI, Figma and AI code never reaches Flutter: no `package:flutter`, `dart:ui`, Flutter-dependent package or SDK file in its import closure (rule B). Package-level form and the engine source scan also run while their packages exist | same script | ARCHITECTURE §6, ADR-0003, ADR-0011 |
 | `flutter_testsmith` and `flutter_testsmith_protocol` never path- or git-depend back into this repository | same script | docs/E-01 |
+| The published package depends only on pub.dev and the Flutter SDK (rule C). A workspace-member dependency is *pending* during the migration; `--release` fails on anything pending | same script, `--release` | ADR-0011 |
 | No AI output can reach a pass/fail verdict | `flutter_testsmith_engine/test/ai_boundaries_test.dart` | ADR-0009 |
 | An unrecognised AI claim level parses to `hypothesis`, the weakest | `ai_boundaries_test.dart` | ADR-0009 |
 | A model outage is *unavailable*, never a test failure | `ai_boundaries_test.dart` | ADR-0009 |

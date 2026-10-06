@@ -155,6 +155,13 @@ class of version-skew problems for no loss of capability.
 
 ## 6. Package topology
 
+> **Superseded in part by [ADR-0011](adr/0011-single-published-package.md)
+> (2026-10-06).** Only `flutter_testsmith` is published. The other
+> packages below move inside it as components, and the two invariants
+> at the end of this section are now enforced over the import graph as
+> well as the dependency graph. The topology below describes the
+> repository until that migration completes.
+
 ```
 packages/
   flutter_testsmith_protocol/   pure Dart, no runtime deps beyond `meta`. Events, versioning, JSON.

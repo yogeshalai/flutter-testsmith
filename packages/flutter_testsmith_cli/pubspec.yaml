@@ -1,6 +1,7 @@
 name: flutter_testsmith_cli
 description: The testsmith command line runner for Flutter Testsmith.
 version: 0.1.0
+publish_to: none
 repository: https://github.com/yogeshalai/flutter-testsmith/tree/main/packages/flutter_testsmith_cli
 issue_tracker: https://github.com/yogeshalai/flutter-testsmith/issues
 resolution: workspace

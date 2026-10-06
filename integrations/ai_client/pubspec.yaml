@@ -4,6 +4,7 @@ description: >-
   testing: it sends a prompt and returns text, so the analysis layer can be
   swapped between providers without changing what it asks.
 version: 0.1.0
+publish_to: none
 repository: https://github.com/yogeshalai/flutter-testsmith/tree/main/integrations/ai_client
 issue_tracker: https://github.com/yogeshalai/flutter-testsmith/issues
 resolution: workspace

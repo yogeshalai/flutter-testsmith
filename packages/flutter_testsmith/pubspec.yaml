@@ -4,6 +4,7 @@ description: >-
   Captures navigation, UI structure and network traffic in test mode, and
   exposes them to the out-of-process test engine.
 version: 0.1.3
+publish_to: none
 repository: https://github.com/yogeshalai/flutter-testsmith/tree/main/packages/flutter_testsmith
 issue_tracker: https://github.com/yogeshalai/flutter-testsmith/issues
 resolution: workspace
