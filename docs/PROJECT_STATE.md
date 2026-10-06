@@ -186,7 +186,7 @@ pending. Do not resolve one silently.
 
 ## 6. Not in scope now
 
-- **Publishing to pub.dev** is decided, not performed. The product is
+- **Publishing to pub.dev** is approved, not yet performed. The product is
   released as **one** package, `flutter_testsmith`. The five packages it
   used to depend on moved inside it as components
   ([ADR-0011](adr/0011-single-published-package.md)), because pub.dev
@@ -194,14 +194,18 @@ pending. Do not resolve one silently.
   Migration complete. Engine: migrated (step 2). CLI: migrated (step 3).
   Figma: migrated (step 4). AI: migrated (step 5). Protocol: migrated
   (step 6). The release-readiness audit (2026-10-06) rewrote the package
-  README and added an unreleased CHANGELOG entry for the single package;
-  the real `dart pub publish --dry-run` reports 0 warnings. What remains
-  is the release version and removing `publish_to: none`, both waiting
-  on explicit approval. `scripts/check_dependencies.dart` already
-  enforces the import-graph form of the layering rules (A, B), and lists
-  what still stands between the tree and a publishable package (C,
-  pending). `--release` fails on anything pending. Releases are published
-  from this repository only (CLAUDE.md, "Canonical repository").
+  README and added the CHANGELOG entry for the single package. Version
+  0.1.4 is the approved release candidate: `publish_to: none` has been
+  removed, `scripts/check_dependencies.dart --release` passes (rules A
+  and B, and nothing pending under C), the real
+  `dart pub publish --dry-run` reports 0 errors and 0 warnings, an
+  application outside the workspace resolves and runs it, and the full
+  test matrix passes. Not yet done: `main` has not been pushed to
+  GitHub, 0.1.4 is not on pub.dev, and no tag or GitHub release exists.
+  Next: push `main`, verify from a fresh checkout of it, publish 0.1.4
+  from that checkout, then create the release tag and the GitHub
+  release. Releases are published from this repository only (CLAUDE.md,
+  "Canonical repository").
 - iOS. Impossible on the Windows development host (ARCHITECTURE §3), and
   the interfaces exist so it stays implementation rather than redesign.
 - Cloud backend, dashboard, account system, history server

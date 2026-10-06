@@ -29,10 +29,11 @@ it used to depend on have all moved inside it:
 | AI | migrated: `lib/src/ai/`, public `lib/ai.dart` |
 | Protocol | migrated: `lib/src/protocol/`, public `lib/protocol.dart`, also re-exported by the SDK |
 
-It is not published yet: the release-readiness audit is done, and
-`publish_to: none` stays until the release candidate is explicitly
-approved. Do not add further publishing, versioning or changelog
-machinery unless asked.
+Version 0.1.4 is the approved release candidate, and `publish_to: none`
+has been removed. It is not published yet: `main` has not been pushed to
+GitHub, 0.1.4 is not on pub.dev, and no tag or GitHub release exists. Do
+not add further publishing, versioning or changelog machinery unless
+asked.
 
 The current state of the work lives in one file:
 [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). It is the only document
@@ -57,12 +58,14 @@ checkout of this repository's `main`.
   updating the pubspec.
 - Commits are made as `yogeshalai <yogeshalai17@gmail.com>`, set in this
   repository's local git config.
-- `flutter_testsmith` declares `publish_to: none`. That is the rail against
-  an accidental `dart pub publish`. The ADR-0011 migration and the
-  release-readiness audit are complete; the rail comes off only when the
-  release candidate is explicitly approved, and
-  `dart run scripts/check_dependencies.dart --release` fails until it
-  does (that `publish_to` line is the only item it still reports).
+- `flutter_testsmith` no longer declares `publish_to: none`, the rail
+  that stood against an accidental `dart pub publish` through the
+  ADR-0011 migration and the release-readiness audit. It was removed for
+  0.1.4, the approved release candidate, and
+  `dart run scripts/check_dependencies.dart --release` now passes.
+- The release sequence for 0.1.4: push `main`, verify from a fresh
+  checkout of it, publish 0.1.4 from that checkout, then create the
+  release tag and the GitHub release. None of these has happened yet.
 
 ---
 
