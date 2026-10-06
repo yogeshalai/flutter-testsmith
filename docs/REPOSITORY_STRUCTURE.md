@@ -82,17 +82,20 @@ flutter_testsmith/
 └── test/
 ```
 
-### `packages/flutter_testsmith_engine/` - the brain
+### `packages/flutter_testsmith/lib/src/engine/` - the brain
 
-Pure Dart. **Never depends on Flutter** - this is what keeps the CLI
-compilable to a native binary and validation logic unit-testable in
-milliseconds.
+Until ADR-0011 step 2 this was its own package, `flutter_testsmith_engine`.
+It is now a component of `flutter_testsmith`, with its tests in
+`packages/flutter_testsmith/test/engine/`. Its code is pure Dart and
+**never imports Flutter** (rule B in `scripts/check_dependencies.dart`) -
+this is what keeps the CLI compilable to a native binary and validation
+logic unit-testable in milliseconds.
 
 ```
-flutter_testsmith_engine/
+flutter_testsmith/
 ├── lib/
-│   ├── flutter_testsmith_engine.dart          # barrel
-│   └── src/
+│   ├── engine.dart               # the engine's barrel
+│   └── src/engine/
 │       ├── transport/            # SdkTransport, VmServiceTransport, flutter run driver
 │       ├── device/               # DeviceController, AdbDeviceController, coordinates
 │       ├── session/              # SessionManager, ScreenSession, correlation, settle

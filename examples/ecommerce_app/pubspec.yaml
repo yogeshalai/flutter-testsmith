@@ -41,11 +41,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  # The platform's own validators, so the example's tests can drive the
-  # real engine over the real widgets. Only a dev dependency: the
-  # application never links the testing brain, which is the rule
-  # scripts/check_dependencies.dart enforces for flutter_testsmith.
-  flutter_testsmith_engine: ^0.1.0
+  # The platform's own validators come with flutter_testsmith, above, as
+  # package:flutter_testsmith/engine.dart: the example's tests drive the
+  # real engine over the real widgets. The application itself never links
+  # them - only lib/flutter_testsmith.dart is imported by app code, and
+  # scripts/check_dependencies.dart (rule A) proves it reaches no engine code.
 
   # For the fixture server, so the API error matrix exercises a real
   # socket against the same scenario files a device run serves.

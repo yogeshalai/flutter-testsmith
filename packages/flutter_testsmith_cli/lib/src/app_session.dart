@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'dart:io';
 
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
 
 import 'adb_device_environment.dart';

@@ -28,8 +28,8 @@ void main() {
     registry = LocalRegistry([
       for (final name in externallyConsumablePackages)
         PublishedPackage.fromDirectory(
-          'packages/$name',
-          gitTrackedFiles('packages/$name'),
+          packageDirectory(name),
+          gitTrackedFiles(packageDirectory(name)),
         ),
     ]);
     server = await registry.serve();

@@ -22,7 +22,7 @@ import 'dart:io';
 import 'package:test/test.dart';
 import 'package:flutter_testsmith_cli/src/dotenv.dart';
 import 'package:flutter_testsmith_cli/src/secrets/env_secret_resolver.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
 
 /// Records what the acquirer resolved before issuing a request.
@@ -169,7 +169,7 @@ void main() {
       // Pinned at the source: a null response is an ERROR in the api
       // dimension, which is why a missing `.env` secret changed a
       // verdict rather than being quietly skipped.
-      final validators = _source('flutter_testsmith_engine/lib/src/validation/validators.dart');
+      final validators = _source('flutter_testsmith/lib/src/engine/validation/validators.dart');
 
       expect(validators, contains('ValidationResult.error'));
       expect(validators, contains('_noResponseMessage'));

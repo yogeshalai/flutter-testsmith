@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 
 import 'output.dart';
 

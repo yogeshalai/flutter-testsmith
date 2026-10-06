@@ -8,7 +8,7 @@ import 'package:ecommerce_app/api/models.dart';
 import 'package:ecommerce_app/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 import 'package:flutter_testsmith/flutter_testsmith.dart';
 
 /// Drives the real validators over the real application widgets.

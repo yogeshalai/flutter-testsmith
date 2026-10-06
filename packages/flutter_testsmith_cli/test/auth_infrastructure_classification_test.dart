@@ -17,7 +17,7 @@ import 'dart:io';
 
 import 'package:test/test.dart';
 import 'package:flutter_testsmith_cli/src/auth_runner.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 
 /// The driver adapter's source, wherever the suite was launched from.
 String adapterSource() {

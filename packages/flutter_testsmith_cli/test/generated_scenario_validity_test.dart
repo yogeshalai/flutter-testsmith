@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:test/test.dart';
 import 'package:flutter_testsmith_cli/src/mock_api_server.dart';
 import 'package:flutter_testsmith_cli/src/project_indexer.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 
 /// Phase 12, brief item 9 - every committed proposal must be real.
 ///

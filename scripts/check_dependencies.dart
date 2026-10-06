@@ -99,7 +99,7 @@ void main(List<String> args) {
   // Rule 3: nothing an external application depends on may point back
   // into this repository.
   for (final package in externallyConsumablePackages) {
-    final pubspec = File('packages/$package/pubspec.yaml');
+    final pubspec = File('${packageDirectory(package)}/pubspec.yaml');
     if (!pubspec.existsSync()) continue;
 
     final violations = externallyConsumableViolations(
@@ -115,22 +115,26 @@ void main(List<String> args) {
     }
   }
 
-  // Also verify no Dart source in flutter_testsmith_engine imports Flutter, which a
-  // pubspec check alone would miss if the dependency were transitive.
-  final engineLib = Directory('packages/flutter_testsmith_engine/lib');
-  if (engineLib.existsSync()) {
-    for (final file in engineLib
-        .listSync(recursive: true)
-        .whereType<File>()
-        .where((f) => f.path.endsWith('.dart'))) {
-      final source = file.readAsStringSync();
-      if (source.contains("import 'package:flutter/") ||
-          source.contains('import "package:flutter/')) {
-        stderr.writeln('VIOLATION  ${file.path} imports Flutter');
-        failures++;
-      }
+  // Also verify no engine source imports Flutter, which a pubspec check
+  // alone would miss if the dependency were transitive. The files are
+  // found wherever the engine currently lives - its own package before
+  // ADR-0011 step 2, lib/src/engine inside flutter_testsmith after - so
+  // this check keeps running after the package-level rule has retired.
+  final engineFiles = componentFiles('.', Component.engine);
+  if (engineFiles.isEmpty) {
+    stderr.writeln('MISSING  no engine source found to scan for Flutter imports');
+    failures++;
+  }
+  for (final path in engineFiles) {
+    final source = File(path).readAsStringSync();
+    if (source.contains("import 'package:flutter/") ||
+        source.contains('import "package:flutter/')) {
+      stderr.writeln('VIOLATION  $path imports Flutter');
+      failures++;
     }
-    stdout.writeln('ok  no Flutter import in flutter_testsmith_engine sources');
+  }
+  if (engineFiles.isNotEmpty) {
+    stdout.writeln('ok  no Flutter import in the ${engineFiles.length} engine sources');
   }
 
   failures += _importGraphRules(release: release, placement: where);

@@ -24,7 +24,7 @@ import 'dart:io';
 import 'package:test/test.dart';
 import 'package:flutter_testsmith_cli/src/dotenv.dart';
 import 'package:flutter_testsmith_cli/src/secrets/env_secret_resolver.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 
 late Directory _project;
 late Directory _cwd;

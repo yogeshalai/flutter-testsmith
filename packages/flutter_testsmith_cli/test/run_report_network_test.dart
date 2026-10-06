@@ -8,7 +8,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_testsmith_cli/src/project_config.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 import 'package:test/test.dart';
 
 RunResult _run(NetworkRecord network) => RunResult(

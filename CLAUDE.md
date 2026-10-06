@@ -16,11 +16,13 @@ Figma spec, screenshot, visual comparison, then AI *explanation*.
 **Current focus: architectural consistency and compatibility with
 Flutter projects this repository did not grow up with.** Users will get
 the product as **one** pub.dev package, `flutter_testsmith`. The other
-five packages are moving inside it as components, and none of them is
+packages are moving inside it as components, and none of them is
 released on its own
-([ADR-0011](docs/adr/0011-single-published-package.md)). The migration
-has not started. Do not add further publishing, versioning or changelog
-machinery unless asked.
+([ADR-0011](docs/adr/0011-single-published-package.md)). Migration
+order: engine (**done**: `lib/src/engine/`, public `lib/engine.dart`),
+then CLI, Figma, AI, and the protocol last. CLI, Figma, AI and protocol
+are still separate packages. Do not add further publishing, versioning
+or changelog machinery unless asked.
 
 The current state of the work lives in one file:
 [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). It is the only document
@@ -79,13 +81,13 @@ loud that you are changing it.
 | Protocol, engine, CLI, Figma and AI code never reaches Flutter: no `package:flutter`, `dart:ui`, Flutter-dependent package or SDK file in its import closure (rule B). Package-level form and the engine source scan also run while their packages exist | same script | ARCHITECTURE §6, ADR-0003, ADR-0011 |
 | `flutter_testsmith` and `flutter_testsmith_protocol` never path- or git-depend back into this repository | same script | docs/E-01 |
 | The published package depends only on pub.dev and the Flutter SDK (rule C). A workspace-member dependency is *pending* during the migration; `--release` fails on anything pending | same script, `--release` | ADR-0011 |
-| No AI output can reach a pass/fail verdict | `flutter_testsmith_engine/test/ai_boundaries_test.dart` | ADR-0009 |
+| No AI output can reach a pass/fail verdict | `flutter_testsmith/test/engine/ai_boundaries_test.dart` | ADR-0009 |
 | An unrecognised AI claim level parses to `hypothesis`, the weakest | `ai_boundaries_test.dart` | ADR-0009 |
 | A model outage is *unavailable*, never a test failure | `ai_boundaries_test.dart` | ADR-0009 |
 | No request or response body is ever sent to a model | `ai_boundaries_test.dart` | ADR-0009 |
 | Generated flows are stamped `status: proposed` by the generator — not by the model — and refuse to run | `generated_scenario_validity_test.dart`, `test_generator_test.dart` | IMPLEMENTATION_PLAN Phase 11 |
-| Visual baselines are never re-recorded automatically | `flutter_testsmith_engine/test/visual_validator_test.dart` | ADR-0008 |
-| The SDK cannot arm in release without an explicit opt-in; three independent layers | `flutter_testsmith/test/gating_test.dart` | ARCHITECTURE §9.2 |
+| Visual baselines are never re-recorded automatically | `flutter_testsmith/test/engine/visual_validator_test.dart` | ADR-0008 |
+| The SDK cannot arm in release without an explicit opt-in; three independent layers | `flutter_testsmith/test/sdk/gating_test.dart` | ARCHITECTURE §9.2 |
 | Redaction happens at capture, in-process, allow-by-exception | `redaction_test.dart`, `secret_leakage_test.dart` | ARCHITECTURE §13 |
 | Secrets are referenced by variable *name*; a literal key in `ai.yaml` is a parse error | `secret_ref_test.dart`, `secrets_neutrality_test.dart` | ADR-0009 |
 | `skip` is not `pass` — a check that cannot honestly be made says so | validator tests throughout | docs/E-06 |
@@ -107,8 +109,8 @@ answer to any of these is a defect, not a convenience.
 | Where is the application? | `--app` if given (it need only exist); otherwise the nearest ancestor holding `pubspec.yaml`. Never a fallback to a directory nobody named. | `flutter_testsmith_cli/lib/src/project_root.dart` |
 | Where does `app: path:` in a suite or auth file point? | Relative to the *declaring file*; an absolute path is taken as written. | `project_root.dart` |
 | Where does `--out` write? | A relative path resolves against the **resolved application root**; an absolute one is the directory named. | `flutter_testsmith_cli/lib/src/output_path.dart` |
-| Which `adb`? | `MYTEST_ADB` > `ANDROID_HOME` > `ANDROID_SDK_ROOT` > `PATH`, reporting which source was used and which were set but held nothing. | `flutter_testsmith_engine/lib/src/device/adb_location.dart` |
-| Which `flutter`? | **PATH only**, resolved to one absolute executable with provenance. On Windows only runnable wrappers count (`.bat`, `.cmd`, `.exe`), never the extensionless script. | `flutter_testsmith_engine/lib/src/environment/flutter_location.dart` |
+| Which `adb`? | `MYTEST_ADB` > `ANDROID_HOME` > `ANDROID_SDK_ROOT` > `PATH`, reporting which source was used and which were set but held nothing. | `flutter_testsmith/lib/src/engine/device/adb_location.dart` |
+| Which `flutter`? | **PATH only**, resolved to one absolute executable with provenance. On Windows only runnable wrappers count (`.bat`, `.cmd`, `.exe`), never the extensionless script. | `flutter_testsmith/lib/src/engine/environment/flutter_location.dart` |
 | Where do credentials come from? | The process environment first, then the first `.env` found beside the application, then beside the caller. The real environment always wins, so CI is never overridden by a developer's file. | `dotenv.dart`, `secrets/env_secret_resolver.dart` |
 | Which Android package does a run drive? | A flow declares `appId:`. `inspect` and `smoke`, which have no flow, require `--app-id` and verify it against the device. | `dsl/test_flow.dart`, `device_selection.dart` |
 | A missing external tool | Reported as something to install, with an exit code — never an unhandled `ProcessException`, which exited 255 and leaked absolute paths into piped output. | commit 04d3696 |
@@ -136,11 +138,11 @@ dart run scripts/check_dependencies.dart    # the layering rules, first
 dart analyze --fatal-infos
 
 cd packages/flutter_testsmith_protocol && dart test
-cd packages/flutter_testsmith_engine   && dart test
+cd packages/flutter_testsmith          && dart test test/engine
 cd packages/flutter_testsmith_cli      && dart test
 cd integrations/flutter_testsmith_figma && dart test
 cd integrations/ai_client              && dart test
-cd packages/flutter_testsmith          && flutter test
+cd packages/flutter_testsmith          && flutter test test/sdk
 cd examples/ecommerce_app              && flutter test
 ```
 
@@ -188,7 +190,7 @@ dart test test/                             # from the repository root
 | Concern | Rule |
 |---|---|
 | Line endings | LF, enforced by `.gitattributes`. Windows host: count bytes and trust `git diff --check`; `awk` and `grep` mis-measure CR here. |
-| Public surface | Exactly one barrel file per package; `src/` is private |
+| Public surface | Exactly one barrel per component; `src/` is private. In `flutter_testsmith` that is `lib/flutter_testsmith.dart` (the SDK) and `lib/engine.dart`, with more as components move in (ADR-0011); a still-separate package has one barrel |
 | Semantic test IDs | Dotted lowercase: `product.add_to_cart` |
 | Wire namespace | `ext.mytest.*` — **frozen deliberately**. Renaming a protocol is a protocol change (434a57f). |
 | Operator variables | `MYTEST_*` — also frozen; it is the operator's contract with their own shell and CI |

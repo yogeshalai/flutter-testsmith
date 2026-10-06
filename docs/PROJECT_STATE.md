@@ -50,9 +50,9 @@ in git history before that date.
 Eleven CLI commands: `auth`, `doctor`, `devices`, `figma`, `generate`,
 `impact`, `inspect`, `preflight`, `run`, `smoke`, `suite`.
 
-Seven workspace members plus the example application:
-`flutter_testsmith_protocol`, `flutter_testsmith`,
-`flutter_testsmith_engine`, `flutter_testsmith_cli`,
+Five packages plus the example application, all workspace members:
+`flutter_testsmith_protocol`, `flutter_testsmith` (the SDK, and since
+ADR-0011 step 2 the engine at `lib/src/engine/`), `flutter_testsmith_cli`,
 `integrations/flutter_testsmith_figma`, `integrations/ai_client`,
 `examples/ecommerce_app`.
 
@@ -61,7 +61,7 @@ preparation found that name owned by an unrelated package. Milestone
 reports and evidence written before the rename keep the old name.
 
 The Figma fixtures in `integrations/flutter_testsmith_figma/test/fixtures/`
-and the device captures in `flutter_testsmith_engine/test/fixtures/external/`
+and the device captures in `flutter_testsmith/test/engine/fixtures/external/`
 keep the geometry, typography, colour and structure of what was captured,
 along with Figma's auto-generated layer names and generic UI copy. Every
 client-identifying name or string, and every node id, component key,
@@ -190,8 +190,10 @@ pending. Do not resolve one silently.
   packages are not released on their own: they move inside it as
   components ([ADR-0011](adr/0011-single-published-package.md)), because
   pub.dev refuses a published package whose dependencies it cannot serve.
-  The migration has not started. Until it finishes, all six packages
-  declare `publish_to: none`. `scripts/check_dependencies.dart` already
+  Migration in progress: the engine has moved (step 2); the CLI, Figma,
+  AI and protocol have not, and move in that order (ADR-0011,
+  "Correction to the order"). Until it finishes, every package declares
+  `publish_to: none`. `scripts/check_dependencies.dart` already
   enforces the import-graph form of the layering rules (A, B), and lists
   what still stands between the tree and a publishable package (C,
   pending). `--release` fails on anything pending. Releases are published

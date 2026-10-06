@@ -1,6 +1,8 @@
 # ADR-0011: One published package, `flutter_testsmith`; boundaries move from packages to imports
 
-**Status:** accepted (2026-10-06). The migration it describes has not started.
+**Status:** accepted (2026-10-06). Migration in progress: the engine has moved;
+CLI, Figma, AI and protocol have not. The migration order was corrected on
+2026-10-06; see "Correction to the order".
 **Supersedes, in part:** the package topology of ARCHITECTURE §6, and the
 assumption in ADR-0003 that the platform ships as several packages. ADR-0003
 itself stands: its decision (directories inside a package, not a package per
@@ -153,12 +155,17 @@ the last. Nothing about the future layout is assumed to exist.
 
 | After | Rule A | Rule B | Rule C pending (default: reported; `--release`: failure) |
 |---|---|---|---|
-| this ADR (no moves) | enforced: SDK + protocol packages | enforced: five legacy packages | `flutter_testsmith` depends on `flutter_testsmith_protocol`; five components outside; `publish_to: none` |
-| protocol moved | enforced; protocol now under `lib/src/protocol/` | enforced | the protocol dependency gone; four outside; `publish_to` |
-| AI, Figma moved | enforced | enforced, legacy and destination together | two outside; `publish_to` |
-| engine moved | enforced; `lib/engine.dart` is engine code | enforced | CLI outside; `publish_to` |
-| CLI moved | enforced; `bin/` is CLI code | enforced | `publish_to` only |
+| this ADR (no moves) | enforced: SDK + protocol packages | enforced: five legacy packages | 7: protocol dependency; five components outside; `publish_to` |
+| engine moved (**done**) | enforced; `lib/src/engine/` and `lib/engine.dart` are engine code | enforced; engine at its destination | 8: protocol, Figma and AI dependencies; four outside; `publish_to` |
+| CLI moved | enforced; `bin/` is CLI code | enforced | 7: those three dependencies; three outside; `publish_to` |
+| Figma moved | enforced | enforced | 5: protocol and AI dependencies; two outside; `publish_to` |
+| AI moved | enforced | enforced | 3: protocol dependency; protocol outside; `publish_to` |
+| protocol moved | enforced; protocol under `lib/src/protocol/` | enforced | 1: `publish_to` only |
 | `publish_to` removed | enforced | enforced | nothing; `--release` passes |
+
+The pending count rises after the engine move, and that is correct: the engine
+brought its dependencies on the Figma and AI packages into `flutter_testsmith`,
+and each disappears when that package moves in.
 
 The original package-level rules keep running while their packages exist. A
 legacy package that has disappeared is accepted only when its component is
@@ -166,17 +173,41 @@ found at its destination; otherwise it is still reported missing.
 
 ## Migration strategy
 
-One commit per step, full verification after each, no behaviour change:
+One commit per step, full verification after each, no behaviour change. Each
+step also updates whatever it invalidates: the example application, the root
+tests, the local registry, CI and the documentation.
 
-1. this ADR, `publish_to: none` restored on all six, and the guard;
-2. move the protocol (already a dependency of the SDK);
-3. move AI and Figma (no internal dependencies);
-4. move the engine; add `lib/engine.dart`;
-5. move the CLI; add `bin/testsmith.dart` and `executables:`;
-6. update the example application, the root tests, the local registry and CI;
-   remove the emptied packages and their workspace entries;
+1. this ADR, `publish_to: none` restored on all six, and the guard (2496d07);
+2. move the engine; add `lib/engine.dart`. Its tests go to `test/engine/`, and the
+   SDK's tests to `test/sdk/` so that each suite still runs on its own (**done**);
+3. move the CLI; add `bin/testsmith.dart` and `executables:`;
+4. move Figma;
+5. move AI;
+6. move the protocol;
 7. documentation, version, and `publish_to` removed from `flutter_testsmith`.
    `check_dependencies.dart --release` must pass.
+
+### Correction to the order (2026-10-06)
+
+This ADR first listed the protocol to move first, then AI and Figma, then the
+engine. That order cannot be executed without breaking a rule that is still in
+force. Moving component X inside `flutter_testsmith` has two effects:
+`flutter_testsmith` takes on X's dependencies, and every package still outside
+that uses X must depend on `flutter_testsmith`.
+
+- Protocol, Figma or AI first: the engine package uses all three, so it would
+  have to depend on `flutter_testsmith`. The package-level rule "the engine
+  never depends on `flutter_testsmith`" forbids that while the engine package
+  exists.
+- CLI first: `flutter_testsmith` would have to depend on the engine package,
+  which the rule "`flutter_testsmith` never depends on the engine" forbids.
+- **Engine first: no rule is broken.** `flutter_testsmith` takes on Figma, AI and
+  the protocol, which no rule forbids. The CLI package, still outside, depends
+  on `flutter_testsmith`, which no rule forbids either, and rule B still proves
+  the CLI's code reaches no Flutter.
+
+After the engine, every order is legal; the protocol goes last because every
+other component uses it. No rule was weakened to allow the corrected order.
 
 ## Alternatives considered
 

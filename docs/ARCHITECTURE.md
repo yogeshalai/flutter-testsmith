@@ -160,7 +160,9 @@ class of version-skew problems for no loss of capability.
 > packages below move inside it as components, and the two invariants
 > at the end of this section are now enforced over the import graph as
 > well as the dependency graph. The topology below describes the
-> repository until that migration completes.
+> repository until that migration completes. The engine has moved
+> (`packages/flutter_testsmith/lib/src/engine/`); the CLI, Figma, AI and
+> protocol have not.
 
 ```
 packages/
@@ -748,6 +750,7 @@ per specification section 22.
 | [0008](adr/0008-visual-comparison.md) | Two gates, measured per element, against a committed baseline |
 | [0009](adr/0009-ai-analysis.md) | AI explains, after the verdict, behind a provider seam |
 | [0010](adr/0010-screenshot-capture.md) | Two screenshot capture paths, and what each one is for |
+| [0011](adr/0011-single-published-package.md) | One published package, `flutter_testsmith`; boundaries move from packages to imports |
 
 ---
 
@@ -803,7 +806,7 @@ with the application path printed beside it.
 
 Three tools are invoked as subprocesses: `adb`, `flutter` and `git`.
 
-**adb** (`flutter_testsmith_engine/lib/src/device/adb_location.dart`) is
+**adb** (`flutter_testsmith/lib/src/engine/device/adb_location.dart`) is
 looked for in one order - `MYTEST_ADB`, then `$ANDROID_HOME/platform-tools`,
 then `$ANDROID_SDK_ROOT/platform-tools` (deprecated by Google, and
 consulted after for that reason, which is also the order the Flutter tool
@@ -814,7 +817,7 @@ Every adb caller resolves through it: two adb versions on one machine run
 two servers, and the controller and the environment probe address the same
 handset.
 
-**flutter** (`flutter_testsmith_engine/lib/src/environment/flutter_location.dart`)
+**flutter** (`flutter_testsmith/lib/src/engine/environment/flutter_location.dart`)
 is **PATH and nothing else**. `FLUTTER_ROOT`, `.fvmrc` and `.fvm/flutter_sdk`
 are deliberately not read: PATH is the contract section E-04 already
 documents and CI already depends on, and widening it is a policy change

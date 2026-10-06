@@ -7,7 +7,7 @@
 
 import 'package:test/test.dart';
 import 'package:flutter_testsmith_cli/src/auth_runner.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 
 const String _seededPin = 'SEEDED_PIN_9f2a41c8';
 const String _seededMobile = '9876543210';

@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:test/test.dart';
 import 'package:flutter_testsmith_cli/src/mock_api_server.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 
 /// The scenarios the example application ships with.
 ///

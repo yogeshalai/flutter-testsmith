@@ -4,7 +4,7 @@ import 'package:ecommerce_app/api/models.dart';
 import 'package:ecommerce_app/product_details_screen.dart'
     show ProductDetailsScreen;
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 
 import 'harness.dart';
 

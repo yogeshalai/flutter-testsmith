@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter_testsmith_figma/flutter_testsmith_figma.dart';
 import 'package:test/test.dart';
 import 'package:flutter_testsmith_cli/src/figma_source_resolver.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 
 class StubHttp implements FigmaHttp {
   StubHttp(this.status, this.body);

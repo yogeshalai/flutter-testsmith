@@ -30,7 +30,7 @@ Future<void> main(List<String> arguments) async {
 
   final packages = <PublishedPackage>[];
   for (final name in externallyConsumablePackages) {
-    final directory = 'packages/$name';
+    final directory = packageDirectory(name);
     if (!Directory(directory).existsSync()) {
       stderr.writeln(
         'Run this from the repository root: $directory does not exist.',

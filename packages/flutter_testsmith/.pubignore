@@ -5,4 +5,12 @@
 # repository only.
 #
 # .gitignore at the repository root still applies; this file only adds.
-test/figma_defect_matrix_test.dart
+test/sdk/figma_defect_matrix_test.dart
+
+# test/engine/fixtures/external/ holds UI trees captured from an external
+# application on a device, with its text replaced by synthetic values.
+# The published package does not need them; the two tests listed below
+# read them. (Moved here with the engine, ADR-0011.)
+test/engine/fixtures/external/
+test/engine/external_app_tree_test.dart
+test/engine/ui_property_resolution_test.dart

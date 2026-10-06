@@ -1,4 +1,4 @@
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 
 /// What the runner needs an application to do.
 ///

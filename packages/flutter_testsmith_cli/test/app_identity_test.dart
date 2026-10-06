@@ -21,7 +21,7 @@ import 'dart:io';
 
 import 'package:test/test.dart';
 import 'package:flutter_testsmith_cli/src/adb_device_environment.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 
 import 'support/no_device_adb.dart';
 

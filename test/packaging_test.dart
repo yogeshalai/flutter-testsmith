@@ -91,7 +91,7 @@ dev_dependencies:
     for (final package in externallyConsumablePackages) {
       test('$package reaches back into no repository', () {
         final pubspec = loadYaml(
-          File('packages/$package/pubspec.yaml').readAsStringSync(),
+          File('${packageDirectory(package)}/pubspec.yaml').readAsStringSync(),
         ) as YamlMap;
         expect(externallyConsumableViolations(package, pubspec), isEmpty);
       });
@@ -111,8 +111,8 @@ dev_dependencies:
     for (final package in externallyConsumablePackages) {
       test('$package ships its pubspec and its library', () {
         final published = PublishedPackage.fromDirectory(
-          'packages/$package',
-          gitTrackedFiles('packages/$package'),
+          packageDirectory(package),
+          gitTrackedFiles(packageDirectory(package)),
         );
         final entries = archiveEntryNames(published.archive);
 

@@ -1,0 +1,72 @@
+/// The out-of-process engine for Flutter Testsmith.
+///
+/// This package never depends on Flutter. That constraint is what lets the
+/// CLI compile to a native binary and lets validation logic be unit tested
+/// in milliseconds without a Flutter harness.
+library;
+
+export 'src/engine/ai/ai_analysis.dart';
+export 'src/engine/ai/failure_analyst.dart';
+export 'src/engine/ai/test_generator.dart';
+export 'src/engine/auth/auth_flow.dart';
+export 'src/engine/auth/auth_result.dart';
+export 'src/engine/auth/auth_verification.dart';
+export 'src/engine/secrets/secret_ref.dart';
+export 'src/engine/config/doctor.dart';
+export 'src/engine/device/adb_device_controller.dart';
+export 'src/engine/device/adb_location.dart';
+export 'src/engine/device/coordinates.dart';
+export 'src/engine/device/device_controller.dart';
+export 'src/engine/device/device_profile.dart';
+export 'src/engine/device/process_runner.dart';
+export 'src/engine/device/surface_screenshot.dart';
+export 'src/engine/dsl/steps.dart';
+export 'src/engine/fixtures/scenario.dart';
+export 'src/engine/dsl/suite_file.dart';
+export 'src/engine/dsl/test_flow.dart';
+export 'src/engine/environment/device_environment.dart';
+export 'src/engine/environment/flutter_location.dart';
+export 'src/engine/environment/preflight.dart';
+export 'src/engine/environment/preflight_checks.dart';
+export 'src/engine/environment/prerequisite.dart';
+export 'src/engine/impact/git_changes.dart';
+export 'src/engine/impact/impact_analyser.dart';
+export 'src/engine/impact/impact_index.dart';
+export 'src/engine/inspection/element_locator.dart';
+export 'src/engine/inspection/element_waiter.dart';
+export 'src/engine/reporting/dimension_verdict.dart';
+export 'src/engine/reporting/e2e_summary.dart';
+export 'src/engine/reporting/html_reporter.dart';
+export 'src/engine/reporting/network_record.dart';
+export 'src/engine/reporting/run_result.dart';
+export 'src/engine/reporting/suite_html_reporter.dart';
+export 'src/engine/reporting/suite_result.dart';
+export 'src/engine/session/screen_session.dart';
+export 'src/engine/session/session_correlator.dart';
+export 'src/engine/session/session_manager.dart';
+export 'src/engine/transport/flutter_machine.dart';
+export 'src/engine/validation/api_acquisition.dart';
+export 'src/engine/validation/api_expectation.dart';
+export 'src/engine/validation/api_fetcher.dart';
+export 'src/engine/validation/api_source.dart';
+export 'src/engine/validation/figma_source.dart';
+export 'src/engine/validation/figma_projection.dart';
+export 'src/engine/validation/anchor_projection.dart';
+export 'src/engine/validation/figma_structure_validator.dart';
+export 'src/engine/validation/figma_tolerances.dart';
+export 'src/engine/validation/mappings.dart';
+export 'src/engine/validation/quiescence.dart';
+export 'src/engine/validation/response_source.dart';
+export 'src/engine/validation/settle_reading.dart';
+export 'src/engine/validation/transformations.dart';
+export 'src/engine/validation/validation_dimension.dart';
+export 'src/engine/validation/validation_result.dart';
+export 'src/engine/validation/validators.dart';
+export 'src/engine/transport/sdk_transport.dart';
+export 'src/engine/visual/baseline_store.dart';
+export 'src/engine/visual/steady_capture.dart';
+export 'src/engine/visual/visual_comparator.dart';
+export 'src/engine/visual/visual_comparison.dart';
+export 'src/engine/visual/visual_tolerances.dart';
+export 'src/engine/visual/visual_validator.dart';
+export 'src/engine/transport/vm_service_transport.dart';

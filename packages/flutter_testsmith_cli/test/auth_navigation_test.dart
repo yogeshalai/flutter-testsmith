@@ -10,7 +10,7 @@
 // DEF-E05-02 is covered here too, from the runner's side: the declared
 // policy must actually reach the driver, not merely parse.
 import 'package:flutter_testsmith_cli/src/auth_runner.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 import 'package:test/test.dart';
 
 const String _authYaml = '''

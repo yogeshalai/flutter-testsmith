@@ -18,7 +18,7 @@
 // user is looking at. These tests pin that.
 import 'package:test/test.dart';
 import 'package:flutter_testsmith_cli/src/flow_executor.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 import 'package:flutter_testsmith_protocol/flutter_testsmith_protocol.dart';
 
 const LogicalRect _box = LogicalRect(x: 0, y: 0, width: 120, height: 40);

@@ -19,7 +19,6 @@ dev_dependencies:
 workspace:
   - packages/flutter_testsmith_protocol
   - packages/flutter_testsmith
-  - packages/flutter_testsmith_engine
   - packages/flutter_testsmith_cli
   - integrations/flutter_testsmith_figma
   - integrations/ai_client

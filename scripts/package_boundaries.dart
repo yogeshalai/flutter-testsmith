@@ -14,14 +14,27 @@
 // ones.
 import 'package:yaml/yaml.dart';
 
-/// The packages an application outside this monorepo is expected to name.
+/// The packages an application outside this monorepo resolves: the one it
+/// names, `flutter_testsmith`, and every workspace member that package
+/// depends on.
 ///
-/// Everything else in the platform runs out of process and is never linked
-/// into an application under test.
+/// Since the engine moved inside flutter_testsmith (ADR-0011), its two
+/// integrations are dependencies of flutter_testsmith too. Each leaves
+/// this list when it moves inside as well.
 const List<String> externallyConsumablePackages = [
   'flutter_testsmith_protocol',
   'flutter_testsmith',
+  'flutter_testsmith_figma',
+  'ai_client',
 ];
+
+/// The repository-relative directory of [package], one of
+/// [externallyConsumablePackages]. The integrations live under
+/// `integrations/`, everything else under `packages/`.
+String packageDirectory(String package) => switch (package) {
+      'flutter_testsmith_figma' || 'ai_client' => 'integrations/$package',
+      _ => 'packages/$package',
+    };
 
 /// Dependency sources that cannot be resolved by a consumer who fetched
 /// the package from a repository.

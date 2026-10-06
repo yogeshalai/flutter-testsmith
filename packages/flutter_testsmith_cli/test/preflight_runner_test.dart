@@ -11,7 +11,7 @@ import 'dart:io';
 import 'package:test/test.dart';
 import 'package:flutter_testsmith_cli/src/preflight_runner.dart';
 import 'package:flutter_testsmith_cli/src/secrets/env_secret_resolver.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 
 /// Every environment fact, under the test's control. No adb.
 class FakeEnvironment implements DeviceEnvironment {

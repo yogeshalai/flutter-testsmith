@@ -13,7 +13,8 @@ dependencies:
   ai_client: ^0.1.0
   args: ^2.6.0
   flutter_testsmith_figma: ^0.1.0
-  flutter_testsmith_engine: ^0.1.0
+  # The engine, at lib/src/engine inside flutter_testsmith (ADR-0011).
+  flutter_testsmith: ^0.1.3
   flutter_testsmith_protocol: ^0.1.0
 
 dev_dependencies:

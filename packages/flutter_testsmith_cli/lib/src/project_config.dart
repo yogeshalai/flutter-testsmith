@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:ai_client/ai_client.dart';
 import 'package:flutter_testsmith_figma/flutter_testsmith_figma.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 
 /// What a project declares about its own screens.
 ///

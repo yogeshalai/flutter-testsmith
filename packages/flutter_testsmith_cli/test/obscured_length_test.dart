@@ -11,7 +11,7 @@
 // part of it being read.
 import 'package:test/test.dart';
 import 'package:flutter_testsmith_cli/src/app_session.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 
 void main() {
   group('the obscured marker is parsed, not measured', () {

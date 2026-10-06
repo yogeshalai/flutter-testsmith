@@ -19,24 +19,20 @@ dependencies:
   meta: ^1.15.0
   flutter_testsmith_protocol: ^0.1.1
 
+  # The engine component's dependencies (lib/src/engine, ADR-0011). The
+  # application under test never links them: nothing reachable from
+  # lib/flutter_testsmith.dart imports engine code, which
+  # scripts/check_dependencies.dart enforces as rule A. The two workspace
+  # members leave this list when they move in too.
+  ai_client: ^0.1.0
+  flutter_testsmith_figma: ^0.1.0
+  image: ^4.9.2
+  vm_service: ^15.0.0
+  yaml: ^3.1.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   lints: ^6.0.0
-
-  # Dev-only, and that distinction is the whole reason this is allowed.
-  #
-  # The Figma defect matrix has to run all three sides of the comparison
-  # together: real Flutter widgets, the real UiTreeInspector, and the
-  # real engine verdict against a real normalised design. Only a package
-  # that links Flutter can build the widgets, and only the engine can
-  # judge them.
-  #
-  # `dev_dependencies` are never resolved for a consumer, so a `path:`
-  # here cannot reach an application - which is what E-01 established and
-  # what scripts/package_boundaries.dart enforces by examining
-  # `dependencies:` alone. The engine still never ships inside an app.
-  flutter_testsmith_engine:
-    path: ../flutter_testsmith_engine
-  flutter_testsmith_figma:
-    path: ../../integrations/flutter_testsmith_figma
+  # The engine's tests are plain Dart: `dart test test/engine`.
+  test: ^1.25.0

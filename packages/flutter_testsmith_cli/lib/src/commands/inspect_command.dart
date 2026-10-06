@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:args/command_runner.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 
 import '../app_session.dart';
 import '../device_selection.dart';

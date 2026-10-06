@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:ai_client/ai_client.dart';
 import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
-import 'package:flutter_testsmith_engine/flutter_testsmith_engine.dart';
+import 'package:flutter_testsmith/engine.dart';
 
 import '../dotenv.dart';
 import '../output.dart';
