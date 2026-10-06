@@ -3,7 +3,8 @@ description: >-
   Versioned event and handshake contract shared verbatim by the in-app test
   SDK and the out-of-process test engine.
 version: 0.1.1
-publish_to: none
+repository: https://github.com/yogeshalai/flutter-testsmith/tree/main/packages/flutter_testsmith_protocol
+issue_tracker: https://github.com/yogeshalai/flutter-testsmith/issues
 resolution: workspace
 
 environment:

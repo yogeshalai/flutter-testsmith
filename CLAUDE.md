@@ -14,14 +14,37 @@ API request, API response, app state, widget tree, UI field values,
 Figma spec, screenshot, visual comparison, then AI *explanation*.
 
 **Current focus: architectural consistency and compatibility with
-Flutter projects this repository did not grow up with.** Pub.dev release
-is a future concern, not the current milestone. Do not add publishing,
-versioning or changelog machinery unless asked.
+Flutter projects this repository did not grow up with.** The six
+packages are in publishable form and will be released to pub.dev from
+this repository; see "Canonical repository" below. Do not add further
+publishing, versioning or changelog machinery unless asked.
 
 The current state of the work lives in one file:
 [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). It is the only document
 expected to change every milestone. Everything else is either durable or
 a point-in-time report.
+
+---
+
+## Canonical repository
+
+**This repository — `github.com/yogeshalai/flutter-testsmith` — is the
+only place Flutter Testsmith changes.** Every change, fix and release
+happens here, and every pub.dev release is published from a clean
+checkout of this repository's `main`.
+
+- The earlier private development repository is frozen. Make no
+  commits there and port nothing back to it. Its history is not public
+  and is not a source for changes.
+- Each package's `repository:` field points at its folder here; pub.dev
+  checks that the published `pubspec.yaml` exists at that path, so a
+  package directory is not moved without updating its pubspec.
+- Commits are made as `yogeshalai <yogeshalai17@gmail.com>`, set in this
+  repository's local git config.
+- `publish_to: none` was removed from the six packages deliberately, to
+  make them publishable. It was also the rail against an accidental
+  `dart pub publish`; run `dart pub publish` only when a release has
+  been decided, and `--dry-run` otherwise.
 
 ---
 

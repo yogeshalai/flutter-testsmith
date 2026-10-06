@@ -355,7 +355,7 @@ both matter. Run through the normal `/home` flow it stops at the API:
 
 ```
 ✗ "outletsNearYou.outletsNearYouData.0.businessName" is
-  "Example Restaurant, Baner Annexe", expected "Example Restaurant, Baner"
+  "Example Restaurant, Riverside Annexe", expected "Example Restaurant, Riverside"
 ```
 
 That is the right place and the fastest feedback — and it means no

@@ -185,11 +185,14 @@ pending. Do not resolve one silently.
 
 ## 6. Not in scope now
 
-- **Publishing to pub.dev.** The current milestone is release
-  *readiness*: the six publishable packages carry a LICENSE, README and
-  CHANGELOG and pass `dart pub publish --dry-run` with no errors, but
-  every pubspec keeps `publish_to: none` until a release is decided.
-  `repository:` is absent because there is no git remote to name.
+- **Publishing to pub.dev** has been decided but not yet performed. The
+  six publishable packages carry a LICENSE, README and CHANGELOG, no
+  longer declare `publish_to: none`, and name their folder in
+  `github.com/yogeshalai/flutter-testsmith` as `repository:`. Releases
+  are published from this repository only (CLAUDE.md, "Canonical
+  repository"), in dependency order: `flutter_testsmith_protocol`;
+  `ai_client` and `flutter_testsmith_figma`; `flutter_testsmith_engine`;
+  `flutter_testsmith_cli`; `flutter_testsmith`.
 - iOS. Impossible on the Windows development host (ARCHITECTURE §3), and
   the interfaces exist so it stays implementation rather than redesign.
 - Cloud backend, dashboard, account system, history server

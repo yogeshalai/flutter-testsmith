@@ -180,7 +180,7 @@ void main() {
         '  "isOutletsNearYouDataAvailable": true,'
         '  "outletsNearYouData": ['
         '    { "_id": "b-1", "businessName": "Example Restaurant" },'
-        '    { "_id": "b-2", "businessName": "Baner Bakehouse" }'
+        '    { "_id": "b-2", "businessName": "Riverside Bakehouse" }'
         '  ]'
         '},'
         '"token": "SEEDED"'
