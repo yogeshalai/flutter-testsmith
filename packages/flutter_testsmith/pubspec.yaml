@@ -3,8 +3,7 @@ description: >-
   End-to-end testing for Flutter: an in-app SDK and the testsmith CLI,
   validating each screen against its API response, widget tree, Figma
   design and screenshot baseline.
-version: 0.1.3
-publish_to: none
+version: 0.1.4
 repository: https://github.com/yogeshalai/flutter-testsmith/tree/main/packages/flutter_testsmith
 issue_tracker: https://github.com/yogeshalai/flutter-testsmith/issues
 resolution: workspace

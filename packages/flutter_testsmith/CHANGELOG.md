@@ -1,4 +1,4 @@
-## Unreleased
+## 0.1.4
 
 - First publication on pub.dev. `flutter_testsmith` is now the whole of
   Flutter Testsmith in one package: the in-app SDK, the `testsmith`

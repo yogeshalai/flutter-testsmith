@@ -21,7 +21,7 @@ reaches engine, CLI, Figma or AI code.
 
 ```yaml
 dependencies:
-  flutter_testsmith: ^0.1.3
+  flutter_testsmith: ^0.1.4
 ```
 
 or `flutter pub add flutter_testsmith`.
