@@ -19,5 +19,4 @@ dev_dependencies:
 workspace:
   - packages/flutter_testsmith_protocol
   - packages/flutter_testsmith
-  - integrations/ai_client
   - examples/ecommerce_app

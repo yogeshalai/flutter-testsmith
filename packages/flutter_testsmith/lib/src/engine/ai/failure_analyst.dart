@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:ai_client/ai_client.dart';
+import 'package:flutter_testsmith/ai.dart';
 
 import '../reporting/run_result.dart';
 import '../validation/validation_result.dart';

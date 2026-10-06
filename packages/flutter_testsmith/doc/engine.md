@@ -25,7 +25,7 @@ format, validators and reports.
 | Validation | UI presence, API-to-UI values with declared transformations, business rules, Figma structure, geometry, order, typography and colour, visual regression |
 | Impact | which flows a change makes worth running, from git and a project index |
 | Reporting | `result.json`, `suite.json`, HTML reports, per-dimension verdicts, the network record |
-| AI | post-verdict failure analysis and proposed tests, through `ai_client` |
+| AI | post-verdict failure analysis and proposed tests, through the AI component (`package:flutter_testsmith/ai.dart`) |
 
 ## The governing rule
 

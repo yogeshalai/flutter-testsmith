@@ -18,23 +18,21 @@ import 'package:yaml/yaml.dart';
 /// names, `flutter_testsmith`, and every workspace member that package
 /// depends on.
 ///
-/// Since the engine moved inside flutter_testsmith (ADR-0011), its
-/// integrations are dependencies of flutter_testsmith too. Each leaves
-/// this list when it moves inside as well; Figma already has
-/// (lib/src/figma), ai_client has not.
+/// Since the engine moved inside flutter_testsmith (ADR-0011), the
+/// integrations it used were dependencies of flutter_testsmith too, and
+/// each left this list when it moved inside as well (Figma to
+/// lib/src/figma, ai_client to lib/src/ai). The protocol is the last
+/// workspace member flutter_testsmith depends on.
 const List<String> externallyConsumablePackages = [
   'flutter_testsmith_protocol',
   'flutter_testsmith',
-  'ai_client',
 ];
 
 /// The repository-relative directory of [package], one of
-/// [externallyConsumablePackages]. The remaining integration lives under
-/// `integrations/`, everything else under `packages/`.
-String packageDirectory(String package) => switch (package) {
-      'ai_client' => 'integrations/$package',
-      _ => 'packages/$package',
-    };
+/// [externallyConsumablePackages]. Every remaining package lives under
+/// `packages/`; `integrations/` emptied when its packages moved inside
+/// flutter_testsmith.
+String packageDirectory(String package) => 'packages/$package';
 
 /// Dependency sources that cannot be resolved by a consumer who fetched
 /// the package from a repository.

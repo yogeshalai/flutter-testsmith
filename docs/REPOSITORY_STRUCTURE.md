@@ -132,21 +132,22 @@ boundary. A command file that grows logic is a smell to be pushed down.
 
 ---
 
-## integrations/ *(Phase 5+)*
+## The integrations: Figma and AI *(Phase 5+)*
+
+Until ADR-0011 they were separate packages under `integrations/`:
+`flutter_testsmith_figma` and `ai_client`. Both are now components of
+`flutter_testsmith`, and `integrations/` no longer exists:
 
 ```
-integrations/
-└── ai_client/                 # Claude client, prompt templates, strict output contracts
+flutter_testsmith/
+├── lib/figma.dart, lib/src/figma/   # REST client, normalised FigmaScreenSpec, response cache
+├── lib/ai.dart,    lib/src/ai/      # provider-agnostic chat client, configuration
+└── test/figma/, test/ai/
 ```
 
-The Figma integration lived here as `flutter_testsmith_figma` until
-ADR-0011 step 4; it is now `packages/flutter_testsmith/lib/src/figma/`
-(REST client, normalised FigmaScreenSpec, response cache), imported as
-`package:flutter_testsmith/figma.dart`, with its tests in `test/figma/`.
-
-Separate from `packages/` because both integrations were **optional** and
-both talk to external paid services. Keeping them out of the core dependency graph means
-the platform builds, tests and runs with neither configured.
+Both remain **optional at run time**: both talk to external paid services,
+and the platform builds, tests and runs with neither configured. A
+capability with no credential reports as unavailable rather than failing.
 
 ---
 
@@ -208,7 +209,7 @@ these two are worth a CI check.
 
 | Concern | Rule |
 |---|---|
-| Package names | `snake_case`. The in-app SDK takes the bare product name, `flutter_testsmith`, because it is the only package a consumer ever names; the rest take it as a prefix (`flutter_testsmith_protocol`, `_engine`, `_cli`). The workspace root cannot share a name with a member, so it is `flutter_testsmith_workspace`. `ai_client` keeps its own name - it describes what it talks to, not who ships it. The Figma integration was `figma_client` on the same principle until pub.dev release preparation found that name owned by an unrelated package; it is now `flutter_testsmith_figma`. Older milestone reports and evidence keep the old name as written at the time. |
+| Package names | `snake_case`. The one published package takes the bare product name, `flutter_testsmith`. Before ADR-0011 the components were packages named with that prefix (`flutter_testsmith_protocol`, `_engine`, `_cli`, `_figma`) plus `ai_client`; all but the protocol are now directories of `flutter_testsmith` (`lib/src/<component>/`), and the protocol moves last. The workspace root cannot share a name with a member, so it is `flutter_testsmith_workspace`. The Figma integration was `figma_client` until pub.dev release preparation found that name owned by an unrelated package. Older milestone reports and evidence keep the names as written at the time. |
 | Public surface | Exactly one barrel file per package; `src/` is private |
 | Semantic test IDs | Dotted lowercase: `product.add_to_cart` |
 | VM Service RPCs | Namespaced `ext.mytest.<method>` |

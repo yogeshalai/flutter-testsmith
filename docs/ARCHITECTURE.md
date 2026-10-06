@@ -160,10 +160,10 @@ class of version-skew problems for no loss of capability.
 > packages below move inside it as components, and the two invariants
 > at the end of this section are now enforced over the import graph as
 > well as the dependency graph. The topology below describes the
-> repository until that migration completes. The engine, the CLI and
-> Figma have moved (`packages/flutter_testsmith/lib/src/engine/`,
-> `lib/src/cli/` with `bin/testsmith.dart`, and `lib/src/figma/`); AI and
-> the protocol have not.
+> repository until that migration completes. The engine, the CLI,
+> Figma and AI have moved (`packages/flutter_testsmith/lib/src/engine/`,
+> `lib/src/cli/` with `bin/testsmith.dart`, `lib/src/figma/`,
+> `lib/src/ai/`); only the protocol has not.
 
 ```
 packages/

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:ai_client/ai_client.dart';
+import 'package:flutter_testsmith/ai.dart';
 import 'package:meta/meta.dart';
 
 import '../dsl/steps.dart';

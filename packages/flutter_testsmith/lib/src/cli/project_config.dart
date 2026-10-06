@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:ai_client/ai_client.dart';
+import 'package:flutter_testsmith/ai.dart';
 import 'package:flutter_testsmith/figma.dart';
 import 'package:flutter_testsmith/engine.dart';
 

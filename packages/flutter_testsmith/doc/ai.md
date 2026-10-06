@@ -1,33 +1,39 @@
-# ai_client
+# The AI component (`package:flutter_testsmith/ai.dart`)
 
 Provider-agnostic access to a chat completion model. A prompt goes in,
 text comes out.
 
-This package knows nothing about testing, Flutter or validation, and that
-narrowness is the point: the provider and model are configuration
+Until ADR-0011 it was its own package, `ai_client`. It now lives in
+`lib/src/ai/` of `flutter_testsmith`, and this page was that package's
+README. Its Dart API is unchanged.
+
+This component knows nothing about testing, Flutter or validation, and
+that narrowness is the point: the provider and model are configuration
 values, so moving from Groq to a local Ollama or to OpenAI changes a YAML
 file and nothing else.
 
-In Flutter Testsmith it sits under `flutter_testsmith_engine`, which uses
-it to explain failures after a verdict is computed and to propose test
-scenarios for a person to review. It never sees a verdict it could
-change.
+In Flutter Testsmith it sits under the engine
+(`package:flutter_testsmith/engine.dart`), which uses it to explain
+failures after a verdict is computed and to propose test scenarios for a
+person to review. It never sees a verdict it could change.
 
 ## Installation
 
-```yaml
-dependencies:
-  ai_client: ^0.1.0
+It comes with `flutter_testsmith`; there is nothing extra to add:
+
+```dart
+import 'package:flutter_testsmith/ai.dart';
 ```
 
-Pure Dart; no Flutter dependency.
+Pure Dart: its code never imports Flutter (rule B in
+`scripts/check_dependencies.dart`).
 
 ## Usage
 
 ```dart
 import 'dart:io';
 
-import 'package:ai_client/ai_client.dart';
+import 'package:flutter_testsmith/ai.dart';
 
 Future<void> main() async {
   final config = LlmConfig.forProvider('groq');

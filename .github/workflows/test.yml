@@ -61,9 +61,10 @@ jobs:
         run: dart test test/figma
         working-directory: packages/flutter_testsmith
 
-      - name: ai_client
-        run: dart test
-        working-directory: integrations/ai_client
+      - name: ai (flutter_testsmith/lib/src/ai)
+        # Plain Dart tests inside the Flutter package (ADR-0011).
+        run: dart test test/ai
+        working-directory: packages/flutter_testsmith
 
       - name: flutter_testsmith (in-app SDK)
         run: flutter test test/sdk

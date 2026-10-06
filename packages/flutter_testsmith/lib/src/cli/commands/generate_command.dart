@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:ai_client/ai_client.dart';
+import 'package:flutter_testsmith/ai.dart';
 import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
 import 'package:flutter_testsmith/engine.dart';

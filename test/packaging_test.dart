@@ -142,5 +142,42 @@ dev_dependencies:
             reason: 'flutter_testsmith.dart exports $source, which the archive omits');
       }
     });
+
+    // The same promise for every other public library of the package - the
+    // component barrels ADR-0011 adds (engine.dart, figma.dart, ai.dart).
+    // Found by listing lib/, so a barrel added later is covered without
+    // anyone remembering to add it here.
+    final componentBarrels = Directory('packages/flutter_testsmith/lib')
+        .listSync()
+        .whereType<File>()
+        .map((f) => f.uri.pathSegments.last)
+        .where((name) => name.endsWith('.dart') && name != 'flutter_testsmith.dart')
+        .toList()
+      ..sort();
+
+    test('flutter_testsmith has component barrels to check', () {
+      expect(componentBarrels, isNotEmpty);
+    });
+
+    for (final barrel in componentBarrels) {
+      test('flutter_testsmith ships lib/$barrel and the sources it exports', () {
+        final published = PublishedPackage.fromDirectory(
+          'packages/flutter_testsmith',
+          gitTrackedFiles('packages/flutter_testsmith'),
+        );
+        final entries = archiveEntryNames(published.archive).toSet();
+        expect(entries, contains('lib/$barrel'));
+
+        final exported = RegExp(r"export '(?!package:)([^']+)'")
+            .allMatches(File('packages/flutter_testsmith/lib/$barrel').readAsStringSync())
+            .map((m) => 'lib/${m.group(1)}')
+            .toList();
+        expect(exported, isNotEmpty, reason: '$barrel exports nothing');
+        for (final source in exported) {
+          expect(entries, contains(source),
+              reason: '$barrel exports $source, which the archive omits');
+        }
+      });
+    }
   });
 }

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:ai_client/ai_client.dart';
+import 'package:flutter_testsmith/ai.dart';
 import 'package:test/test.dart';
 
 /// Captures what was sent and replies with whatever the test wants.

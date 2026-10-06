@@ -1,7 +1,7 @@
 # ADR-0011: One published package, `flutter_testsmith`; boundaries move from packages to imports
 
 **Status:** accepted (2026-10-06). Migration in progress. Engine: migrated.
-CLI: migrated. Figma: migrated. AI: not migrated. Protocol: not migrated.
+CLI: migrated. Figma: migrated. AI: migrated. Protocol: not migrated.
 The migration order was corrected on 2026-10-06 (see "Correction to the
 order"), and so was the claim about global activation (see "Why the CLI can
 share the package").
@@ -182,7 +182,7 @@ the last. Nothing about the future layout is assumed to exist.
 | engine moved (**done**) | enforced; `lib/src/engine/` and `lib/engine.dart` are engine code | enforced; engine at its destination | 8: protocol, Figma and AI dependencies; four outside; `publish_to` |
 | CLI moved (**done**) | enforced; `lib/src/cli/` and `bin/` are CLI code | enforced; CLI at its destination | 7: those three dependencies; three outside; `publish_to` |
 | Figma moved (**done**) | enforced; `lib/src/figma/` and `lib/figma.dart` are Figma code | enforced; Figma at its destination | 5: protocol and AI dependencies; two outside; `publish_to` |
-| AI moved | enforced | enforced | 3: protocol dependency; protocol outside; `publish_to` |
+| AI moved (**done**) | enforced; `lib/src/ai/` and `lib/ai.dart` are AI code | enforced; AI at its destination | 3: protocol dependency; protocol outside; `publish_to` |
 | protocol moved | enforced; protocol under `lib/src/protocol/` | enforced | 1: `publish_to` only |
 | `publish_to` removed | enforced | enforced | nothing; `--release` passes |
 
@@ -205,7 +205,7 @@ tests, the local registry, CI and the documentation.
    SDK's tests to `test/sdk/` so that each suite still runs on its own (**done**);
 3. move the CLI; add `bin/testsmith.dart` and `executables:` (**done**);
 4. move Figma (**done**);
-5. move AI;
+5. move AI (**done**);
 6. move the protocol;
 7. documentation, version, and `publish_to` removed from `flutter_testsmith`.
    `check_dependencies.dart --release` must pass.

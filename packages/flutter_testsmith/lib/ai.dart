@@ -6,6 +6,6 @@
 /// a local Ollama or to OpenAI changes a YAML file and nothing else.
 library;
 
-export 'src/llm_client.dart';
-export 'src/llm_config.dart';
-export 'src/openai_compatible_client.dart';
+export 'src/ai/llm_client.dart';
+export 'src/ai/llm_config.dart';
+export 'src/ai/openai_compatible_client.dart';
